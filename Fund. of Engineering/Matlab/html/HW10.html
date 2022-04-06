@@ -1,0 +1,166 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>HW10</title><meta name="generator" content="MATLAB 8.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-04-06"><meta name="DC.source" content="HW10.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput">clc;
+clear;
+
+fprintf(<span class="string">'Gage Farmer HW10 10AM M/W\n'</span>);
+
+fprintf(<span class="string">'\nProblem 1\n'</span>);
+H=randi([-20,20],1,18)
+H1=H&gt;0;
+H1=H(H1)
+H1sort=sort(H1)
+H1mean=mean(H1)
+fprintf(<span class="string">'Largest values of H1 are %.0f and %.0f'</span>, H1sort(length(H1sort)), H1sort(length(H1sort)-1));
+
+
+fprintf(<span class="string">'\n\nProblem 2\n'</span>);
+<span class="comment">% Even                  %</span>
+<span class="comment">% 11900 &lt; x &lt; 27000     %</span>
+<span class="comment">% sqrt &gt; 110            %</span>
+<span class="comment">% Div by 17 and 29      %</span>
+
+<span class="keyword">for</span> i=11900:2:27000
+    <span class="keyword">if</span> sqrt(i)&gt;110
+        <span class="keyword">if</span> rem(i,17)==0
+            <span class="keyword">if</span> rem(i,29)==0
+                fprintf(<span class="string">'The answer that fits each parameter is %.0f'</span>, i);
+                <span class="keyword">break</span>
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">Gage Farmer HW10 10AM M/W
+
+Problem 1
+
+H =
+
+  Columns 1 through 13
+
+   -11   -16    -8    -7    -3     0   -17   -10    12   -19    18     9     0
+
+  Columns 14 through 18
+
+     3   -11    -2    19     2
+
+
+H1 =
+
+    12    18     9     3    19     2
+
+
+H1sort =
+
+     2     3     9    12    18    19
+
+
+H1mean =
+
+   10.5000
+
+Largest values of H1 are 19 and 18
+
+Problem 2
+The answer that fits each parameter is 12818</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+clc;
+clear;
+
+fprintf('Gage Farmer HW10 10AM M/W\n');
+
+fprintf('\nProblem 1\n');
+H=randi([-20,20],1,18)
+H1=H>0;
+H1=H(H1)
+H1sort=sort(H1)
+H1mean=mean(H1)
+fprintf('Largest values of H1 are %.0f and %.0f', H1sort(length(H1sort)), H1sort(length(H1sort)-1));
+
+
+fprintf('\n\nProblem 2\n');
+% Even                  %
+% 11900 < x < 27000     %
+% sqrt > 110            %
+% Div by 17 and 29      %
+
+for i=11900:2:27000
+    if sqrt(i)>110
+        if rem(i,17)==0
+            if rem(i,29)==0
+                fprintf('The answer that fits each parameter is %.0f', i);
+                break
+            end
+        end
+    end
+end
+
+
+##### SOURCE END #####
+--></body></html>
