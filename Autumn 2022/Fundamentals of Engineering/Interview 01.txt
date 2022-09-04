@@ -1,0 +1,141 @@
+Gage: Thank you for taking the time to speak with me today. My name is Gage and I'm interested in learning about your daily experiences and any associated frustrations, problems or pains you may encounter while performing various tasks. It is my goal to understand these experience from your perspective. so please speak freely and be honest as possible. Your responses will allow me to practice analyzing user experiences to clearly identify an avenue for impactful engineering design. This interview is expected to last from fifteen to twenty minutes. Keep in mind that your participation is completely voluntary, you may choose not to answer any question and may opt out of the interview at any time. Please know that I will do everything I can to protect your privacy, your identity or personal information will not be disclosed in any documentation related to this interview. Do you have any questions before we get started?
+
+Marjona: No.
+
+Gage: Alright, so just to get started, can you tell me a little bit about yourself. Like age, ethnicity, gender, et cetera.
+
+Marjona: I am twenty years old, female. I'm a student at OSU studying social work and psychology and I'm currently working part-time at a childcare center um just as a little job to earn money while I'm in school, and I work in a classroom of two year olds.
+
+Gage: Great. Um so along with that, what would some of your hobbies be, for example. 
+
+Marjona: Hobbies I'd say is i'm trying to get more into reading, um. I like to paint now and then though I haven't in a while. Um, I like to shop a lot. Which i'm trying to do less and I guess generally, um, decorate and stuff like that.
+
+Gage: Great. Okay, so what does your typical day look like, so for example, what are some tasks you perform throughout your daily routine?
+
+Marjona: So my daily routine during the week, not on the weekends is that I wake up fairly early in the morning and I go to my classes, spend some time doing homework um, at a library or some other quiet building and then I go to work for three and a half hours and then after that if I have any. Homework left, I'll do the homework, eat dinner and then. Maybe read watch a movie or something before bed. 
+
+Gage: Okay, great. And so in this daily routine, what are some products you use regularly within other routine or in like hobbies that you have. 
+
+Marjona: Um my cellphone, I use it all the time. I use my laptop and my iPad for school. Um I heavily rely on my iPad for school because I take all my notes on it. Um I do all my readings on it, so it's a very, very critical tool for me. Um, I have a bag that I carry with me everywhere and it has chopsticks, lotion, tampons and literally any of the essential things that I would need to carry with me everywhere I go. Um and also, let's see. I carry around a jacket everywhere I go, and a backpack, and coffee.
+
+Gage: Is that all?
+
+Marjona: Mhm.
+
+Gage: Okay, so can you describe some things that bother or frustrate you when performing some of your routine tasks about the day. 
+
+Marjona: Can you repeat that?
+
+Gage: So i'm just asking like to describe some things that bother to frustrate you, so like problems you may have just going throughout your daily routine.
+
+Marjona: Transportation between different tasks. Of course, like I have access to transportation, but it's not always the most efficient, cost-efficient or energy efficient. It um takes up more time than I would like for it to or money, so transportation is a big one. Another one I guess is time management and feeling motivated throughout the day.
+
+Gage: Okay. Is there anything that you think would make it easier or more enjoyable to perform these tasks?
+
+Marjona: Uh, easier access to transportation. We have the scooters around campus, but they cost money, but they are very, very useful when we do have them. It's just that buying your own. It's very expensive and it's also heavy and hard to carry around. Um so that would be one thing. And then also more access to parking. Would be a good one as well. 
+
+Gage: I can agree to that one for sure. So I'm curious about, like the motivation thing, do you think that there's anything that would keep you more motivated throughout the day or help you get motivated like in an instant.
+
+Marjona: Um, not necessarily. I don't think I can think of anything that would help with that. Um I know there are lots of apps that help with motivation. But, I wonder if there's some kind of chemical. Obviously, dopamine is the biggest chemical when it comes to motivation, but I wonder if that could somehow be utilized to I don't know, not an injection per se, but like some kind of technology that could be developed to um improve motivation using that aspect. I don't know. 
+
+Gage: Hm, interesting. Yeah, that would be pretty cool. So going back to like the products that use in it on a daily basis are any of those. Um, would you say any of those like lack certain features that you would find enjoyable to have or are these products in any way able to be improved from your perspective.
+
+Marjona: I think definitely. Especially on my iPad. There are lots of apps that I use that I wish I could make more personal to me. like I use notability a lot, but there are definitely things that I would change about it that I just can't because I don't know how to change the app. Or maybe I have a daily calendar as well, but like a little paper notebook with to do lists. I wish there was a way to make um to do lists like physical paper a lot more. Individualized, I guess that would be kinda cool. 
+
+Gage: Alright, so thinking about your hobbies, is there anything that you find like difficult or that you just don't enjoy that you still, you know, have as a hobby, or still do. 
+
+Marjona: Shopping, shopping. Yeah, I shop way too much. 
+
+Gage: Is there anything else that you find difficult or unable to do but wish you could. 
+
+Marjona: I wish I was able to paint more, because I used to paint a lot. But now it's just having to bring out all of my art stuff and get a canvas and set it up. It's just so much. Having to just do it like all that, I don't even have the motivation to do it just because of all the effort it takes just to set it up. 
+
+Gage: Mm. Yeah, that sounds like it be, very annoying. I can only imagine if I had to set up my computer something from the ground up every time I wanted to play on it. 
+
+Marjona: Yeah, that would be horrible. 
+
+Gage: Um could you think of any other examples of, like something that you just wish you could do because like say it looks fascinating. Or it looks fun, but you just you either just don't have the ability to do. 
+
+Marjona: Playing the cello. 
+
+Gage: The cello?
+
+Marjona: Yeah, I played the piano growing up. But I've always been I've always thought the cello was a really beautiful instrument and I really wanted to learn to play it. But I just never had the opportunity. 
+
+Gage: Would you say that there's anything stopping you from trying to learn other than the cost of the cello. 
+
+Marjona: So I was really gonna say the cost of the cello. I guess lack of time and there are just so many other things that I need to that I have to do that because learning how to play a cello is just something that I want to do. It's never going to be at the front of my checklist. I'm always gonna have things that I need to do. 
+
+Gage: Right, right. So of the problems, frustrations, pains that you've described, are there any that really stand out. Choose like one of the things that you've mentioned in the past, like ten minutes. 
+
+Marjona: Transportation, transportation. 
+
+Gage: Okay, so why is this a significant problem? 
+
+Marjona: Well, I have to transport several time like myself several times throughout the day just to get to school and work and then on top of that, if I want to hang out with friends or if I want to go to the store, grocery shop, everything. In the outskirts of a city which is where I live, it requires modes of transportation. You can't just survive by only walking. Um and so having to pay for gas, look for parking spots, look for transportation to school and back all those things to just take up so much time of my day just today to take the bus home from school I had to it took a total of about an hour just because I had to wait for the bus I had to take the bus. I had to take another bus to get home from the it was just it was just so much that transportation has become a big stressor.
+
+Gage: Right, yeah. So what are you currently doing to alleviate this problem then? 
+
+Marjona: I'm trying to walk more because it seems like simplest solution, even though it might take some more time and energy. I don't have it's free to do. it just only takes a little bit more time and it's healthier.
+
+Gage: Yeah. Um what do you so okay, what do you like about how you currently handle this problem, so what do you like about walking, for example.
+
+Marjona: It gives me some time for my brain to stop working. I guess since my brain is always working because of school and work. It gives me some time to kind of, really take in the environment. I don't listen to music on my walks anymore. I just take in nature and my surroundings and it's made me appreciate. Um the world around me a lot more. 
+
+Gage: So about walking then, we just named the positive, so what are the negatives about walking?
+
+Marjona: It takes more time. It also takes more of my energy because. Obviously walking twenty minutes is going to take a lot of energy, especially now when it's still hot outside. So I guess those are the negatives. 
+
+Gage: So regarding the transportation thing and as a whole, what products do you wish existed that currently do not? Or a better question.. Actually, I'll have that as a follow-up. So what do you, okay. What do you wish existed that doesn't in terms of helping with transport. Whether that be buses, walking, driving, what not. 
+
+Marjona: Well, we already have buses but, um. I think free scooters would be it. Yeah, that would be nice. Obviously that's a little hard to do since they would have to make so many scooters. That would be really great. Or more access to bikes. We had that there are those code of bikes that work the same way as the scooters do, but they're just so much harder to manage because you have to put them into the bike lock yeah cost money. It's just and there also there are no. Um bike hubs. Off of the main campus area. So yeah, it's just it's a lot, okay. That would be one thing that would be pretty cool. Um. Free parking on campus. That'd be pretty cool. Um I think those are the only two that I can think of. 
+
+Gage: And then okay. So as the follow up, I had to think about because I forgot what it was. So as the follow-up then. So, well, actually you kind of answered the follow up. I was gonna ask like what things that already do exist. How do you think that. Existing things could be improved. That's kind of what you just answered. But, um, so how about this. I'll just re ask the previous question and you answer with things that don't exist.
+
+Marjona: Teleportation
+
+Gage: I was thinking of like those tubes that you see where that you just sucked up in it and then you drop down it where you're supposed to go
+
+Marjona: Underground tunnels, underground tunnels. I know that there's some this is like kind of not answering question because this exists but the university that has underground tunnels for students to- so another issue with walking that I forgot to mention is that because if it gets cold or if it's raining, it kind of sucks. There's also uh, crosswalks and cars and other people and so many things that might get in the way of walking but underground tunnels that lead straight to campus, they're safer, there're cameras, there's. Um protection from the weather, that would be pretty sick. 
+
+Gage: Yeah, with like dedicated paths for people who walk or bike or maybe just scooters and then 
+
+Marjona: Or even like the ones at the airport. You know, they have those like. Um it's not necessarily staircase, but it's kind of like. What are those moving stairs called? It's like escalator, but it's flat. 
+
+Gage: Yeah, I have seen those. 
+
+Marjona: Yeah, so something like that in the underground tunnel where you just kind of sit and then you eventually get to where you need to be. 
+
+Gage: So many people would get fat from that. They didn't have to walk anymore. 
+
+Marjona: Yeah, like in Wall-E. 
+
+Gage: Yeah, I was saying the same thing. That'd be hilarious though, a bunch of fat people standing there. 
+
+Marjona: ...
+
+Gage: Okay, maybe it would be funny to me. Okay, so, I think this has been a successful and beneficial interview for the both of us. Are there any final remarks you'd like to make. Preferably not ones cursing me out, before we end this. 
+
+Marjona: Um how does this relates to childcare. 
+
+Gage: Because you were in childcare, you were supposed to answer questions related to childcare. Oops. I completely forgot about that. Um, well, I mean, well, mm. Yeah, that was like the theme for the class and I picked you because I was like, oh yeah, she works in childcare. That'd be awesome and then you just did you didn't bring it up at any other point and i'm like, oh. Um how about we just ask a question and. Give me a give me a problem with the two-year olds. what do you suffer most from two year olds, like what
+
+Marjona: They don't listen. Well, some of them don't like to. 
+
+Gage: Can they talk. 
+
+Marjona: No, but they can listen some of them listen really well. I only have to ask them to do one like something one time, and they immediately you do it. With like a little bit of guidance. Oh and cleaning up. Clean up after snack time or lunchtime. Two year olds are so messy, and they're just now learning how to hold their cups. They've switched from sippy cups to regular cups, and so they're constantly spilling milk everywhere and today this one girl just poured her cup on her head milk all over her hair and her dress and I had to completely change her outfit because she just got milk everywhere but cleaning that up cleaning the floor, their clothes. Their faces, their table. It'd be really cool if we could develop some kind of technology that would just do all that for us, so we can actually focus on changing their diapers or helping them transition to the next activity. You know?
+
+Gage: Hmm. I would say a hose. But that's just that's my professional engineering opinion. Just hose them off. Don't even dry them off.
+
+Marjona: Inside the classroom? 
+
+Gage: Yeah. 
+
+Marjona: Okay. We'll do that just to give it a shot. 
+
+Gage: You know, I think it would be revolutionary if we used hoses inside. Yeah, just the force of actually, you know, even better. Um. I just forgot what it was called, the pressurised hose. The pressure washer! Use it on the kids at like two feet away. Melt their faces off. Anyway, okay, we got carried away with this interview, any final remarks? 
+
+Marjona: No. 
+
+Gage: Okay, bye. 
