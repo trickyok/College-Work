@@ -17,21 +17,21 @@ int main()
 	
 	
 	// enter vars
-	cout << "Enter number of roots (positive integer): " << endl;
+	cout << "Enter number of roots (positive integer): ";
 	cin >> numRoots;
 	
 	while (numRoots <= 0) {
 		cout << "Number of roots must be positive." << endl;
-		cout << "Enter number of roots: " << endl;
+		cout << "Enter number of roots: ";
 		cin >> numRoots;
 	}
 	
-	cout << "Enter value increment (positive integer): " << endl;
+	cout << "Enter value increment (positive integer): ";
 	cin >> incVal;
 	
 	while (incVal <= 0) {
 		cout << "Value increment must be positive." << endl;
-		cout << "Enter value increment: " << endl;
+		cout << "Enter value increment: ";
 		cin >> incVal;
 	}
 	
@@ -39,16 +39,22 @@ int main()
 	// label output
 	cout << "Value";
 	for (int i=0; i < numRoots; i++) {
-		cout << setw(5) << "x^1/" << i + 2;
+	   if (i+2<10) {
+		   cout << fixed << setw(6) << "x^1/" << i + 2;
+	   }
+	   else {
+	      cout << fixed << setw(5) << "x^1/" << i + 2;
+	   }
 	}
 	cout << endl;
 	
 	
 	// value output
-	int j=1;
-	for (int i=incVal; i <= 100; i+=incVal) {
-		for (int p=0; p < numRoots; p++) {
-			cout << setw(5) << pow(i, 1/j);
+	for (double i=incVal; i <= 100; i+=incVal) {
+		int j = 1;
+		cout << setw(5) << fixed << setprecision(0) << i;
+		for (double p=2; p <= numRoots+1; p++) {
+			cout << setw(7) << fixed << setprecision(2) << pow(i, 1.0/p);
 		}
 		cout << endl;
 	}
