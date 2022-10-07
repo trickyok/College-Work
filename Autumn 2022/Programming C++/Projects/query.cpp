@@ -48,6 +48,9 @@ int main() {
 	if (pX <= sqX + sqL && pY <= sqY + sqH) { containS = true; }
 	
 	
+	// balls and nuts lmao
+	
+	
 	// A metric shit-ton of if statements
 	if (containC1) {
 		if (containC2) {
