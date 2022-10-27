@@ -1,0 +1,23 @@
+#import <iostream>
+#include <cstring>
+
+using namespace std;
+
+int main() {
+
+	char str[] = "Hello World!";
+	int i(0);
+
+	cout << str << endl;
+
+	while (i < strlen(str) && str != NULL) {
+		if (str[i] >= 97 && str[i] <= 122) {
+			str[i] -= 32;
+		}
+		i++;
+	}
+
+	cout << str << endl;
+
+	return 0;
+}
