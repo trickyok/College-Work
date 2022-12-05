@@ -74,8 +74,10 @@ int main()
 	readOrders(orders, max_price);
 	
 	// Write code to call the functions in TASK 13 and TASK 14
-	displayOrders(orders);
-	createGraph(orders, max_price);
+	if (orders.size() > 0) {
+		displayOrders(orders);
+		createGraph(orders, max_price);
+	}
 	
   return 0;
 }
@@ -170,22 +172,25 @@ Time Order::getTime() const
   
 void Order::display() const
 {
-  cout << "Order " << getID() << ", $" << getPrice() << ", " 
-  << getQuantity() << " units, costs $" << getPrice() * 
-  getQuantity() << ", taken @ " << getTime().toString() << endl;
+  cout << "Order " << getID() << ", $" << fixed << setprecision(2) << getPrice() << ", " 
+  << setprecision(0) << getQuantity() << " units, costs $" << setprecision(2) << 
+  getPrice() * getQuantity() << ", taken @ " << getTime().toString() << endl;
 }
+
 
 // FUNCTION DEFINITIONS GO HERE:
 
 // gets orders from user
 void readOrders(vector<Order> & orders, int max_price) {
     int i(0);
+	string temp;
     
     cout << "Enter today's orders:" << endl;
     
     while (true) {
-        cout << "Order #" << i + 1 << " -" << endl;
-        string temp = readID(orders);
+        temp = "";
+		cout << "Order #" << i + 1 << " -" << endl;
+        temp = readID(orders);
         
         if (temp == "null") { break; }
         
@@ -195,9 +200,12 @@ void readOrders(vector<Order> & orders, int max_price) {
         orders.at(i).setID(temp);
         orders.at(i).setPrice(readPrice(max_price));
         orders.at(i).setQuantity(readQuantity());
+		orders.at(i).setTime(readTime());
         
         orders.at(i).display();
+        cin.ignore();
         i++;
+		cout << endl;
     }
 }
 
@@ -209,11 +217,18 @@ string readID(vector<Order> & orders) {
     while (!valid) {
         
         cout << "ID: ";
-        cin >> id;
+        getline(cin, id);
+		
+		if (id.empty()) {
+			return "null";
+		}
         
         // validity check
-        if (isLowNum(id.at(0)) && isLowNum(id.at(1)) && !existingID(orders, id)) {
-            valid = true;
+		if (id.size() != 2) {
+			cout << "Invalid id, try again." << endl;
+		}
+        else if (isLowNum(id.at(0)) && isLowNum(id.at(1)) && !existingID(orders, id)) {
+			valid = true;
         }
         else {
             cout << "Invalid id, try again." << endl;
@@ -250,7 +265,7 @@ double readPrice(double max_price) {
         cout << "Price: ";
         cin >> price;
         if (price > max_price || price <= 0) {
-            cout << "Invalid price, try again.";
+            cout << "Invalid price, try again." << endl;
         }
         else { break; }
     }
@@ -267,7 +282,7 @@ int readQuantity() {
         cin >> quantity;
         
         if (quantity <= 0) {
-            cout << "Invalid quantity, try again.";
+            cout << "Invalid quantity, try again." << endl;
         }
         else { break; }
     }
@@ -277,16 +292,62 @@ int readQuantity() {
 
 // gets time from user
 Time readTime() {
-    // to do
+   	int hours, mins, secs;
+	Time time;
+	
+	while (true) {
+		cout << "Time (hrs, min, sec): ";
+		cin >> hours >> mins >> secs;
+		
+		if (hours > 23 || hours < 0) {
+			cout << "Invalid time, try again." << endl;
+		}
+		else if (mins > 59 || mins < 0) {
+			cout << "Invalid time, try again." << endl;
+		}
+		else if (secs > 59 || secs < 0) {
+			cout << "Invalid time, try again." << endl;
+		}
+		else {
+			break;
+		}
+	}
+	
+	time.setHours(hours);
+	time.setMinutes(mins);
+	time.setSeconds(secs);
+	
+	return time;
 }
 
 // prints out orders
 void displayOrders(vector<Order> & orders) {
-    // to do
+    cout << endl << "Orders:" << endl;
+	
+	for (int i(0); i < orders.size(); i++) {
+		orders.at(i).display();
+	}
+	cout << endl;
 }
 
 // prints out bar graph
 void createGraph(vector<Order> & orders, int max_price) {
-    // to do
+	int curRange, lastRange;
+	
+	cout << "Price Histogram: " << endl;
+	
+	for (int i(0); i < max_price / 20; i++) {
+		curRange = (i + 1) * 20;
+		lastRange = curRange - 20;
+		cout << setw(3) << curRange << ": ";
+		
+		for (int j(0); j < orders.size(); j++) {
+			if (orders.at(j).getPrice() <= curRange && orders.at(j).getPrice() > lastRange) {
+				cout << "$";
+			}
+		}
+		
+		cout << endl;
+	}
+	
 }
-
