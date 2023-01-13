@@ -2,14 +2,14 @@ import components.simplewriter.SimpleWriter;
 import components.simplewriter.SimpleWriter1L;
 
 /**
- * Simple HelloWorld program (clear of Checkstyle and SpotBugs warnings).
+ * Simple HelloWorld program.
  *
- * @author P. Bucci
+ * @author G. Farmer
  */
 public final class HelloWorld {
 
     /**
-     * No argument constructor--private to prevent instantiation.
+     * No-argument constructor--private to prevent instantiation.
      */
     private HelloWorld() {
         // no code needed here
