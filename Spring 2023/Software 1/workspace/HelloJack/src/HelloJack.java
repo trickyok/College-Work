@@ -4,17 +4,17 @@ import components.simplewriter.SimpleWriter;
 import components.simplewriter.SimpleWriter1L;
 
 /**
- * Put a short phrase describing the program here.
+ * Prompts the user for their name, inputs the name, and outputs a response
  *
- * @author Put your name here
+ * @author Gage Farmer
  *
  */
-public final class ProgramWithIO {
+public final class HelloJack {
 
     /**
      * No argument constructor--private to prevent instantiation.
      */
-    private ProgramWithIO() {
+    private HelloJack() {
     }
 
     /**
@@ -24,11 +24,16 @@ public final class ProgramWithIO {
      *            the command line arguments
      */
     public static void main(String[] args) {
+        String name;
         SimpleReader in = new SimpleReader1L();
         SimpleWriter out = new SimpleWriter1L();
         /*
          * Put your main program code here
          */
+        System.out.print("Enter your name: ");
+        name = in.nextLine();
+        System.out.print("Hello, " + name);
+
         /*
          * Close input and output streams
          */
