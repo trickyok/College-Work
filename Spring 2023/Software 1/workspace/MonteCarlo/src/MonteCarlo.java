@@ -39,35 +39,10 @@ public final class MonteCarlo {
          */
         int ptsInInterval = 0, ptsInSubinterval = 0;
         /*
-         * Create pseudo-random number generator
-         */
-        Random rndX = new Random1L();
-        Random rndY = new Random1L();
-        /*
          * Generate points and count how many fall in circle's interval
          */
-        while (ptsInInterval < n) {
-            /*
-             * Generate pseudo-random number in [0.0,2.0) interval
-             */
-            double x = 2 * rndX.nextDouble();
-            double y = 2 * rndY.nextDouble();
-            /*
-             * Increment total number of generated points
-             */
-            ptsInInterval++;
-            /*
-             * calculate distance from origin
-             */
-            double distance = Math
-                    .sqrt(Math.pow(1 - x, 2) + Math.pow(1 - y, 2));
-            /*
-             * check if distance from center is less than 1.0
-             */
-            if (distance <= 1.0) {
-                ptsInSubinterval++;
-            }
-        }
+        ptsInSubinterval = numberOfPointsInCircle(n);
+        ptsInInterval = n;
         /*
          * Estimate area of circle by multiplying area of square by number of
          * points in the circle then dividing by total number of points
@@ -79,6 +54,57 @@ public final class MonteCarlo {
          */
         input.close();
         output.close();
+    }
+
+    /**
+     * Checks whether the given point (xCoord, yCoord) is inside the circle of
+     * radius 1.0 centered at the point (1.0, 1.0).
+     *
+     * @param xCoord
+     *            the x coordinate of the point
+     * @param yCoord
+     *            the y coordinate of the point
+     * @return true if the point is inside the circle, false otherwise
+     */
+    private static boolean pointIsInCircle(double xCoord, double yCoord) {
+        boolean ans = false;
+
+        double distance = Math
+                .sqrt(Math.pow(1 - xCoord, 2) + Math.pow(1 - yCoord, 2));
+        if (distance <= 1.0) {
+            ans = true;
+        }
+
+        return ans;
+    }
+
+    /**
+     * Generates n pseudo-random points in the [0.0,2.0) x [0.0,2.0) square and
+     * returns the number that fall in the circle of radius 1.0 centered at the
+     * point (1.0, 1.0).
+     *
+     * @param n
+     *            the number of points to generate
+     * @return the number of points that fall in the circle
+     */
+    private static int numberOfPointsInCircle(int n) {
+        Random rndX = new Random1L();
+        Random rndY = new Random1L();
+        int count = 0;
+        int i = 0;
+
+        while (i < n) {
+            double x = 2 * rndX.nextDouble();
+            double y = 2 * rndY.nextDouble();
+
+            if (pointIsInCircle(x, y)) {
+                count++;
+            }
+
+            i++;
+        }
+
+        return count;
     }
 
 }
