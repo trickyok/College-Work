@@ -12,12 +12,12 @@ import components.utilities.FormatChecker;
  * @author Gage Farmer
  *
  */
-public final class Newton1 {
+public final class Newton2 {
 
     /**
      * No argument constructor--private to prevent instantiation.
      */
-    private Newton1() {
+    private Newton2() {
     }
 
     /**
@@ -103,16 +103,15 @@ public final class Newton1 {
      * Computes estimate of square root of x to within relative error of 0.01%.
      *
      * @param x
-     *            positive number to compute square root of
+     *            positive (or zero) number to compute square root of
      * @return estimate of square root
      */
     private static double sqrt(double x) {
         double epsilon = 0.0001;
         double y = 1.0;
 
-        // technically this follows the directions, don't take off points lol
         if (x == 0) {
-            y = 0 / 0;
+            return 0;
         }
 
         while (Math.abs(Math.pow(y, 2) - x) >= epsilon) {
