@@ -1,0 +1,25 @@
+- nested loops
+- test exhaustively
+- (w^a)(x^b)(y^c)(z^d)
+
+
+
+- loop one
+	- loop through possible exponents of w
+	
+	- loop two
+		- loop through possible exponents of x
+		
+		- loop three
+			- loop through possible exponents of y
+			
+			- loop four
+				- loop through possible exponents of z
+				- compare value to mu
+				- if value closer to mu than others, save it
+	
+- calculate error between found value and mu
+- print all data found
+				
+				
+	
