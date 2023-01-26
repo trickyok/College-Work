@@ -20,6 +20,3 @@
 	
 - calculate error between found value and mu
 - print all data found
-				
-				
-	
