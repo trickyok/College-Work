@@ -20,6 +20,8 @@ public final class Newton3 {
     private Newton3() {
     }
 
+    static double epsilon = 0.0001;
+
     /**
      * Main method.
      *
@@ -31,7 +33,8 @@ public final class Newton3 {
         SimpleWriter out = new SimpleWriter1L();
         boolean looping = true;
 
-        System.out.print("Enter a value for epsilon (default 0.0001): ");
+        System.out.print("Enter a value for EPSILON (Default = 0.0001): ");
+        epsilon = in.nextDouble();
 
         while (looping) {
             printRoot(in, out);
@@ -109,7 +112,6 @@ public final class Newton3 {
      * @return estimate of square root
      */
     private static double sqrt(double x) {
-        double epsilon = 0.0001;
         double y = 1.0;
 
         if (x == 0) {
