@@ -1,3 +1,26 @@
-hwhy?
+How do we learn ethics?
 - experience
 	- positive/negative reinforcement
+
+
+Utilitarianism
+- one specific type of theory
+- happiness / suffering
+- 3 parts
+	- Theory of Value
+		- specifies what is valuable
+		- pleasure, avoiding pain
+		
+	- Theory of Right Action
+		- what rule, law, principle used to determine
+		  whether an action is right or wrong
+
+	- Decision Procedure
+		- when making decisions in the real world, don't
+		  follow the previous two theories
+		
+
+Consequentialism
+- whole host of theories
+- rightness/wrongness of actions is determined wholely
+  by the expected consequences of the action
