@@ -1,0 +1,12 @@
+get numbers
+
+loop through first num
+	loop through second num
+		loop through third num
+			loop through fourth num
+				calculate total
+				check if total is the best so far
+					reassign closest
+			reset fourth loop
+		reset third loop
+	reset second loop

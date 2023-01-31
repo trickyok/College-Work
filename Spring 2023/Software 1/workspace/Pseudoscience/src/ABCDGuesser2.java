@@ -10,12 +10,12 @@ import components.utilities.FormatChecker;
  * @author Put your name here
  *
  */
-public final class ABCDGuesser1 {
+public final class ABCDGuesser2 {
 
     /**
      * No argument constructor--private to prevent instantiation.
      */
-    private ABCDGuesser1() {
+    private ABCDGuesser2() {
     }
 
     /**
@@ -29,11 +29,8 @@ public final class ABCDGuesser1 {
         SimpleWriter out = new SimpleWriter1L();
         double[] exp = { -5, -4, -3, -2, -1, -1 / 2, -1 / 3, -1 / 4, 0, 1 / 4,
                 1 / 3, 1 / 2, 1, 2, 3, 4, 5 };
-        double total = -1, error = -1, closest = 99999, closestError = 99;
-        ;
-        int i = 0, j = 0, k = 0, l = 0;
+        double total = -1, closest = -999999999;
         double bestW = -1, bestX = -1, bestY = -1, bestZ = -1;
-        boolean wasClosest;
 
         // get u
         double u = getPositiveDouble(in, out);
@@ -45,58 +42,25 @@ public final class ABCDGuesser1 {
         double z = getPositiveDoubleNotOne(in, out);
 
         // big boy loop
-        while (i < 16) {
-            wasClosest = false;
-            total = Math.pow(w, exp[i]);
+        for (int i = 0; i <= 16; i++) {
+            for (int j = 0; j <= 16; j++) {
+                for (int k = 0; k <= 16; k++) {
+                    for (int l = 0; l <= 16; l++) {
+                        total = Math.pow(w, exp[i]);
+                        total += Math.pow(x, exp[j]);
+                        total += Math.pow(y, exp[k]);
+                        total += Math.pow(z, exp[l]);
 
-            while (j < 16) {
-                total = total + Math.pow(x, exp[j]);
-
-                while (k < 16) {
-                    total = total + Math.pow(y, exp[k]);
-
-                    while (l < 16) {
-                        total = total + Math.pow(z, exp[l]);
-                        error = Math.abs(total - u);
-
-                        if (Math.abs(error) < Math.abs(closestError)) {
-                            wasClosest = true;
+                        if (Math.abs(u - total) < Math.abs(u - closest)) {
                             closest = total;
-                            closestError = error;
+                            bestW = exp[i];
+                            bestX = exp[j];
+                            bestY = exp[k];
                             bestZ = exp[l];
                         }
-                        wasClosest = false;
-                        l++;
                     }
-                    if (error < closest) {
-                        wasClosest = true;
-                        closest = total;
-                        bestY = exp[k];
-                    }
-                    wasClosest = false;
-                    k++;
-                    l = 0;
                 }
-                if (error < closest) {
-                    wasClosest = true;
-                    closest = total;
-                    bestX = exp[j];
-                }
-                wasClosest = false;
-                j++;
-                k = 0;
-                l = 0;
             }
-            if (error < closest) {
-                wasClosest = true;
-                closest = total;
-                bestW = exp[i];
-            }
-            wasClosest = false;
-            i++;
-            j = 0;
-            k = 0;
-            l = 0;
         }
 
         // do some math
