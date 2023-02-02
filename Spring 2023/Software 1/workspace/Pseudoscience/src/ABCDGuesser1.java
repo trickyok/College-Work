@@ -27,13 +27,11 @@ public final class ABCDGuesser1 {
     public static void main(String[] args) {
         SimpleReader in = new SimpleReader1L();
         SimpleWriter out = new SimpleWriter1L();
-        double[] exp = { -5, -4, -3, -2, -1, -1 / 2, -1 / 3, -1 / 4, 0, 1 / 4,
-                1 / 3, 1 / 2, 1, 2, 3, 4, 5 };
-        double total = -1, error = -1, closest = 99999, closestError = 99;
-        ;
-        int i = 0, j = 0, k = 0, l = 0;
+        double[] exp = { -5, -4, -3, -2, -1, -0.5, -0.333, -0.25, 0, 0.25,
+                0.333, 0.5, 1, 2, 3, 4, 5 };
+        double total = -1, closest = -999999999;
         double bestW = -1, bestX = -1, bestY = -1, bestZ = -1;
-        boolean wasClosest;
+        int i = 0, j = 0, k = 0, l = 0;
 
         // get u
         double u = getPositiveDouble(in, out);
@@ -45,69 +43,47 @@ public final class ABCDGuesser1 {
         double z = getPositiveDoubleNotOne(in, out);
 
         // big boy loop
-        while (i < 16) {
-            wasClosest = false;
-            total = Math.pow(w, exp[i]);
+        while (i <= 16) {
+            while (j <= 16) {
+                while (k <= 16) {
+                    while (l <= 16) {
+                        // does calculations
+                        total = Math.pow(w, exp[i]);
+                        total += Math.pow(x, exp[j]);
+                        total += Math.pow(y, exp[k]);
+                        total += Math.pow(z, exp[l]);
 
-            while (j < 16) {
-                total = total + Math.pow(x, exp[j]);
-
-                while (k < 16) {
-                    total = total + Math.pow(y, exp[k]);
-
-                    while (l < 16) {
-                        total = total + Math.pow(z, exp[l]);
-                        error = Math.abs(total - u);
-
-                        if (Math.abs(error) < Math.abs(closestError)) {
-                            wasClosest = true;
+                        // if total is the closest to u so far
+                        if (Math.abs(u - total) < Math.abs(u - closest)) {
                             closest = total;
-                            closestError = error;
+                            bestW = exp[i];
+                            bestX = exp[j];
+                            bestY = exp[k];
                             bestZ = exp[l];
                         }
-                        wasClosest = false;
                         l++;
                     }
-                    if (error < closest) {
-                        wasClosest = true;
-                        closest = total;
-                        bestY = exp[k];
-                    }
-                    wasClosest = false;
                     k++;
                     l = 0;
                 }
-                if (error < closest) {
-                    wasClosest = true;
-                    closest = total;
-                    bestX = exp[j];
-                }
-                wasClosest = false;
                 j++;
                 k = 0;
-                l = 0;
             }
-            if (error < closest) {
-                wasClosest = true;
-                closest = total;
-                bestW = exp[i];
-            }
-            wasClosest = false;
             i++;
             j = 0;
-            k = 0;
-            l = 0;
         }
 
         // do some math
-        double percentError = (closest - u) / u * 100;
+        double percentError = Math.abs((closest - u) / u * 100);
 
         // print results
         System.out.println("u = " + u);
         System.out.println("(" + w + "^" + bestW + ")" + " + " + "(" + x + "^"
                 + bestX + ")" + " + " + "(" + y + "^" + bestY + ")" + " + "
-                + "(" + z + "^" + bestZ + ")" + " = " + closest);
-        System.out.println("Percent Error: " + percentError);
+                + "(" + z + "^" + bestZ + ")" + " = "
+                + String.format("%.2f", closest));
+        System.out.println(
+                "Percent Error: " + String.format("%.2f", percentError) + "%");
 
         // close stuff
         in.close();

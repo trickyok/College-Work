@@ -27,8 +27,8 @@ public final class ABCDGuesser2 {
     public static void main(String[] args) {
         SimpleReader in = new SimpleReader1L();
         SimpleWriter out = new SimpleWriter1L();
-        double[] exp = { -5, -4, -3, -2, -1, -1 / 2, -1 / 3, -1 / 4, 0, 1 / 4,
-                1 / 3, 1 / 2, 1, 2, 3, 4, 5 };
+        double[] exp = { -5, -4, -3, -2, -1, -0.5, -0.333, -0.25, 0, 0.25,
+                0.333, 0.5, 1, 2, 3, 4, 5 };
         double total = -1, closest = -999999999;
         double bestW = -1, bestX = -1, bestY = -1, bestZ = -1;
 
@@ -46,11 +46,13 @@ public final class ABCDGuesser2 {
             for (int j = 0; j <= 16; j++) {
                 for (int k = 0; k <= 16; k++) {
                     for (int l = 0; l <= 16; l++) {
+                        // does calculations
                         total = Math.pow(w, exp[i]);
                         total += Math.pow(x, exp[j]);
                         total += Math.pow(y, exp[k]);
                         total += Math.pow(z, exp[l]);
 
+                        // if total is the closest to u so far
                         if (Math.abs(u - total) < Math.abs(u - closest)) {
                             closest = total;
                             bestW = exp[i];
@@ -64,14 +66,16 @@ public final class ABCDGuesser2 {
         }
 
         // do some math
-        double percentError = (closest - u) / u * 100;
+        double percentError = Math.abs((closest - u) / u * 100);
 
         // print results
         System.out.println("u = " + u);
         System.out.println("(" + w + "^" + bestW + ")" + " + " + "(" + x + "^"
                 + bestX + ")" + " + " + "(" + y + "^" + bestY + ")" + " + "
-                + "(" + z + "^" + bestZ + ")" + " = " + closest);
-        System.out.println("Percent Error: " + percentError);
+                + "(" + z + "^" + bestZ + ")" + " = "
+                + String.format("%.2f", closest));
+        System.out.println(
+                "Percent Error: " + String.format("%.2f", percentError) + "%");
 
         // close stuff
         in.close();
