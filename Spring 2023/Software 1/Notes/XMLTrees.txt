@@ -1,0 +1,48 @@
+<book printISBN="978-1-118" 
+	  webISBN="1-1189024"
+	  pubdate="Dec 20 2011">
+	<author>
+		Car Horstmann
+	 </author>
+	<title>
+		Java for Everyone: Late Objects
+	 </title>
+	<contents>
+		<preface>
+		 </preface>
+		<chapter number="1"
+				 title="introduction">
+			<section title="Chapter Goals">
+			 </section>
+			<section title="Chapter Contents">
+			 </section>
+			<section number="1.1"
+					 title="Computer Programs">
+			 </section>
+			<section number="1.2"
+					 title="The Anatomy of a Computer">
+			 </section>
+		 </chapter>
+		<chapter number="2"
+			title="Fundamental Data Types">
+		 </chapter>
+</book>
+
+
+
+
+<rss version="2.0">
+	<channel>
+		<title>Yahoo! News</title>
+		<link>http://news.yahoo.com</link>
+		<description>The latest news and stuff and things
+		 </description>
+		<item>
+			<title>Apple seeks to stop...</title>
+			<link>http://news.yahoo.com/...</link>
+			<description>Apple Inc will seek a...</description>
+			<pubDate>Mon, 27 Aug 2012 14:40:49</pubDate>
+			<source url="http://www.reuters.com">Reuters</source>
+		 </item>
+	</channel>
+</rss>
