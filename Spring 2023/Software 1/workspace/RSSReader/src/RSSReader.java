@@ -1,14 +1,19 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import components.simplereader.SimpleReader;
 import components.simplereader.SimpleReader1L;
 import components.simplewriter.SimpleWriter;
 import components.simplewriter.SimpleWriter1L;
 import components.xmltree.XMLTree;
+import components.xmltree.XMLTree1;
 
 /**
  * Program to convert an XML RSS (version 2.0) feed from a given URL into the
  * corresponding HTML output file.
  *
- * @author Put your name here
+ * @author Gage Farmer
  *
  */
 public final class RSSReader {
@@ -44,16 +49,37 @@ public final class RSSReader {
      * @requires [the root of channel is a <channel> tag] and out.is_open
      * @ensures out.content = #out.content * [the HTML "opening" tags]
      */
-    private static void outputHeader(XMLTree channel, SimpleWriter out) {
+    private static void outputHeader(XMLTree channel, SimpleWriter out,
+            FileWriter writer) {
         assert channel != null : "Violation of: channel is not null";
         assert out != null : "Violation of: out is not null";
         assert channel.isTag() && channel.label().equals("channel") : ""
                 + "Violation of: the label root of channel is a <channel> tag";
         assert out.isOpen() : "Violation of: out.is_open";
 
-        /*
-         * TODO: fill in body
-         */
+        try {
+
+            writer.write("<html> <head> <title>"
+                    + channel.child(getChildElement(channel, "title")).child(0)
+                    + "</title>" + "\n");
+            writer.write("</head> <body>" + "\n");
+            writer.write("<h1> <a href=\""
+                    + channel.child(getChildElement(channel, "link")).child(0)
+                    + "\">"
+                    + channel.child(getChildElement(channel, "title")).child(0)
+                    + "</h1></a>\n");
+            writer.write("<p>" + channel
+                    .child(getChildElement(channel, "description")).child(0)
+                    + "</p>" + "\n");
+            writer.write("<table border=\"1\">" + "<tr>" + "\n");
+            writer.write("<th> Date </th>" + "\n");
+            writer.write("<th> Source </th>" + "\n");
+            writer.write("<th> News </th>" + "\n");
+            writer.write("</tr>" + "\n");
+        } catch (IOException e) {
+            System.out.println("Error in outputHeader");
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -69,13 +95,17 @@ public final class RSSReader {
      * @requires out.is_open
      * @ensures out.content = #out.content * [the HTML "closing" tags]
      */
-    private static void outputFooter(SimpleWriter out) {
+    private static void outputFooter(SimpleWriter out, FileWriter writer) {
         assert out != null : "Violation of: out is not null";
         assert out.isOpen() : "Violation of: out.is_open";
+        try {
+            writer.write("</table>" + "\n");
+            writer.write("</body> </html>" + "\n");
+        } catch (IOException e) {
+            System.out.println("Error in outputFooter");
+            e.printStackTrace();
+        }
 
-        /*
-         * TODO: fill in body
-         */
     }
 
     /**
@@ -100,9 +130,19 @@ public final class RSSReader {
         assert tag != null : "Violation of: tag is not null";
         assert xml.isTag() : "Violation of: the label root of xml is a tag";
 
-        /*
-         * TODO: fill in body
-         */
+        boolean found = false;
+        XMLTree temp = xml;
+        int i = 0;
+
+        while (!found) {
+            if (xml.child(i).label() == tag) {
+                found = true;
+            } else {
+                i++;
+            }
+        }
+
+        return i;
     }
 
     /**
@@ -122,16 +162,35 @@ public final class RSSReader {
      *   [an HTML table row with publication date, source, and title of news item]
      * </pre>
      */
-    private static void processItem(XMLTree item, SimpleWriter out) {
+    private static void processItem(XMLTree item, SimpleWriter out,
+            FileWriter writer) {
         assert item != null : "Violation of: item is not null";
         assert out != null : "Violation of: out is not null";
         assert item.isTag() && item.label().equals("item") : ""
                 + "Violation of: the label root of item is an <item> tag";
         assert out.isOpen() : "Violation of: out.is_open";
 
-        /*
-         * TODO: fill in body
-         */
+        try {
+
+            writer.write("<tr><td>"
+                    + item.child(getChildElement(item, "pubDate")).child(0)
+                    + "</td>" + "\n");
+            writer.write("<td><a href=\""
+                    + item.child(getChildElement(item, "source"))
+                            .attributeValue("url")
+                    + "\">"
+                    + item.child(getChildElement(item, "source")).child(0)
+                    + "</td>" + "\n");
+            writer.write("<td><a href=\""
+                    + item.child(getChildElement(item, "link")).child(0) + "\">"
+                    + item.child(getChildElement(item, "title")).child(0)
+                    + "</td>" + "\n");
+
+        } catch (IOException e) {
+            System.out.println("Error in processItem");
+            e.printStackTrace();
+        }
+
     }
 
     /**
@@ -139,15 +198,30 @@ public final class RSSReader {
      *
      * @param args
      *            the command line arguments; unused here
+     * @throws IOException
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         SimpleReader in = new SimpleReader1L();
         SimpleWriter out = new SimpleWriter1L();
+        File page = new File("page.html");
+        FileWriter writer = new FileWriter("page.html");
 
-        /*
-         * TODO: fill in body
-         */
+        System.out.print("Enter an RSS feed URL: ");
+        String input = in.nextLine();
+        XMLTree channel = new XMLTree1(input);
+        channel = channel.child(0);
 
+        outputHeader(channel, out, writer);
+
+        for (int i = 0; i < channel.numberOfChildren(); i++) {
+            if (channel.child(i).label() == "item") {
+                processItem(channel.child(i), out, writer);
+            }
+        }
+
+        outputFooter(out, writer);
+
+        writer.close();
         in.close();
         out.close();
     }
