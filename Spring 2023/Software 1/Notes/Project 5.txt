@@ -1,0 +1,20 @@
+Project 5 steps
+
+
+1. Get name of xml file				!
+
+2. turn file into xml tree
+
+3. pass tree to method				
+
+4. read title from tree
+
+5. print title to output
+
+6. read url from file
+
+7. read url title
+
+8. print url and title to output
+
+9. loop 5 to 7 until no more urls
