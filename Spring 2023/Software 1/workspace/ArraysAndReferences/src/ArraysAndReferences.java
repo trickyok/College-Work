@@ -61,7 +61,11 @@ public final class ArraysAndReferences {
         assert nnArray != null : "Violation of: nnArray is not null";
         assert nnArray.length > 0 : "Violation of: nnArray.length > 0";
 
-        // TODO - fill in body
+        NaturalNumber[] copy = nnArray;
+
+        for (int i = 1; i < nnArray.length; i++) {
+            nnArray[i].multiply(copy[i - 1]);
+        }
 
     }
 
@@ -105,12 +109,10 @@ public final class ArraysAndReferences {
         /*
          * Initialize an array of NaturalNumbers with values 1 through 5.
          */
-
-        // TODO: FIX THIS
         NaturalNumber[] array = new NaturalNumber[5];
         NaturalNumber count = new NaturalNumber2(1);
         for (int i = 0; i < array.length; i++) {
-            array[i] = count;
+            array[i] = new NaturalNumber2(count);
             count.increment();
         }
         /*
@@ -119,6 +121,11 @@ public final class ArraysAndReferences {
          */
         NaturalNumber product = productOfArrayElements(array);
         out.println(product);
+
+        computePartialProducts(array);
+        for (int i = 0; i < array.length; i++) {
+            out.print(array[i].toString() + " ");
+        }
 
         out.close();
     }
