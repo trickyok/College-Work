@@ -33,37 +33,47 @@ public final class NaturalNumberRoot {
         assert n != null : "Violation of: n is  not null";
         assert r >= 2 : "Violation of: r >= 2";
 
-        NaturalNumber one = new NaturalNumber2(1);
-        NaturalNumber two = new NaturalNumber2(2);
-        NaturalNumber lowEnough = new NaturalNumber2(0);
-        NaturalNumber tooHigh = new NaturalNumber2(n);
-        tooHigh.add(one);
-
-        NaturalNumber guess = new NaturalNumber2(tooHigh);
+        NaturalNumber ONE = new NaturalNumber2(1);
+        NaturalNumber TWO = new NaturalNumber2(2);
+        NaturalNumber lowEnough = new NaturalNumber2();
+        NaturalNumber tooHigh = new NaturalNumber2();
+        NaturalNumber power = new NaturalNumber2();
+        tooHigh.copyFrom(n);
+        NaturalNumber guess = new NaturalNumber2();
+        guess.copyFrom(tooHigh);
         guess.add(lowEnough);
-        guess.divide(two);
+        NaturalNumber diff = new NaturalNumber2();
+        diff.copyFrom(tooHigh);
+        diff.subtract(lowEnough);
 
-        /*
-         * The rest is still broken XDDDDD
-         */
-
-        while (tooHigh - lowEnough > 1) {
+        while (diff.compareTo(ONE) == 1) {
             // set guess between highest and lowest vals
-            guess = (tooHigh + lowEnough) / 2;
+            guess.copyFrom(tooHigh);
+            guess.add(lowEnough);
+            guess.divide(TWO);
             // if guess is too high, set to lower val
-            if (guess.power(r) > (n)) {
+            power.copyFrom(guess);
+            power.power(r);
+            if (power.compareTo(n) == 1) {
                 tooHigh.copyFrom(guess);
                 guess.copyFrom(lowEnough);
                 // if guess is too low, set to higher val
-            } else if (power(guess, r) < n) {
+            } else if (power.compareTo(n) == -1) {
                 lowEnough.copyFrom(guess);
                 guess.copyFrom(tooHigh);
                 // if guess is right, leave loop
             } else {
                 break;
             }
-            guess = (tooHigh + lowEnough) / 2;
+            guess.copyFrom(tooHigh);
+            guess.add(lowEnough);
+            guess.divide(TWO);
+            diff.copyFrom(tooHigh);
+            diff.subtract(lowEnough);
+
         }
+
+        n.copyFrom(guess);
 
     }
 

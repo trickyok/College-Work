@@ -1,3 +1,5 @@
+import components.naturalnumber.NaturalNumber;
+import components.naturalnumber.NaturalNumber2;
 import components.simplewriter.SimpleWriter;
 import components.simplewriter.SimpleWriter1L;
 
@@ -24,6 +26,11 @@ public final class HelloWorld {
     public static void main(String[] args) {
         SimpleWriter out = new SimpleWriter1L();
         out.println("Hello World!");
+        NaturalNumber testOne = new NaturalNumber2(3);
+        NaturalNumber testTwo = new NaturalNumber2(2);
+        out.println("Greater than: " + testOne.compareTo(testTwo));
+        out.println("Less than: " + testTwo.compareTo(testOne));
+        out.println("Equal to: " + testOne.compareTo(testOne));
         out.close();
     }
 
