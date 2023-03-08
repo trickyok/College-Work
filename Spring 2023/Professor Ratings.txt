@@ -1,0 +1,22 @@
+Professor Ratings (Out of 10, starts at 5)
+
+
+Software 1
+	+1 is nice
+	+3 Good teacher
+	-6 Project and Midterm IMMEDIATELY after spring break
+	
+
+Analog Systems
+	-2 Confusing explainations
+	-1 Doesn't give homework during week of exam, BUT doubles length of next week's homework
+	
+	
+Digital Logic
+	+3 Explains everything clearly
+	+1 Lots of homework, BUT they're all small assignments
+	
+	
+Engineering Ethics
+	+1 Funny
+	+3 Good analogies/explainations
