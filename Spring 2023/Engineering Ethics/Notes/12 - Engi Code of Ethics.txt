@@ -1,0 +1,21 @@
+1. Surprising
+	- Perform services only in areas of their competence
+
+2. Important
+	- Engineers shall not be influenced in their professional duties by conflicting interests (taking bribes)
+
+3. Unimportant
+	- Engineers shall give credit for engineering work to those to whom credit is due,
+	  and will recognize the proprietary interests of others
+		- This is obvious, but also not something ethically necessary.
+
+4. Disagree
+	- Engineers shall at all times strive to serve the public interest
+		- What if public interest is objectively wrong?
+
+5. Contradictory
+	- Engineers shall hold paramount the safety, health, and welfare of the public	
+		- What if the public interest will result in unsafety for the public?
+
+6. Confusing
+	- 
