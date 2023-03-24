@@ -1,3 +1,5 @@
+import components.naturalnumber.NaturalNumber;
+import components.naturalnumber.NaturalNumber2;
 import components.simplereader.SimpleReader;
 import components.simplereader.SimpleReader1L;
 import components.simplewriter.SimpleWriter;
@@ -10,13 +12,15 @@ import components.xmltree.XMLTree1;
  *
  * @author Gage Farmer
  *
+ *         idk why this was scheduled due right after spring break....
+ *
  */
-public final class XMLTreeIntExpressionEvaluator {
+public final class XMLTreeNNExpressionEvaluator {
 
     /**
      * Private constructor so this utility class cannot be instantiated.
      */
-    private XMLTreeIntExpressionEvaluator() {
+    private XMLTreeNNExpressionEvaluator() {
     }
 
     /**
@@ -31,39 +35,49 @@ public final class XMLTreeIntExpressionEvaluator {
      * </pre>
      * @ensures evaluate = [the value of the expression]
      */
-    private static int evaluate(XMLTree exp) {
+    private static NaturalNumber evaluate(XMLTree exp) {
         assert exp != null : "Violation of: exp is not null";
-        int total = 0;
+        NaturalNumber total = new NaturalNumber2();
+        NaturalNumber temp = new NaturalNumber2();
+        NaturalNumber ZERO = new NaturalNumber2();
 
         if (exp.numberOfChildren() > 0) {
             for (int i = 0; i < exp.numberOfChildren(); i++) {
                 if (exp.label().equals("plus")) {
-                    total += evaluate(exp.child(i));
+                    temp = new NaturalNumber2(evaluate(exp.child(i)));
+                    total.add(temp);
                 } else if (exp.label().equals("minus")) {
-                    if (total == 0) {
-                        total += evaluate(exp.child(i));
+                    if (total.compareTo(ZERO) == 0) {
+                        temp = new NaturalNumber2(evaluate(exp.child(i)));
+                        total.add(temp);
                     } else {
-                        total -= evaluate(exp.child(i));
+                        temp = new NaturalNumber2(evaluate(exp.child(i)));
+                        total.subtract(temp);
                     }
                 } else if (exp.label().equals("times")) {
-                    if (total == 0) {
-                        total += evaluate(exp.child(i));
+                    if (total.compareTo(ZERO) == 0) {
+                        temp = new NaturalNumber2(evaluate(exp.child(i)));
+                        total.add(temp);
                     } else {
-                        total *= evaluate(exp.child(i));
+                        temp = new NaturalNumber2(evaluate(exp.child(i)));
+                        total.multiply(temp);
                     }
                 } else if (exp.label().equals("divide")) {
-                    if (total == 0) {
-                        total += evaluate(exp.child(i));
+                    if (total.compareTo(ZERO) == 0) {
+                        temp = new NaturalNumber2(evaluate(exp.child(i)));
+                        total.add(temp);
                     } else {
-                        assert evaluate(exp
-                                .child(i)) != 0 : "Violation of: Divide by 0";
-                        total /= evaluate(exp.child(i));
+                        assert evaluate(exp.child(i)).compareTo(
+                                ZERO) != 0 : "Violation of: Divide by 0";
+                        temp = new NaturalNumber2(evaluate(exp.child(i)));
+                        total.divide(temp);
                     }
                 }
 
             }
         } else {
-            total = Integer.parseInt(exp.attributeValue("value"));
+            total = new NaturalNumber2(
+                    Integer.parseInt(exp.attributeValue("value")));
         }
 
         /*
