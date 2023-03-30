@@ -26,6 +26,7 @@ public final class CryptoUtilities {
      */
     private static final int THREE = 3;
     private static final NaturalNumber ZERO = new NaturalNumber2();
+    private static final NaturalNumber ONE = new NaturalNumber2(1);
     private static final NaturalNumber TWO = new NaturalNumber2(2);
 
     /**
@@ -202,13 +203,21 @@ public final class CryptoUtilities {
         assert w.compareTo(n) < 0 : "Violation of: w < n - 1";
         n.increment();
 
-        // TODO - fill in body
+        boolean isWitness = false;
+        NaturalNumber remainder;
+        NaturalNumber a = w.newInstance();
+        NaturalNumber p = n.newInstance();
 
-        /*
-         * This line added just to make the program compilable. Should be
-         * replaced with appropriate return statement.
-         */
-        return true;
+        p.decrement();
+        a.power(p.toInt());
+        p.increment();
+        remainder = a.divide(p);
+
+        if (remainder.compareTo(ONE) == 1) {
+            isWitness = true;
+        }
+
+        return isWitness;
     }
 
     /**
@@ -265,32 +274,47 @@ public final class CryptoUtilities {
     public static boolean isPrime2(NaturalNumber n) {
         assert n.compareTo(new NaturalNumber2(1)) > 0 : "Violation of: n > 1";
 
-        /*
-         * Use the ability to generate random numbers (provided by the
-         * randomNumber method above) to generate several witness candidates --
-         * say, 10 to 50 candidates -- guessing that n is prime only if none of
-         * these candidates is a witness to n being composite (based on fact #3
-         * as described in the project description); use the code for isPrime1
-         * as a guide for how to do this, and pay attention to the requires
-         * clause of isWitnessToCompositeness
-         */
-        NaturalNumber randTop = new NaturalNumber2(100);
-        NaturalNumber num = new NaturalNumber2();
         boolean isPrime = true;
+        /*
+         * p = n a = ans
+         *
+         * ans to the (n-1) divided by n
+         *
+         */
 
-        for (int i = 0; i < 50; i++) {
-            num = randomNumber(randTop);
-            if (isPrime) {
-                isPrime = !isWitnessToCompositeness(num, n);
+        NaturalNumber randTop = n.newInstance();
+        NaturalNumber nDec = n.newInstance();
+        randTop.copyFrom(n);
+        nDec.copyFrom(n);
+        nDec.decrement();
+        NaturalNumber ans;
+
+        for (int i = 0; i < 25; i++) {
+            ans = randomNumber(randTop);
+            ans.power(nDec.toInt());
+            ans.divide(n);
+
+            if (ans.compareTo(ONE) > 0) {
+                isPrime = false;
             }
+
         }
 
-        // TODO - fill in body
-
         /*
-         * This line added just to make the program compilable. Should be
-         * replaced with appropriate return statement.
+         * as stupid as i look for not figuring out the bug in my 'is prime'
+         * function, at least i didn't go on stackoverflow to find the answer
+         *
+         * that's worth something, right?
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         * ....right?
          */
+
         return isPrime;
     }
 
@@ -305,11 +329,6 @@ public final class CryptoUtilities {
      */
     public static void generateNextLikelyPrime(NaturalNumber n) {
         assert n.compareTo(new NaturalNumber2(1)) > 0 : "Violation of: n > 1";
-
-        /*
-         * Use isPrime2 to check numbers, starting at n and increasing through
-         * the odd numbers only (why?), until n is likely prime
-         */
 
         if (!isEven(n)) {
             n.increment();
