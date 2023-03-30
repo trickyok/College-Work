@@ -10,7 +10,7 @@ import components.simplewriter.SimpleWriter1L;
 /**
  * Utilities that could be used with RSA cryptosystems.
  *
- * @author Gage Farmer Worked on this with Tucker in lab
+ * @author Gage Farmer worked on this with Tucker in lab
  *
  */
 public final class CryptoUtilities {
@@ -98,8 +98,14 @@ public final class CryptoUtilities {
          * Use Euclid's algorithm; in pseudocode: if m = 0 then GCD(n, m) = n
          * else GCD(n, m) = GCD(m, n mod m)
          */
+        NaturalNumber mod = new NaturalNumber2();
 
-        // TODO - fill in body
+        if (m.compareTo(ZERO) != 0) {
+            mod.copyFrom(n.divide(m));
+            reduceToGCD(m, mod);
+            n.copyFrom(m);
+            m.copyFrom(mod);
+        }
 
     }
 
@@ -268,6 +274,16 @@ public final class CryptoUtilities {
          * as a guide for how to do this, and pay attention to the requires
          * clause of isWitnessToCompositeness
          */
+        NaturalNumber randTop = new NaturalNumber2(100);
+        NaturalNumber num = new NaturalNumber2();
+        boolean isPrime = true;
+
+        for (int i = 0; i < 50; i++) {
+            num = randomNumber(randTop);
+            if (isPrime) {
+                isPrime = !isWitnessToCompositeness(num, n);
+            }
+        }
 
         // TODO - fill in body
 
@@ -275,7 +291,7 @@ public final class CryptoUtilities {
          * This line added just to make the program compilable. Should be
          * replaced with appropriate return statement.
          */
-        return true;
+        return isPrime;
     }
 
     /**
@@ -295,7 +311,16 @@ public final class CryptoUtilities {
          * the odd numbers only (why?), until n is likely prime
          */
 
-        // TODO - fill in body
+        if (!isEven(n)) {
+            n.increment();
+            generateNextLikelyPrime(n);
+        } else {
+            if (!isPrime2(n)) {
+                n.increment();
+                n.increment();
+                generateNextLikelyPrime(n);
+            }
+        }
 
     }
 

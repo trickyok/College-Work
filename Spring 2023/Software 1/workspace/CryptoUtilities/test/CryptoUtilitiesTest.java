@@ -145,4 +145,38 @@ public class CryptoUtilitiesTest {
         assertEquals(mExpected, m);
     }
 
+    /*
+     * Tests of isPrime2
+     */
+
+    @Test
+    public void testIsPrime_3() {
+        NaturalNumber n = new NaturalNumber2(3);
+        NaturalNumber nExpected = new NaturalNumber2(3);
+        boolean resultExpected = true;
+        boolean result = CryptoUtilities.isPrime2(n);
+        assertEquals(nExpected, n);
+        assertEquals(resultExpected, result);
+    }
+
+    @Test
+    public void testIsPrime_69() {
+        NaturalNumber n = new NaturalNumber2(69);
+        NaturalNumber nExpected = new NaturalNumber2(69);
+        boolean resultExpected = false;
+        boolean result = CryptoUtilities.isPrime2(n);
+        assertEquals(nExpected, n);
+        assertEquals(resultExpected, result);
+    }
+
+    @Test
+    public void testIsPrime_7() {
+        NaturalNumber n = new NaturalNumber2(7);
+        NaturalNumber nExpected = new NaturalNumber2(7);
+        boolean resultExpected = true;
+        boolean result = CryptoUtilities.isPrime2(n);
+        assertEquals(nExpected, n);
+        assertEquals(resultExpected, result);
+    }
+
 }
