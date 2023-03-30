@@ -190,9 +190,9 @@ public class CryptoUtilitiesTest {
     }
 
     @Test
-    public void testIsPrime_4444() {
-        NaturalNumber n = new NaturalNumber2(4444);
-        NaturalNumber nExpected = new NaturalNumber2(4444);
+    public void testIsPrime_444() {
+        NaturalNumber n = new NaturalNumber2(444);
+        NaturalNumber nExpected = new NaturalNumber2(444);
         boolean resultExpected = false;
         boolean result = CryptoUtilities.isPrime2(n);
         assertEquals(nExpected, n);

@@ -291,6 +291,7 @@ public final class CryptoUtilities {
 
         for (int i = 0; i < 25; i++) {
             ans = randomNumber(randTop);
+            ans.increment();
             ans.power(nDec.toInt());
             ans.divide(n);
 
