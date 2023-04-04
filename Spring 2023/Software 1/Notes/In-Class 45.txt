@@ -1,0 +1,18 @@
+/**
+ * Removes all instances of the value x from the stack s.
+ * @param s stack to remove elements from
+ * @param x value to remove from s
+ * @updates s
+ * @ensures s = [#s with all instances equal to x removed from it but otherwise in the same order]
+ **/
+ public static <T> void remove(Stack<T> s, T x) { 
+	int i = 0;
+	
+	while (i < s.length()) {
+		if (x.equals(s.at(i)) {
+			s.remove(i);
+		} else {
+			i++;
+		}
+	}
+}
