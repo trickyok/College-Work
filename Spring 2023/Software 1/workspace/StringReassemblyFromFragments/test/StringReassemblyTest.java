@@ -16,19 +16,19 @@ public class StringReassemblyTest {
 
     @Test
     public void testCombination1() {
-        String str1 = "yes   ";
+        String str1 = "yes  ";
         String str2 = "  no";
         int overlap = 2;
         String ans = StringReassembly.combination(str1, str2, overlap);
-        String expect = "yes no";
+        String expect = "yes  no";
         assertEquals(expect, ans);
     }
 
     @Test
     public void testCombination2() {
-        String str1 = "the other day i caught a       ";
-        String str2 = "      big ole floppy salmon";
-        int overlap = 6;
+        String str1 = "the other day i caught a ";
+        String str2 = " big ole floppy salmon";
+        int overlap = 1;
         String ans = StringReassembly.combination(str1, str2, overlap);
         String expect = "the other day i caught a big ole floppy salmon";
         assertEquals(expect, ans);
@@ -78,12 +78,12 @@ public class StringReassemblyTest {
         setStr.add("test!");
         setStr.add("something");
         setStr.add("nothing69");
-        setStr.add("");
+        setStr.add(" yes))");
         setStr.add("ASBFJDKUYVBWE");
         setStrAns.add("test!");
         setStrAns.add("something");
         setStrAns.add("nothing69");
-        setStrAns.add("");
+        setStrAns.add(" yes))");
         setStrAns.add("ASBFJDKUYVBWE");
         setStrAns.add("the real answer nice");
         String str1 = "the real answer nice";
@@ -100,15 +100,15 @@ public class StringReassemblyTest {
         setStr.add("test!");
         setStr.add("something");
         setStr.add("nothing69");
-        setStr.add("");
+        setStr.add(" yes))");
         setStr.add("ASBFJDKUYVBWE");
         setStrAns.add("test!");
         setStrAns.add("something");
         setStrAns.add("nothing69");
-        setStrAns.add("");
+        setStrAns.add(" yes))");
         setStrAns.add("ASBFJDKUYVBWE");
-        String str1 = "";
-        String str2 = "";
+        String str1 = " yes))";
+        String str2 = " yes))";
         StringReassembly.addToSetAvoidingSubstrings(setStr, str1);
         assertEquals(setStrAns, setStr);
         assertEquals(str2, str1);

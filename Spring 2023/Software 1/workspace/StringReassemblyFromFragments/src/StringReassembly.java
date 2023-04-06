@@ -10,7 +10,7 @@ import components.simplewriter.SimpleWriter1L;
 /**
  * Utility class to support string reassembly from fragments.
  *
- * @author Put your name here
+ * @author Gage Farmer
  *
  * @mathdefinitions <pre>
  *
@@ -140,7 +140,7 @@ public final class StringReassembly {
         String combo = "";
 
         combo = str1.substring(0, diff1);
-        combo = combo + str2.substring(overlap, str2.length());
+        combo = combo + str2;
 
         return combo;
     }
@@ -171,16 +171,24 @@ public final class StringReassembly {
          * Note: Precondition not checked!
          */
 
+        boolean substr = false;
         Set<String> tempStr = new Set1L<>();
         tempStr.add(str);
 
         if (!tempStr.isSubset(strSet)) {
             Iterator<String> s = strSet.iterator();
-            while (s.hasNext()) {
+            while (s.hasNext() && !substr) {
                 String next = s.next();
                 if (str.contains(next)) {
+                    substr = true;
+                    strSet.remove(next);
                     strSet.add(str);
+                } else if (next.contains(str)) {
+                    substr = true;
                 }
+            }
+            if (!substr) {
+                strSet.add(str);
             }
         }
 
@@ -383,18 +391,18 @@ public final class StringReassembly {
         assert out != null : "Violation of: out is not null";
         assert out.isOpen() : "Violation of: out.is_open";
 
-        String thisLine = "";
-        String[] bestTwo;
-        Set<String> set = new Set1L<>();
+        String accum = "";
+        int i = 0;
 
-        // turn string into set
-        generateSet(text, set);
-
-        // sort that set
-        assemble(set);
-
-        // print the set
-        out.println(set);
+        while (i < text.length()) {
+            if (text.charAt(i) == '~') {
+                out.println(accum);
+                accum = "";
+            } else {
+                accum = accum + text.charAt(i);
+            }
+            i++;
+        }
 
     }
 
