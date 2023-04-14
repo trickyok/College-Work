@@ -1,5 +1,8 @@
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
@@ -34,13 +37,22 @@ public final class Glossary {
     private static void generateTerm(TreeMap<String, String> in,
             SimpleWriter out) {
 
+        String fileName, definition;
+        out.println("<ul>");
+
         for (Entry<String, String> entry : in.entrySet()) {
             String term = entry.getKey();
-
-            out.println("<a href=\"#term_" + term + "\">" + term + "</a>");
+            if (!term.equals("")) {
+                out.println("<li><a href=\"pages/" + term + ".html\">" + term
+                        + "</a></li>");
+                fileName = "data/pages/" + term + ".html";
+                definition = entry.getValue();
+                generateDefinition(term, definition, fileName);
+            }
 
         }
 
+        out.println("</ul>");
     }
 
     /**
@@ -52,18 +64,25 @@ public final class Glossary {
      * @param out
      *            output file
      */
-    private static void generateDefinition(TreeMap<String, String> in,
-            SimpleWriter out) {
+    private static void generateDefinition(String term, String definition,
+            String fileName) {
 
-        for (Entry<String, String> entry : in.entrySet()) {
-            String term = entry.getKey();
-            String definition = entry.getValue();
-
-            out.println("<a id=\"term_" + term + "\">");
-            out.println(term + " - " + definition);
-
+        File file = new File(fileName);
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
 
+        SimpleWriter out = new SimpleWriter1L(fileName);
+
+        out.println("<i><h1><b style='color:red;'>" + term
+                + "</b></i></h1><br><head>" + definition + "</head>");
+        out.println(
+                "<br><br>Return to <a href=\"javascript:history.back()\">index</a>");
+
+        out.close();
     }
 
     /**
@@ -77,44 +96,36 @@ public final class Glossary {
      */
     private static TreeMap<String, String> generateMap(SimpleReader in,
             int length) {
-        int line = 0, i = 0;
+        int line = 1, i = 0;
         String next = in.nextLine(), term = "", definition = "";
         TreeMap<String, String> map = new TreeMap<>();
 
         while (line < length) {
-            while (!next.equals("")) {
+            if (!next.equals("")) {
 
                 if (i == 0) {
-                    term = in.nextLine();
+                    term = next;
                 } else {
-                    definition = definition + " " + in.nextLine();
+                    definition = definition + " " + next;
                 }
-
+                next = in.nextLine();
                 line++;
                 i++;
+
+            } else {
+                map.put(term, definition);
+                term = "";
+                definition = "";
+                i = 0;
                 next = in.nextLine();
+                line++;
             }
 
-            map.put(term, definition);
-            term = "";
-            definition = "";
-            i = 0;
         }
+        map.put(term, definition); // brute force get fcked java
 
-        return null;
+        return map;
 
-    }
-
-    /**
-     * skips 10 lines.
-     *
-     * @param out
-     *            outfile
-     */
-    private static void nextPage(SimpleWriter out) {
-        for (int i = 0; i < 10; i++) {
-            out.println();
-        }
     }
 
     /**
@@ -129,7 +140,41 @@ public final class Glossary {
                 "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"h"
                         + "ttp://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">");
         out.println("<html xmlns=\"http://www.w3.org/1999/xhtml\">");
-        out.println();
+        out.println("<h1>Glossary<h1>");
+        out.println("<h3>Index</h3>");
+    }
+
+    /**
+     * counts the lines in the file. I'll be honest, i ripped this code off the
+     * Internet but honestly it felt like a huge waste of time to try and figure
+     * it out on my own. i don't feel sorry at all. this code wasn't the main
+     * focus of the project. why would i spend my time counting lines when i can
+     * spend time on more important things like Counter-Strike: Global
+     * Offensive?? Did you know I'm top 2 in the world?? I'm a GAMER!!! I
+     * GAMEE!!!!! YOU CANT HOLD ME DOWN WITH YOUR SILLY LINE COUNTING
+     * SHENANIGANS!!!!
+     * IIIIIIIIIIIIIIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!!!!!!!!!!
+     *
+     * @param fileName
+     *            name of file LOL!!!!
+     * @return the number of lines LOL!!!!!
+     * @throws IOException
+     */
+    public static long countLines(String fileName) throws IOException {
+
+        Path path = Paths.get(fileName);
+
+        long lines = 0;
+        try {
+
+            lines = Files.lines(path).count();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return lines;
+
     }
 
     /**
@@ -137,20 +182,36 @@ public final class Glossary {
      *
      * @param args
      *            the command line arguments
-     * @throws FileNotFoundException
+     * @throws IOException
      */
-    public static void main(String[] args) throws FileNotFoundException {
-        File fileLOL = new File("data/terms.txt");
-        int fileLength = (int) fileLOL.length();
-        SimpleReader in = new SimpleReader1L("data/terms.txt");
+    public static void main(String[] args) throws IOException {
+        SimpleReader getName = new SimpleReader1L();
+        SimpleWriter nameGet = new SimpleWriter1L();
+
+        nameGet.print("Enter a file name: ");
+        String fileName = getName.nextLine();
+
+        // getting file name and stuff
+        if (!fileName.substring(0, 5).equals("data/")) {
+            fileName = "data/" + fileName;
+        }
+        if (!fileName.substring(fileName.length() - 4, fileName.length() - 3)
+                .equals(".")) {
+            fileName = fileName + ".txt";
+        }
+
+        getName.close();
+        nameGet.close();
+
+        // i hate comments
+        int fileLength = (int) countLines(fileName);
+        SimpleReader in = new SimpleReader1L(fileName);
         SimpleWriter out = new SimpleWriter1L("data/glossary.html");
         TreeMap<String, String> map;
 
         map = generateMap(in, fileLength);
         generateHeader(out);
         generateTerm(map, out);
-        nextPage(out);
-        generateDefinition(map, out);
 
         in.close();
         out.close();
