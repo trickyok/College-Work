@@ -1,7 +1,7 @@
 Quiz Questions:
 
 1. Best overall
-	Luke
+	Luke Something
 		Addresses all potential sections in the code of ethics which could be 
 		relevant to this case, and discusses if they are truly applicable or not.
 		Well organized, well spoken, and knows what he's talking about.
@@ -14,10 +14,15 @@ Quiz Questions:
 		solve issues that may not seem clear at first.
 
 3. Most disagreed with
-
+	Camden Holmes
+		I believe that it can sometimes be acceptable for an engineer to operate outside
+		of their area of expertise since there are many areas of focus which overlap quite
+		heavily. Due to this, there can be occasions in which an engineer has sufficient 
+		knowledge in order to work in a similar field.
 
 4. Best produced
-
+	Gage Farmer
+		My shit was fire
 
 5. Funniest
 	Stefan Nistor
