@@ -207,6 +207,12 @@ public final class NNCalcController1 implements NNCalcController {
 
         updateViewToMatchModel(this.model, this.view);
 
+        this.view.updateSubtractAllowed(
+                this.model.bottom().compareTo(this.model.top()) == 1);
+        this.view.updateDivideAllowed(!this.model.bottom().equals("0"));
+        this.view.updateRootAllowed(!this.model.bottom().equals("0"));
+        this.view.updatePowerAllowed(this.model.bottom().equals("1"));
+
     }
 
 }

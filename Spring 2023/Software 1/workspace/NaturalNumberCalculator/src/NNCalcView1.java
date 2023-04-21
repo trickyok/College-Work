@@ -1,4 +1,5 @@
 import java.awt.Cursor;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 
@@ -84,8 +85,6 @@ public final class NNCalcView1 extends JFrame implements NNCalcView {
          * digit button events appropriately
          */
         this.currentState = State.SAW_CLEAR;
-
-        // TODO: fill in rest of body, following outline in comments
 
         /*
          * Create widgets
@@ -201,8 +200,8 @@ public final class NNCalcView1 extends JFrame implements NNCalcView {
          * not necessarily equal as with grid layout
          */
 
-        JPanel combinedPanel = new JPanel(
-                new GridLayout(BUTT_GRID_ROWS, BUTT_GRID_COLUMNS));
+        JPanel combinedPanel = new JPanel(new FlowLayout(FlowLayout.CENTER,
+                BUTT_GRID_ROWS, BUTT_GRID_COLUMNS));
 
         /*
          * Add the other two button panels to the combined button panel
