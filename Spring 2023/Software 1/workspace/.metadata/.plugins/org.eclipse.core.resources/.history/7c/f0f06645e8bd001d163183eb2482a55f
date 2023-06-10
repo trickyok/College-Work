@@ -1,0 +1,62 @@
+import components.naturalnumber.NaturalNumber;
+import components.naturalnumber.NaturalNumber2;
+
+/**
+ * Simple HelloWorld program (clear of Checkstyle and SpotBugs warnings).
+ *
+ * @author P. Bucci
+ */
+public final class Homework13 {
+
+    /**
+     * No argument constructor--private to prevent instantiation.
+     */
+    private Homework13() {
+        // no code needed here
+    }
+
+    /**
+     * Returns the product of the digits of {@code n}.
+     *
+     * @param n
+     *            {@code NaturalNumber} whose digits to multiply
+     * @return the product of the digits of {@code n}
+     * @clears n
+     * @ensures productOfDigits1 = [product of the digits of n]
+     */
+    private static NaturalNumber productOfDigits1(NaturalNumber n) {
+
+    	NaturalNumber NINE = new NaturalNumber2(9);
+    	NaturalNumber product = new NaturalNumber2(1);
+    	NaturalNumber n2 = new NaturalNumber2(n);
+    	NaturalNumber remainder = new NaturalNumber2(1);
+    	
+        if (n.compareTo(NINE) == 1) {
+        	remainder = n.divideBy10();
+        	product.multiply(remainder);
+        }
+    }
+
+    /**
+     * Returns the product of the digits of {@code n}.
+     *
+     * @param n
+     *            {@code NaturalNumber} whose digits to multiply
+     * @return the product of the digits of {@code n}
+     * @ensures productOfDigits2 = [product of the digits of n]
+     */
+    private static NaturalNumber productOfDigits2(NaturalNumber n) {
+
+    }
+
+    /**
+     * Main method.
+     *
+     * @param args
+     *            the command line arguments; unused here
+     */
+    public static void main(String[] args) {
+        // TODO: nothing
+    }
+
+}

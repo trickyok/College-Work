@@ -1,0 +1,9 @@
+INDEX VERSION 1.131+C:\Users\Epic Gage\Documents\College-Work\Spring 2023\Software 1\workspace\.metadata\.plugins\org.eclipse.jdt.core
+75462615.index
+2380175872.index
+4041649154.index
+3165491622.index
+2276670378.index
+2872816273.index
+1352072525.index
+1865797976.index
