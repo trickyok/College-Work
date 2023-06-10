@@ -1,5 +1,0 @@
-INDEX VERSION 1.4+C:\Users\Epic Gage\Documents\College-Work\Spring 2023\Software 1\workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-3190807364.index
-3939625090.index
-739403300.index
-368999873.index
