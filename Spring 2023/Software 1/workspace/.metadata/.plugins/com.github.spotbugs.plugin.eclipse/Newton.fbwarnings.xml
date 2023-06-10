@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.7.3" sequence="1" timestamp="1678304969592" analysisTimestamp="1678304968911" release="">
+  <Project projectName="Newton">
+    <Jar>C:\Users\Epic Gage\Documents\College-Work\Spring 2023\Software 1\workspace\Newton\bin\Newton2.class</Jar>
+    <Jar>C:\Users\Epic Gage\Documents\College-Work\Spring 2023\Software 1\workspace\Newton\bin\Newton3.class</Jar>
+    <Jar>C:\Users\Epic Gage\Documents\College-Work\Spring 2023\Software 1\workspace\Newton\bin\Newton4.class</Jar>
+    <AuxClasspathEntry>C:\Users\Epic Gage\Documents\College-Work\Spring 2023\Software 1\workspace\Newton\bin</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Epic Gage\Documents\College-Work\Spring 2023\Software 1\components.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Epic Gage\.p2\pool\plugins\org.junit_4.13.2.v20211018-1956.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Epic Gage\.p2\pool\plugins\org.hamcrest.core_1.3.0.v20180420-1519.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Epic Gage\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.5.v20221102-0933\jre\lib\jrt-fs.jar</AuxClasspathEntry>
+    <SrcDir>C:\Users\Epic Gage\Documents\College-Work\Spring 2023\Software 1\workspace\Newton\src</SrcDir>
+    <SrcDir>\Newton\test</SrcDir>
+  </Project>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Wed, 1 Feb 2023 22:17:07 -0500" total_classes="3" referenced_classes="23" total_bugs="0" total_size="162" num_packages="1" java_version="17.0.5" vm_version="17.0.5+8" cpu_seconds="3.84" clock_seconds="0.68" peak_mbytes="909.62" alloc_mbytes="2048.00" gc_seconds="0.01">
+    <PackageStats package="" total_bugs="0" total_types="3" total_size="162">
+      <ClassStats class="Newton2" sourceFile="Newton2.java" interface="false" size="51" bugs="0"/>
+      <ClassStats class="Newton3" sourceFile="Newton3.java" interface="false" size="55" bugs="0"/>
+      <ClassStats class="Newton4" sourceFile="Newton4.java" interface="false" size="56" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="129" invocations="2" avgMicrosecondsPerInvocation="64821" maxMicrosecondsPerInvocation="118004" standardDeviationMicrosecondsPerInvocation="53183"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="91" invocations="420" avgMicrosecondsPerInvocation="218" maxMicrosecondsPerInvocation="14030" standardDeviationMicrosecondsPerInvocation="684"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="91" invocations="419" avgMicrosecondsPerInvocation="217" maxMicrosecondsPerInvocation="4404" standardDeviationMicrosecondsPerInvocation="408"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="39" invocations="23" avgMicrosecondsPerInvocation="1734" maxMicrosecondsPerInvocation="8716" standardDeviationMicrosecondsPerInvocation="2462"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="29" invocations="100" avgMicrosecondsPerInvocation="290" maxMicrosecondsPerInvocation="2017" standardDeviationMicrosecondsPerInvocation="291"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="20" invocations="23" avgMicrosecondsPerInvocation="912" maxMicrosecondsPerInvocation="7580" standardDeviationMicrosecondsPerInvocation="1558"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="16" invocations="20" avgMicrosecondsPerInvocation="847" maxMicrosecondsPerInvocation="3022" standardDeviationMicrosecondsPerInvocation="778"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="15" invocations="20" avgMicrosecondsPerInvocation="785" maxMicrosecondsPerInvocation="3056" standardDeviationMicrosecondsPerInvocation="851"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="14" invocations="20" avgMicrosecondsPerInvocation="721" maxMicrosecondsPerInvocation="2356" standardDeviationMicrosecondsPerInvocation="602"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="14" invocations="20" avgMicrosecondsPerInvocation="718" maxMicrosecondsPerInvocation="1726" standardDeviationMicrosecondsPerInvocation="540"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="13" invocations="384" avgMicrosecondsPerInvocation="36" maxMicrosecondsPerInvocation="754" standardDeviationMicrosecondsPerInvocation="68"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="13" invocations="23" avgMicrosecondsPerInvocation="582" maxMicrosecondsPerInvocation="3516" standardDeviationMicrosecondsPerInvocation="830"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1678304969592" release="" codeSize="0" numClasses="0"/>
+  </History>
+</BugCollection>
