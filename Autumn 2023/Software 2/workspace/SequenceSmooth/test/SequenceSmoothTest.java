@@ -72,7 +72,7 @@ public final class SequenceSmoothTest {
 	 * Test smooth with s1 = <2, 6, 14, 18> and s2 = <17, 11>.
 	 */
 	@Test
-	public void test3() {
+	public void testQuad() {
 		/*
 		 * Set up variables and call method under test
 		 */
@@ -92,7 +92,7 @@ public final class SequenceSmoothTest {
 	 * Test smooth with s1 = <4, 6, 8> and s2 = <6, 9>.
 	 */
 	@Test
-	public void test4() {
+	public void testTriple() {
 		/*
 		 * Set up variables and call method under test
 		 */
@@ -112,7 +112,7 @@ public final class SequenceSmoothTest {
 	 * Test smooth with s1 = <8, 12> and s2 = <4, 20>.
 	 */
 	@Test
-	public void test5() {
+	public void testDouble() {
 		/*
 		 * Set up variables and call method under test
 		 */
@@ -132,14 +132,94 @@ public final class SequenceSmoothTest {
 	 * Test smooth with s1 = <69> and s2 = <100>.
 	 */
 	@Test
-	public void test6() {
+	public void testSingle() {
 		/*
 		 * Set up variables and call method under test
 		 */
 		Sequence<Integer> seq1 = this.createFromArgs(69);
 		Sequence<Integer> expectedSeq1 = this.createFromArgs(69);
 		Sequence<Integer> seq2 = this.createFromArgs(100);
-		Sequence<Integer> expectedSeq2 = this.createFromArgs(69);
+		Sequence<Integer> expectedSeq2 = this.createFromArgs();
+		SequenceSmooth.smooth(seq1, seq2);
+		/*
+		 * Assert that values of variables match expectations
+		 */
+		assertEquals(expectedSeq1, seq1);
+		assertEquals(expectedSeq2, seq2);
+	}
+
+	/**
+	 * Test smooth with s1 = <-4, -1, 5, 9> and s2 = <6, 7, 8>.
+	 */
+	@Test
+	public void testNegative() {
+		/*
+		 * Set up variables and call method under test
+		 */
+		Sequence<Integer> seq1 = this.createFromArgs(-4, -1, 5, 9);
+		Sequence<Integer> expectedSeq1 = this.createFromArgs(-4, -1, 5, 9);
+		Sequence<Integer> seq2 = this.createFromArgs(6, 7, 8);
+		Sequence<Integer> expectedSeq2 = this.createFromArgs(-2, 2, 7);
+		SequenceSmooth.smooth(seq1, seq2);
+		/*
+		 * Assert that values of variables match expectations
+		 */
+		assertEquals(expectedSeq1, seq1);
+		assertEquals(expectedSeq2, seq2);
+	}
+
+	/**
+	 * Test smooth with s1 = <1073741825, 1073741825> and s2 = <>.
+	 */
+	@Test
+	public void testBigNum() {
+		/*
+		 * Set up variables and call method under test
+		 */
+		Sequence<Integer> seq1 = this.createFromArgs(1073741825, 1073741825);
+		Sequence<Integer> expectedSeq1 = this.createFromArgs(1073741825, 1073741825);
+		Sequence<Integer> seq2 = this.createFromArgs();
+		Sequence<Integer> expectedSeq2 = this.createFromArgs(1073741825);
+		SequenceSmooth.smooth(seq1, seq2);
+		/*
+		 * Assert that values of variables match expectations
+		 */
+		assertEquals(expectedSeq1, seq1);
+		assertEquals(expectedSeq2, seq2);
+	}
+
+	/**
+	 * Test smooth with s1 = <1073741825, -1073741825> and s2 = <>.
+	 */
+	@Test
+	public void testBigNegNum() {
+		/*
+		 * Set up variables and call method under test
+		 */
+		Sequence<Integer> seq1 = this.createFromArgs(1073741825, -1073741825);
+		Sequence<Integer> expectedSeq1 = this.createFromArgs(1073741825, -1073741825);
+		Sequence<Integer> seq2 = this.createFromArgs();
+		Sequence<Integer> expectedSeq2 = this.createFromArgs(0);
+		SequenceSmooth.smooth(seq1, seq2);
+		/*
+		 * Assert that values of variables match expectations
+		 */
+		assertEquals(expectedSeq1, seq1);
+		assertEquals(expectedSeq2, seq2);
+	}
+
+	/**
+	 * Test smooth with s1 = <-1073741823, 1073741824> and s2 = <>.
+	 */
+	@Test
+	public void testBigNegNum2() {
+		/*
+		 * Set up variables and call method under test
+		 */
+		Sequence<Integer> seq1 = this.createFromArgs(-1073741823, 1073741824);
+		Sequence<Integer> expectedSeq1 = this.createFromArgs(-1073741823, 1073741824);
+		Sequence<Integer> seq2 = this.createFromArgs();
+		Sequence<Integer> expectedSeq2 = this.createFromArgs(0);
 		SequenceSmooth.smooth(seq1, seq2);
 		/*
 		 * Assert that values of variables match expectations
