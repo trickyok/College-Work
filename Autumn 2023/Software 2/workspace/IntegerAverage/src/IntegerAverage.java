@@ -37,10 +37,16 @@ public final class IntegerAverage {
 
 		// int avg2 = (((j / 2) * 2) + ((k / 2) * 2)) / 2;
 
-		// does work
-		int avg3 = (int) ((j / 2.0) + (k / 2.0));
+		// does work but uses doubles (not allowed here)
+		// int avg3 = (int) ((j / 2.0) + (k / 2.0));
 
-		return avg3;
+		// correct & refined answer
+		int avg4 = j / 2 + k / 2;
+		if (j % 2 == k % 2) {
+			avg4 += j % 2;
+		}
+
+		return avg4;
 
 	}
 

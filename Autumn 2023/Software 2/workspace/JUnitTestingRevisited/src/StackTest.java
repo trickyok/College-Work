@@ -44,9 +44,8 @@ public abstract class StackTest {
 	private Stack<String> createFromArgsTest(String... args) {
 
 		Stack<String> stack = this.constructorTest();
-		for (String s : args) {
-			assert !s.equals("");
-			stack.push(s);
+		for (int idx = args.length - 1; idx >= 0; idx--) {
+			stack.push(args[idx]);
 		}
 
 		// This line added just to make the program compilable.
@@ -65,8 +64,9 @@ public abstract class StackTest {
 	private Stack<String> createFromArgsRef(String... args) {
 
 		Stack<String> stack = this.constructorRef();
-		for (String s : args) {
-			stack.push(s);
+
+		for (int idx = args.length - 1; idx >= 0; idx--) {
+			stack.push(args[idx]);
 		}
 
 		// This line added just to make the program compilable.
