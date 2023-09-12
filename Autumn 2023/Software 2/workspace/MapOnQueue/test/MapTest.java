@@ -85,8 +85,8 @@ public abstract class MapTest {
     public void addTest() {
 
         Map<String, String> test = this.createFromArgsTest("1", "1", "2", "2");
-        Map<String, String> ref = this.createFromArgsRef("1", "1", "2", "2",
-                "3", "3");
+        Map<String, String> ref = this.createFromArgsRef("1", "1", "3", "3",
+                "2", "2");
 
         test.add("3", "3");
 
