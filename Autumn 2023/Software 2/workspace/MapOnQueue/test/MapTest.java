@@ -68,7 +68,7 @@ public abstract class MapTest {
      * [args.length is even]  and
      * [the 'key' entries in args are unique]
      * </pre>
-     * @ensures createFromArgsRef = [pairs in args]
+     * @ensure+s createFromArgsRef = [pairs in args]
      */
     private Map<String, String> createFromArgsRef(String... args) {
         assert args.length % 2 == 0 : "Violation of: args.length is even";
