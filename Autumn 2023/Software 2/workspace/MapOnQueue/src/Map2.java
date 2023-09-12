@@ -56,7 +56,15 @@ public class Map2<K, V> extends MapSecondary<K, V> {
         assert q != null : "Violation of: q is not null";
         assert key != null : "Violation of: key is not null";
 
-        // TODO - fill in body
+        Pair<K, V> temp = null;
+
+        for (int i = 0; i < q.length(); i++) {
+            temp = q.dequeue();
+            if (temp.key().equals(key)) {
+                i = q.length();
+            }
+            q.enqueue(temp);
+        }
 
     }
 
