@@ -1,8 +1,8 @@
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.TreeMap;
 
+import components.map.Map;
+import components.map.Map.Pair;
+import components.map.Map1L;
 import components.queue.Queue;
 import components.queue.Queue1L;
 import components.simplereader.SimpleReader;
@@ -95,28 +95,22 @@ public final class WordCounter {
      * @param word
      * @param num
      */
-    @SuppressWarnings("unchecked")
-    private static TreeMap queueToTreeMap(Queue<String> word) {
+    private static Map<String, Integer> queueToTreeMap(Queue<String> word) {
 
-        @SuppressWarnings("rawtypes")
-        TreeMap list = new TreeMap();
+        Map<String, Integer> tree = new Map1L<String, Integer>();
 
-        /*
-         * Loops through queues and adds each value to a list
-         */
         while (word.length() > 0) {
             String temp = word.dequeue();
 
-            if (list.containsKey(temp) && temp != " ") {
-                int val = (int) list.remove(temp);
-                val++;
-                list.put(temp, val);
+            if (!tree.hasKey(temp)) {
+                tree.add(temp, 1);
             } else {
-                list.put(temp, 1);
+                tree.replaceValue(temp, tree.value(temp) + 1);
             }
+
         }
 
-        return list;
+        return tree;
 
     }
 
@@ -127,27 +121,23 @@ public final class WordCounter {
      * @param output
      * @throws IOException
      */
-    private static void printGraph(TreeMap list, FileWriter output)
-            throws IOException {
+    private static void printGraph(Map<String, Integer> list,
+            SimpleWriter output) {
 
         /*
          * Intentionally skipping the first key and value (it is whitespace)
          */
-        String key = (String) list.firstKey();
-        int value = (int) list.get(key);
-        list.remove(key);
+        Pair key = list.removeAny();
         int idx = 0;
 
-        output.write(
+        output.println(
                 "<table style=margin-left:auto;margin-right:auto;> \n <tr> <th>"
                         + "Word</th> <th>Occurances</th> </tr> \n");
 
         while (list.size() > 0) {
-            key = (String) list.firstKey();
-            value = (int) list.get(key);
-            output.write(
-                    "<tr> <th>" + key + "</th><th>" + value + "</th> </tr>\n");
-            list.remove(key);
+            key = list.removeAny();
+            output.println("<tr> <th>" + key.key() + "</th><th>" + key.value()
+                    + "</th> </tr>\n");
         }
 
     }
@@ -161,11 +151,10 @@ public final class WordCounter {
      *            name of de file
      * @throws IOException
      */
-    private static void printHeader(FileWriter output, String fileName)
-            throws IOException {
+    private static void printHeader(SimpleWriter output, String fileName) {
 
-        output.write("<!DOCTYPE html>\n");
-        output.write("<html>\n" + "<style>\n" + "table, th, td {\n"
+        output.println("<!DOCTYPE html>\n");
+        output.println("<html>\n" + "<style>\n" + "table, th, td {\n"
                 + "     border:2px solid red;color:#FFFFFF;\n"
 
                 + "}\n" + "#grad1 {\n" + "  height: 55px;\n"
@@ -186,7 +175,7 @@ public final class WordCounter {
      *            the command line arguments
      * @throws IOException
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         SimpleReader in = new SimpleReader1L();
         SimpleWriter out = new SimpleWriter1L();
 
@@ -211,18 +200,18 @@ public final class WordCounter {
         /*
          * Creates html file
          */
-        File file = new File(name2 + "/wordcount.html");
-        FileWriter output = new FileWriter(name2 + "/wordcount.html");
+        SimpleWriter output = new SimpleWriter1L(name2 + "/wordcount.html");
         printHeader(output, name);
 
         /*
          * Gets word data + occurrences to a list
          */
         getWords(input, words);
-        TreeMap list = queueToTreeMap(words);
+        Map<String, Integer> list = queueToTreeMap(words);
 
         /*
-         * Turn that list into an HTML graph Print html footer
+         * Put list in alphabetical order Turn that list into an HTML graph
+         * Print html footer
          */
         printGraph(list, output);
 
