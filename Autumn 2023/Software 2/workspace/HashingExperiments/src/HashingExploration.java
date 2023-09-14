@@ -38,10 +38,22 @@ public final class HashingExploration {
     public static int mod(int a, int b) {
         assert b > 0 : "Violation of: b > 0";
 
-        // TODO - fill in body
+        if (a > 0 && b > 0) {
+            while (a >= b) {
+                a = a - b;
+            }
+        } else if (a < 0 && b > 0) {
+            while (-a >= b || a <= b) {
+                a = a + b;
+            }
+        } else if (a < 0 && b < 0) {
+            while (a <= b) {
+                a = a - b;
+            }
+        }
 
         // This line added just to make the component compilable.
-        return 0;
+        return a;
     }
 
     /**
