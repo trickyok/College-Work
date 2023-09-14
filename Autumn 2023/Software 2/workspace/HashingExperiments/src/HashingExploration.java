@@ -52,7 +52,6 @@ public final class HashingExploration {
             }
         }
 
-        // This line added just to make the component compilable.
         return a;
     }
 
