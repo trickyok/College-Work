@@ -165,15 +165,13 @@ public class SortingMachine3<T> extends SortingMachineSecondary<T> {
         assert x != null : "Violation of: x is not null";
         assert this.isInInsertionMode() : "Violation of: this.insertion_mode";
 
-        // TODO #2 - insert x into machine contents (keep it sorted)
+        this.insertInOrder(this.entries, x, this.machineOrder);
 
     }
 
     @Override
     public final void changeToExtractionMode() {
         assert this.isInInsertionMode() : "Violation of: this.insertion_mode";
-
-        // TODO #3 - switch machine from insertion to extraction mode
 
     }
 
@@ -210,10 +208,8 @@ public class SortingMachine3<T> extends SortingMachineSecondary<T> {
     @Override
     public final int size() {
 
-        // TODO #7 - report size of machine contents
+        return this.entries.length();
 
-        // This line added just to make the component compilable.
-        return 0;
     }
 
     @Override
