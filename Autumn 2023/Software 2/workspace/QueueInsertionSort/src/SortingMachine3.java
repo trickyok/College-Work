@@ -98,7 +98,29 @@ public class SortingMachine3<T> extends SortingMachineSecondary<T> {
         assert x != null : "Violation of: x is not null";
         assert order != null : "Violation of: order is not null";
 
-        // TODO #1 - fill in body
+        boolean in = false;
+        int idx = 0;
+
+        // while index less than length and x not inserted into queue
+        while (idx < q.length() && !in) {
+            // if the front value is alphabetically less than or equal to x
+            if (order.compare(q.front(), x) <= 0) {
+                q.enqueue(x);
+                in = true;
+            }
+
+            idx++;
+            // move front to back
+            T temp = q.dequeue();
+            q.enqueue(temp);
+        }
+
+        // put queue back in order
+        while (idx < q.length()) {
+            T temp = q.dequeue();
+            q.enqueue(temp);
+            idx++;
+        }
 
     }
 
