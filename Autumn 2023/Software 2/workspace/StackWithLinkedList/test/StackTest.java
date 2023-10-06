@@ -1,3 +1,7 @@
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
 import components.stack.Stack;
 
 /**
@@ -66,5 +70,75 @@ public abstract class StackTest {
     }
 
     // TODO - add test cases for constructor, push, pop, and length
+    
+    @Test
+    public void constructorTest1() {
+    	Stack<Object> test = new Stack2<>();
+    	Stack<Object> ref = new Stack2<>();
+    	
+    	assertEquals(ref, test);
+    }
 
+    
+    @Test
+    public void pushTest1() {
+    	Stack<Object> test = new Stack2<>();
+    	Stack<Object> ref = new Stack2<>();
+    	
+    	test.push(4);
+    	test.push(5);
+    	test.push(6);
+    	ref.push(4);
+    	ref.push(5);
+    	ref.push(6);
+    	
+    	assertEquals(ref, test);
+    }
+    
+    
+    @Test
+    public void popTest1() {
+    	Stack<Object> test = new Stack2<>();
+    	Stack<Object> ref = new Stack2<>();
+    	
+    	test.push(4);
+    	test.push(5);
+    	test.push(6);
+    	ref.push(4);
+    	ref.push(5);
+    	ref.push(6);
+    	
+    	test.pop();
+    	ref.pop();
+    	
+    	assertEquals(ref, test);
+    	
+    	test.pop();
+    	ref.pop();
+    	
+    	assertEquals(ref, test);
+    	
+    	test.pop();
+    	ref.pop();
+    	test.pop();
+    	ref.pop();
+    	
+    	assertEquals(ref, test);
+    }
+    
+    
+    @Test
+    public void lengthTest() {
+    	Stack<Object> test = new Stack2<>();
+    	Stack<Object> ref = new Stack2<>();
+    	
+    	test.push(4);
+    	test.push(5);
+    	test.push(6);
+    	ref.push(4);
+    	ref.push(5);
+    	ref.push(6);
+    	
+    	assertEquals(ref.length(), test.length());
+    }
 }
