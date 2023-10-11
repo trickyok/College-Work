@@ -72,15 +72,6 @@ public abstract class StackTest {
     // TODO - add test cases for constructor, push, pop, and length
     
     @Test
-    public void constructorTest1() {
-    	Stack<Object> test = new Stack2<>();
-    	Stack<Object> ref = new Stack2<>();
-    	
-    	assertEquals(ref, test);
-    }
-
-    
-    @Test
     public void pushTest1() {
     	Stack<Object> test = new Stack2<>();
     	Stack<Object> ref = new Stack2<>();
@@ -92,9 +83,41 @@ public abstract class StackTest {
     	ref.push(5);
     	ref.push(6);
     	
-    	assertEquals(ref, test);
+    	assertEquals(ref.top(), test.top());
     }
     
+    @Test
+    public void pushTest2() {
+    	Stack<Object> test = new Stack2<>();
+    	Stack<Object> ref = new Stack2<>();
+    	
+    	test.push(4);
+    	test.push(5);
+    	test.push(6);
+    	test.push(4);
+    	test.push(5);
+    	test.push(6);
+    	ref.push(4);
+    	ref.push(5);
+    	ref.push(6);
+    	ref.push(4);
+    	ref.push(5);
+    	ref.push(6);
+
+    	
+    	assertEquals(ref.top(), test.top());
+    }  
+   
+    @Test
+    public void pushTest3() {
+    	Stack<Object> test = new Stack2<>();
+    	Stack<Object> ref = new Stack2<>();
+    	
+    	test.push(9);
+    	ref.push(9);
+    	
+    	assertEquals(ref.top(), test.top());
+    }
     
     @Test
     public void popTest1() {
@@ -108,23 +131,80 @@ public abstract class StackTest {
     	ref.push(5);
     	ref.push(6);
     	
-    	test.pop();
-    	ref.pop();
+    	assertEquals(ref.pop(), test.pop());
+    	assertEquals(ref.top(), test.top());
     	
-    	assertEquals(ref, test);
+    	assertEquals(ref.pop(), test.pop());
+    	assertEquals(ref.top(), test.top());
     	
-    	test.pop();
-    	ref.pop();
-    	
-    	assertEquals(ref, test);
-    	
-    	test.pop();
-    	ref.pop();
-    	test.pop();
-    	ref.pop();
-    	
-    	assertEquals(ref, test);
+    	assertEquals(ref.pop(), test.pop());
     }
+    
+    @Test
+    public void popTest2() {
+    	Stack<Object> test = new Stack2<>();
+    	Stack<Object> ref = new Stack2<>();
+    	
+    	test.push(4);
+    	test.push(5);
+    	test.push(6);
+    	test.push(4);
+    	test.push(5);
+    	test.push(6);
+    	ref.push(4);
+    	ref.push(5);
+    	ref.push(6);
+    	ref.push(4);
+    	ref.push(5);
+    	ref.push(6);
+    	
+    	assertEquals(ref.pop(), test.pop());
+    	assertEquals(ref.top(), test.top());
+    	
+    	assertEquals(ref.pop(), test.pop());
+    	assertEquals(ref.top(), test.top());
+    	
+    	assertEquals(ref.pop(), test.pop());
+    	assertEquals(ref.top(), test.top());
+    	
+    	assertEquals(ref.pop(), test.pop());
+    	assertEquals(ref.top(), test.top());
+    	
+    	assertEquals(ref.pop(), test.pop());
+    	assertEquals(ref.top(), test.top());
+    	
+    	assertEquals(ref.pop(), test.pop());
+    }  
+    
+    @Test
+    public void pushPopTest1() {
+    	Stack<Object> test = new Stack2<>();
+    	Stack<Object> ref = new Stack2<>();
+    	
+    	test.push(1);
+    	ref.push(1);
+    	
+    	assertEquals(ref.top(), test.top());
+    	assertEquals(ref.pop(), test.pop());
+    	
+    	test.push(2);
+    	ref.push(2);
+    	test.push(3);
+    	ref.push(3);
+    	
+    	assertEquals(ref.top(), test.top());
+    	assertEquals(ref.pop(), test.pop());
+    	
+    	assertEquals(ref.top(), test.top());
+    	assertEquals(ref.pop(), test.pop());
+    	
+    	test.push(0);
+    	ref.push(0);
+    	
+    	assertEquals(ref.top(), test.top());
+    	assertEquals(ref.pop(), test.pop());
+    }
+    
     
     
     @Test
