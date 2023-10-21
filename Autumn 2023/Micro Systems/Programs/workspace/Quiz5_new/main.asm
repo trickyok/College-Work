@@ -64,54 +64,24 @@ mod_exp:
 ; Level 1
 ; Indicate your level above and add your code below
 
-			push.w	R6					; R6 is x
-			push.w	R7					; R7 is e
-			push.w	R8					; R8 is N
-			push.w	R9					; R9 is index
+			push	R7
+			push	R12
 
-			clr.w	R5
-			clr.w	R9
-
-			inc.w	R9					; Increment counter to 1
-			mov.w	R6, R5				; Copy R6 to R5
-
-edgeCase0:
-			cmp.w	#0, R7				; Check if e = 0
-			jne		edgeCase1
-			mov.w	#1,	R5				; Assign 0 to R5
-			jmp		end
-
-edgeCase1:
-			cmp.w	#1, R7				; Check if e = 1
-			jne		loop1
-			jmp		end
-
+			mov.w	#1, R5
 loop1:
-			push.w	R6
-			mov.w 	R5, R6
-			call	#x_times_y			; Multiply y times y
-			pop.w	R6					; Restore x
-			call	#mod					; Find mod of y
-			mov.w	R8, R5				; Move N to y
-			push.w	R9
-			rra.w	R9					; Double counter
-			cmp.w	R7, R9				; Compare doubled counter to e
-			jlo		loop1
-			pop.w	R9					; Restore counter otherwise
+			tst.w	R7
+			jz		end_mod_exp
 
-loop2:
-			cmp.w	R7, R9				; Compare counter to e
-			jge		end					; End loop if counter equals e
-			call	#x_times_y			; Multiply x times y
-			call	#mod					; Find mod of y
-			inc.w	R9
-			jmp		loop2
+			call	#x_times_y			; R12 = R5*R6
+			mov.w	R12, R5
+			call	#mod				; R5 <- R5 % R8
 
-end:
-			pop.w	R9					; Restore all registers
-			pop.w	R8
+			dec.w	R7
+			jmp		loop1
+
+end_mod_exp:
+			pop.w	R12					; Restore all registers
 			pop.w	R7
-			pop.w	R6
 
 			ret
 
@@ -131,10 +101,14 @@ mod:
 ; Add your code below
 
 divisionLoop:						; Division loop
-			sub.w	R8,	R5			; Subtract R8 from R5
-			cmp.w	R8, R5			; Break loop if R8 > R5
-			jlo		divisionLoop
 
+			cmp.w	R8, R5
+			jlo		end_mod
+
+			sub.w	R8,	R5			; Subtract R8 from R5
+			jmp		divisionLoop
+
+end_mod:
 			ret
 
 ;-------------------------------------------------------------------------------
