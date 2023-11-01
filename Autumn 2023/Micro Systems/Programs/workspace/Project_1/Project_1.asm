@@ -21,6 +21,7 @@
 
 LENGTH: 	.set 512
 array: 		.space LENGTH
+min_value:	.word 32767
 ;-------------------------------------------------------------------------------
             .text                           ; Assemble into program memory.
             .retain                         ; Override ELF conditional linking
@@ -60,7 +61,23 @@ done: 		jmp 	done
 ; Subroutine does not access any global variables or defined constants
 ;-------------------------------------------------------------------------------
 sort:
+			push.w	R7						; R7 is array position counter
+			mov.w	#0, R7
 
+sort_loop:
+			call	#select					; Select next lowest number with R9
+
+			add.w	R7, R8					; Add index to array address
+			call	#swap					; Swap R8 and R9
+
+			incd.w	R7
+
+			cmp.w	R10, R7
+			jne		sort_loop				; loop if R7 < R10
+
+
+			pop.w	R7						; restore and return
+			ret
 
 ;-------------------------------------------------------------------------------
 ; Subroutine: select
@@ -77,37 +94,31 @@ sort:
 ; Subroutine does not access any global variables or defined constants
 ;-------------------------------------------------------------------------------
 select:
-			mov.w	#0x7FFF, min_value		// init min_value = max_value
-			clr.w	min_count
+			mov.w	#0x7FFF, min_value		; init min_value = max_value
 			push.w	R5
-			clr.w	R5						// R5 is index
+			clr.w	R5						; R5 is index
 
 
 compare_to_min:
-			cmp.w	min_value, array(R5)	// compare current element to max
-			jl		next_element			// if larger than min, proceed to next
-
-			jeq		same_max				// if equal to min, update count
+			cmp.w	min_value, array(R5)	; compare current element to max
+			jl		next_element			; if larger than min, proceed to next
 
 
-new_max:
-			mov.w	array(R5), min_value	// update min
-			mov.w	#1, max_count			// restart count
+new_min:
+			mov.w	array(R5), min_value	; update min
 			jmp		next_element
 
 
-same_max:
-			inc.w	max_count				// same max, update count
-
 
 next_element:
-			incd.w	R5						// increment counter
+			incd.w	R5						; increment counter
 			cmp.w	R10, R5
-			jne		compare_to_max			// loop if counter == length
+			jne		compare_to_min			; loop if counter == length
 
-			pop.w	R5						// Restore R5
-			mov.w	min_value, R9			// move min to R9
 
+			pop.w	R5						; Restore R5
+			mov.w	#min_value, R9			; move min to R9
+			ret
 
 ;-------------------------------------------------------------------------------
 ; Subroutine: swap
@@ -129,6 +140,8 @@ swap:
 		pop.w	R8							; Pull from stack in backwards order
 		pop.w	R9
 
+
+		ret
 
 ;-------------------------------------------------------------------------------
 ; Stack Pointer definition
