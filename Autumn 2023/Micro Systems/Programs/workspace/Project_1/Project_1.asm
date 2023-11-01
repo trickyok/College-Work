@@ -103,7 +103,7 @@ select:
 
 
 compare_to_min:
-			cmp.w	#R9, array(R5)			; compare current element to max
+			cmp.w	R9, array(R5)			; compare current element to max
 			jge		next_element			; if larger than min, proceed to next
 
 			add.w	#array, R5

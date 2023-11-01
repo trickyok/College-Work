@@ -42,10 +42,7 @@ public final class ExpressionEvaluator {
     private static int valueOfDigit(StringBuilder source) {
         assert source != null : "Violation of: source is not null";
 
-        // TODO - fill in body
-
-        // This line added just to make the program compilable.
-        return 0;
+        return Integer.valueOf(source.charAt(0));
     }
 
     /**
@@ -68,10 +65,27 @@ public final class ExpressionEvaluator {
     private static int valueOfDigitSeq(StringBuilder source) {
         assert source != null : "Violation of: source is not null";
 
-        // TODO - fill in body
+        int idx = 0;
+        int number = 0;
+        int value = 0;
+        StringBuilder expr;
 
-        // This line added just to make the program compilable.
-        return 0;
+        while (idx < source.length()) {
+            Character next = source.charAt(idx);
+
+            if (Character.isDigit(next)) {
+                value = valueOfDigit(source);
+
+            } else if (next == '(' || next == ')') {
+                expr = new StringBuilder(number);
+                value = valueOfExpr(expr);
+                number = 0;
+            }
+
+            idx++;
+        }
+
+        return value;
     }
 
     /**
@@ -99,25 +113,23 @@ public final class ExpressionEvaluator {
         int number = 0;
         int value = 0;
         StringBuilder expr;
-        StringBuilder digit_seq;
 
         while (idx < source.length()) {
             Character next = source.charAt(idx);
 
             if (Character.isDigit(next)) {
-                number = number + next;
+                value = valueOfDigitSeq(source);
+
             } else if (next == '(' || next == ')') {
                 expr = new StringBuilder(number);
-                number = valueOfExpr(expr);
-                value = number * valueOfTerm(source);
+                value = valueOfExpr(expr);
                 number = 0;
             }
 
             idx++;
         }
 
-        // This line added just to make the program compilable.
-        return 0;
+        return value;
     }
 
     /**
