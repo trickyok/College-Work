@@ -16,11 +16,11 @@
 
 ;You can uncomment this portion and use this array to test your code
 ;Do not submit your results for this array !!
-;LENGTH:	.set 16
-;array: 	.word 4, -3, -7, 6, -5, -1, 2, 0
+LENGTH:	.set 16
+array: 	.word 4, -3, -7, 6, -5, -1, 2, 0
 
-LENGTH: 	.set 512
-array: 		.space LENGTH
+;LENGTH: 	.set 512
+;array: 	.space LENGTH
 min_value:	.word 32767
 ;-------------------------------------------------------------------------------
             .text                           ; Assemble into program memory.
@@ -62,6 +62,7 @@ done: 		jmp 	done
 ;-------------------------------------------------------------------------------
 sort:
 			push.w	R7						; R7 is array position counter
+			push.w  R9						; R9 is smallest num pointer
 			mov.w	#0, R7
 
 sort_loop:
@@ -76,7 +77,8 @@ sort_loop:
 			jne		sort_loop				; loop if R7 < R10
 
 
-			pop.w	R7						; restore and return
+			pop.w	R9						; restore and return
+			pop.w	R7
 			ret
 
 ;-------------------------------------------------------------------------------
@@ -94,30 +96,29 @@ sort_loop:
 ; Subroutine does not access any global variables or defined constants
 ;-------------------------------------------------------------------------------
 select:
-			mov.w	#0x7FFF, min_value		; init min_value = max_value
-			push.w	R5
-			clr.w	R5						; R5 is index
+			mov.w	#0x7FFF, R9				; init min_value = max_value
+			push.w	R5						; R5 is index
+			clr.w	R5
+			rla.w	R10
 
 
 compare_to_min:
-			cmp.w	min_value, array(R5)	; compare current element to max
-			jl		next_element			; if larger than min, proceed to next
+			cmp.w	#R9, array(R5)			; compare current element to max
+			jge		next_element			; if larger than min, proceed to next
 
-
-new_min:
-			mov.w	array(R5), min_value	; update min
-			jmp		next_element
-
+			add.w	#array, R5
+			mov.w	R5, R9					; update min
+			sub.w	#array, R5
 
 
 next_element:
 			incd.w	R5						; increment counter
 			cmp.w	R10, R5
-			jne		compare_to_min			; loop if counter == length
+			jl		compare_to_min			; loop if counter == length
 
 
+			rra.w	R10
 			pop.w	R5						; Restore R5
-			mov.w	#min_value, R9			; move min to R9
 			ret
 
 ;-------------------------------------------------------------------------------
@@ -134,12 +135,12 @@ next_element:
 ; It is allowed to use the stack
 ;-------------------------------------------------------------------------------
 swap:
-		push.w	R8							; Push to stack
+
+		push.w	R8
 		push.w	R9
 
-		pop.w	R8							; Pull from stack in backwards order
+		pop.w	R8
 		pop.w	R9
-
 
 		ret
 

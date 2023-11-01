@@ -1,7 +1,7 @@
 ******************************************************************************
                   MSP430 Linker PC v21.6.1                     
 ******************************************************************************
->> Linked Wed Nov  1 09:53:52 2023
+>> Linked Wed Nov  1 15:57:51 2023
 
 OUTPUT FILE NAME:   <Project_1.out>
 ENTRY POINT SYMBOL: "RESET"  address: 00004400
@@ -18,7 +18,7 @@ MEMORY CONFIGURATION
   INFOC                 00001880   00000080  00000000  00000080  RWIX
   INFOB                 00001900   00000080  00000000  00000080  RWIX
   INFOA                 00001980   00000080  00000000  00000080  RWIX
-  RAM                   00001c00   00000800  00000202  000005fe  RWIX
+  RAM                   00001c00   00000800  00000012  000007ee  RWIX
   FRAM                  00004400   0000bb80  0000006c  0000bb14  RWIX
   JTAGSIGNATURE         0000ff80   00000004  00000004  00000000  RWIX  ffff 
   BSLSIGNATURE          0000ff84   00000004  00000004  00000000  RWIX  ffff 
@@ -122,8 +122,8 @@ section   page    origin      length       input sections
 *          0    00004464    00000008     
                   00004464    00000008     rts430x_sc_sd_eabi.lib : isr_trap.asm.obj (.text:_isr:__TI_ISR_TRAP)
 
-.data      0    00001c00    00000202     
-                  00001c00    00000202     Project_1.obj (.data)
+.data      0    00001c00    00000012     
+                  00001c00    00000012     Project_1.obj (.data)
 
 .stack     0    00002400    00000000     
 
@@ -238,9 +238,9 @@ MODULE SUMMARY
        Module             code   ro data   rw data
        ------             ----   -------   -------
     .\
-       Project_1.obj      100    2         514    
+       Project_1.obj      100    2         18     
     +--+------------------+------+---------+---------+
-       Total:             100    2         514    
+       Total:             100    2         18     
                                                   
     C:\ti\ccs1120\ccs\tools\compiler\ti-cgt-msp430_21.6.1.LTS\lib\rts430x_sc_sd_eabi.lib
        isr_trap.asm.obj   8      0         0      
@@ -276,7 +276,7 @@ MODULE SUMMARY
        Total:             8      56        0      
                                                   
     +--+------------------+------+---------+---------+
-       Grand Total:       108    58        514    
+       Grand Total:       108    58        18     
 
 
 GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
