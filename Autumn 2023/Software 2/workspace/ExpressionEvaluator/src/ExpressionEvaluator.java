@@ -95,7 +95,26 @@ public final class ExpressionEvaluator {
     private static int valueOfFactor(StringBuilder source) {
         assert source != null : "Violation of: source is not null";
 
-        // TODO - fill in body
+        int idx = 0;
+        int number = 0;
+        int value = 0;
+        StringBuilder expr;
+        StringBuilder digit_seq;
+
+        while (idx < source.length()) {
+            Character next = source.charAt(idx);
+
+            if (Character.isDigit(next)) {
+                number = number + next;
+            } else if (next == '(' || next == ')') {
+                expr = new StringBuilder(number);
+                number = valueOfExpr(expr);
+                value = number * valueOfTerm(source);
+                number = 0;
+            }
+
+            idx++;
+        }
 
         // This line added just to make the program compilable.
         return 0;
@@ -148,7 +167,7 @@ public final class ExpressionEvaluator {
         }
 
         // This line added just to make the program compilable.
-        return 0;
+        return value;
     }
 
     /**
@@ -199,7 +218,7 @@ public final class ExpressionEvaluator {
         }
 
         // This line added just to make the program compilable.
-        return 0;
+        return value;
 
     }
 
