@@ -24,10 +24,27 @@ StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
 ; Main loop here
 ;-------------------------------------------------------------------------------
 
-main:
-			eint							; Enable interrupts
+			; configure red LED for output - P1.0 - P1xyz registers BIT0
+			bic.b	#BIT0, &P1OUT
+			bis.b	#BIT0, &P1DIR
 
-			jmp main						; infinite loop
+			; configure S1 for input - P1.2 - P1xyz registers BIT1
+			bis.b	#BIT1, &P1REN			; enable resistor
+			bis.b	#BIT1, &P1OUT			; pull-up resistor
+			bis.b	#BIT1, &P1IES			; interrupt on falling edge
+			bis.b	#BIT1, &P1IE			; interrupt enable for port 1
+
+			bic.w	#LOCKPM5,	&PM5CTL0
+
+			; clear all IFGs in P1
+			clr.b	&P1IFG
+
+			nop
+			eint
+			nop
+
+main:		jmp main						; infinite loop
+			nop
 
 
 ;-------------------------------------------------------------------------------
@@ -35,7 +52,15 @@ main:
 ;-------------------------------------------------------------------------------
 
 P1_ISR:
-			clr.b	&P1IFG					; clear all interrupt flags
+			bit.b	#BIT1, P1IFG
+			jnc		ret_from_P1_ISR
+
+			xor.b	#BIT0, &P1OUT			; toggling LED output
+
+clear:
+			bic.b	#BIT1, P1IFG
+
+ret_from_P1_ISR:
 			reti							; return from interrupt
 
 ;-------------------------------------------------------------------------------
