@@ -10,7 +10,7 @@ import components.utilities.FormatChecker;
 /**
  * Program to test method to interpret a BugsWorld virtual machine program.
  *
- * @author Put your name here
+ * @author Gage Farmer
  *
  */
 public final class BugsWorldVMInterpreter {
@@ -215,48 +215,122 @@ public final class BugsWorldVMInterpreter {
         assert isValidInstructionLocation(cp, pc) : ""
                 + "Violation of: pc is the location of an instruction byte code in cp";
 
-        switch (cp[pc]) {
-            case 6:
-                pc = cp[pc + 1];
-                break;
-            case 7:
-                if (wbs) {
+        while (!isPrimitiveInstructionByteCode(cp[pc])) {
+            switch (cp[pc]) {
+                case 6:
+                    if (isValidInstructionLocation(cp, cp[pc + 1])) {
+                        pc = cp[pc + 1];
+                    }
+                    break;
 
-                }
-                break;
-            case 8:
+                case 7:
+                    if (wbs != CellState.EMPTY) {
+                        if (isValidInstructionLocation(cp, cp[pc + 1])) {
+                            pc = cp[pc + 1];
+                        }
+                    } else {
+                        pc++;
+                    }
+                    break;
 
-                break;
-            case 9:
+                case 8:
+                    if (wbs == CellState.EMPTY) {
+                        if (isValidInstructionLocation(cp, cp[pc + 1])) {
+                            pc = cp[pc + 1];
+                        }
+                    } else {
+                        pc++;
+                    }
+                    break;
 
-                break;
-            case 10:
+                case 9:
+                    if (wbs != CellState.WALL) {
+                        if (isValidInstructionLocation(cp, cp[pc + 1])) {
+                            pc = cp[pc + 1];
+                        }
+                    } else {
+                        pc++;
+                    }
+                    break;
 
-                break;
-            case 11:
+                case 10:
+                    if (wbs == CellState.WALL) {
+                        if (isValidInstructionLocation(cp, cp[pc + 1])) {
+                            pc = cp[pc + 1];
+                        }
+                    } else {
+                        pc++;
+                    }
+                    break;
 
-                break;
-            case 12:
+                case 11:
+                    if (wbs != CellState.FRIEND) {
+                        if (isValidInstructionLocation(cp, cp[pc + 1])) {
+                            pc = cp[pc + 1];
+                        }
+                    } else {
+                        pc++;
+                    }
+                    break;
 
-                break;
-            case 13:
+                case 12:
+                    if (wbs == CellState.FRIEND) {
+                        if (isValidInstructionLocation(cp, cp[pc + 1])) {
+                            pc = cp[pc + 1];
+                        }
+                    } else {
+                        pc++;
+                    }
+                    break;
 
-                break;
-            case 14:
+                case 13:
+                    if (wbs != CellState.ENEMY) {
+                        if (isValidInstructionLocation(cp, cp[pc + 1])) {
+                            pc = cp[pc + 1];
+                        }
+                    } else {
+                        pc++;
+                    }
+                    break;
 
-                break;
-            case 15:
+                case 14:
+                    if (wbs == CellState.ENEMY) {
+                        if (isValidInstructionLocation(cp, cp[pc + 1])) {
+                            pc = cp[pc + 1];
+                        }
+                    } else {
+                        pc++;
+                    }
+                    break;
 
-                break;
-            case 16:
+                case 15:
+                    if (Math.random() >= .5) {
+                        if (isValidInstructionLocation(cp, cp[pc + 1])) {
+                            pc = cp[pc + 1];
+                        }
+                    } else {
+                        pc++;
+                    }
+                    break;
 
-                break;
-            default:
-                break;
+                case 16:
+                    if (!conditionalJumpCondition(wbs, cp[pc])) {
+                        if (isValidInstructionLocation(cp, cp[pc + 1])) {
+                            pc = cp[pc + 1];
+                        }
+                    } else {
+                        pc++;
+                    }
+                    break;
+
+                default:
+                    pc++;
+                    break;
+            }
         }
 
         // This line added just to make the program compilable.
-        return 0;
+        return pc;
     }
 
     /**
