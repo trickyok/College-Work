@@ -67,10 +67,10 @@ public final class Statement1Parse1 extends Statement1 {
         String front = tokens.dequeue();
 
         if (front.equals("IF")) {
-            s.assembleIf(parseCondition(tokens.dequeue()), s); // Unsure what args to use
+            s.assembleIf(parseCondition(tokens.dequeue()), s); 			// Unsure what args to use
 
         } else if (front.equals("IF_ELSE")) {
-            s.assembleIfElse(parseCondition(tokens.dequeue()), s, s); // Unsure what args to use
+            s.assembleIfElse(parseCondition(tokens.dequeue()), s, s); 	// Unsure what args to use
 
         }
 
@@ -104,7 +104,7 @@ public final class Statement1Parse1 extends Statement1 {
                 + "Violation of: <\"WHILE\"> is proper prefix of tokens";
 
         if (tokens.dequeue().equals("WHILE")) {
-            s.assembleWhile(parseCondition(tokens.dequeue()), s);
+            s.assembleWhile(parseCondition(tokens.dequeue()), s);		// Unsure what args to use
             parseWhile(tokens, s);
         }
     }
@@ -132,7 +132,7 @@ public final class Statement1Parse1 extends Statement1 {
                 && Tokenizer.isIdentifier(tokens.front()) : ""
                         + "Violation of: identifier string is proper prefix of tokens";
 
-        s.parse(tokens);
+        s.assembleCall(tokens.dequeue());
 
     }
 
@@ -156,8 +156,14 @@ public final class Statement1Parse1 extends Statement1 {
         assert tokens != null : "Violation of: tokens is not null";
         assert tokens.length() > 0 : ""
                 + "Violation of: Tokenizer.END_OF_INPUT is a suffix of tokens";
-
-        // TODO - fill in body
+        
+        if (tokens.front().equals("IF") || tokens.front().equals("IF_ELSE")) {
+        	parseIf(tokens, this);
+        } else if (tokens.front().equals("WHILE")) {
+        	parseWhile(tokens, this);
+        } else {
+        	parseCall(tokens, this);
+        }
 
     }
 
@@ -166,8 +172,13 @@ public final class Statement1Parse1 extends Statement1 {
         assert tokens != null : "Violation of: tokens is not null";
         assert tokens.length() > 0 : ""
                 + "Violation of: Tokenizer.END_OF_INPUT is a suffix of tokens";
-
-        // TODO - fill in body
+        
+        //
+        while (!tokens.front().equals("END")) {
+        	parse(tokens);
+        }
+        
+        tokens.dequeue();
 
     }
 
