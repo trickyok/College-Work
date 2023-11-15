@@ -17,9 +17,17 @@ public final class ExpressionEvaluator {
      */
     private static final int RADIX = 10;
 
-    private static final char[] terms = { '0', '1', '2', '3', '4', '5', '6',
-            '7', '8', '9', '*', '/', '(', ')' };
+    private static final String[] terms = { "0", "1", "2", "3", "4", "5", "6",
+            "7", "8", "9", "*", "/", "(", ")" };
+    
+    private static final String[] factors = { "0", "1", "2", "3", "4", "5", "6",
+            "7", "8", "9", "(", ")" };
+    
+    private static final String[] digits = { "0", "1", "2", "3", "4", "5", "6",
+            "7", "8", "9" };
 
+    public static SimpleWriter out = new SimpleWriter1L();
+    
     /**
      * Private constructor so this utility class cannot be instantiated.
      */
@@ -66,26 +74,27 @@ public final class ExpressionEvaluator {
         assert source != null : "Violation of: source is not null";
 
         int idx = 0;
-        int number = 0;
-        int value = 0;
-        StringBuilder expr;
+        StringBuilder value = new StringBuilder();
+        StringBuilder term = new StringBuilder();
+        StringBuilder next = new StringBuilder();
 
         while (idx < source.length()) {
-            Character next = source.charAt(idx);
-
-            if (Character.isDigit(next)) {
-                value = valueOfDigit(source);
-
-            } else if (next == '(' || next == ')') {
-                expr = new StringBuilder(number);
-                value = valueOfExpr(expr);
-                number = 0;
-            }
+        	next.delete(0, next.length());
+        	next.append(source.charAt(idx));
+        	term.append(next);
+            
+        	for (String check : digits) {
+        		if (next.toString() == check) {
+        			value.append(Integer.toString(valueOfDigit(next)));
+                } else {
+                	idx = source.length();
+                }
+        	}
 
             idx++;
         }
-
-        return value;
+        
+        return Integer.valueOf(value.toString());
     }
 
     /**
@@ -109,26 +118,17 @@ public final class ExpressionEvaluator {
     private static int valueOfFactor(StringBuilder source) {
         assert source != null : "Violation of: source is not null";
 
-        int idx = 0;
-        int number = 0;
         int value = 0;
-        StringBuilder expr;
+        StringBuilder digitSeq = new StringBuilder();
+        StringBuilder next = new StringBuilder();
+        StringBuilder source2 = new StringBuilder();
 
-        while (idx < source.length()) {
-            Character next = source.charAt(idx);
-
-            if (Character.isDigit(next)) {
-                value = valueOfDigitSeq(source);
-
-            } else if (next == '(' || next == ')') {
-                expr = new StringBuilder(number);
-                value = valueOfExpr(expr);
-                number = 0;
-            }
-
-            idx++;
+        if (source.charAt(0) == '(') {
+        	value = valueOfExpr(source);
+        } else {
+        	value = valueOfDigitSeq(source);
         }
-
+        
         return value;
     }
 
@@ -153,32 +153,37 @@ public final class ExpressionEvaluator {
     private static int valueOfTerm(StringBuilder source) {
         assert source != null : "Violation of: source is not null";
 
-        int idx = 0;
-        int number = 0;
         int value = 0;
-        StringBuilder factor;
+        int idx = 0;
+        StringBuilder factor = new StringBuilder();
+        StringBuilder next = new StringBuilder();
+        StringBuilder source2 = new StringBuilder();
 
         while (idx < source.length()) {
-            Character next = source.charAt(idx);
-
-            if (Character.isDigit(next) || next == '(' || next == ')') {
-                number = number + next;
-            } else if (next == '*') {
-                factor = new StringBuilder(number);
-                number = valueOfFactor(factor);
-                value = number * valueOfTerm(source);
-                number = 0;
-            } else if (next == '/') {
-                factor = new StringBuilder(number);
-                number = valueOfFactor(factor);
-                value = value / number;
-                number = 0;
-            }
+        	next.delete(0, next.length());
+        	next.append(source.charAt(idx));
+        	factor.append(next);
+            
+        	for (String check : factors) {
+        		if (next.toString() == check) {
+        			// do nothing lol
+                } else if (next.toString() == "*") {
+                	source2 = source;
+                	source2.delete(0, idx);
+                    value += valueOfFactor(factor) * valueOfTerm(source2);
+                    															
+                } else if (next.toString() == "/") {
+                	source2 = source;
+                	source2.delete(0, idx);
+                    value += valueOfFactor(factor) / valueOfTerm(source2);
+                } else {
+                	idx = source.length();
+                }
+        	}
 
             idx++;
         }
-
-        // This line added just to make the program compilable.
+        
         return value;
     }
 
@@ -204,30 +209,42 @@ public final class ExpressionEvaluator {
         assert source != null : "Violation of: source is not null";
 
         int value = 0;
-        int number = 0;
         int idx = 0;
-        StringBuilder term = new StringBuilder(number);
+        StringBuilder term = new StringBuilder();
+        StringBuilder next = new StringBuilder();
+        StringBuilder source2 = new StringBuilder();
 
         while (idx < source.length()) {
-            Character next = source.charAt(idx);
-
-            if (Character.isDigit(next) || next == '*' || next == '/'
-                    || next == '(' || next == ')') {
-                number = number + next;
-            } else if (next == '-') {
-                term = new StringBuilder(number);
-                number = valueOfTerm(term);
-                value = value - number;
-                number = 0;
-            } else if (next == '+') {
-                term = new StringBuilder(number);
-                number = valueOfTerm(term);
-                value = value + number;
-                number = 0;
+        	next.delete(0, next.length());
+        	next.append(source.charAt(idx));
+            
+        	for (String check : terms) {
+        		out.println(next.toString());
+        		out.println(check);
+        		
+        		if (next.toString() == check) {
+        			term.append(next);
+        		}
+        	}
+            
+        	if (next.toString() == "-") {
+                source2 = source;
+                source2.delete(0, idx);
+                value += valueOfTerm(term) - valueOfExpr(source2);
+                break;
+        	} else if (next.toString() == "+") {
+                source2 = source;
+                source2.delete(0, idx);
+                value += valueOfTerm(term) + valueOfExpr(source2);
+                break;
+                    
             }
-
-            idx++;
+        	
+        	idx++;
         }
+
+    
+
 
         // This line added just to make the program compilable.
         return value;

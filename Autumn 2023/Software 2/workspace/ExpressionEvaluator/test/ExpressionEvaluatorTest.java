@@ -22,4 +22,22 @@ public final class ExpressionEvaluatorTest {
 
     // TODO - add other (simpler) test cases to help with debugging
 
+    
+    @Test
+    public void test1() {
+        StringBuilder exp = new StringBuilder(
+                "9+10=19!");
+        int value = ExpressionEvaluator.valueOfExpr(exp);
+        assertEquals(19, value);
+        assertEquals("=19!", exp.toString());
+    }
+    
+    @Test
+    public void test2() {
+        StringBuilder exp = new StringBuilder(
+                "10-9=1!");
+        int value = ExpressionEvaluator.valueOfExpr(exp);
+        assertEquals(1, value);
+        assertEquals("=1!", exp.toString());
+    }
 }
