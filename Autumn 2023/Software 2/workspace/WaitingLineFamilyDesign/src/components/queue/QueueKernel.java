@@ -16,7 +16,7 @@ import components.standard.Standard;
  * </pre>
  * @iterator ~this.seen * ~this.unseen = this
  */
-public interface QueueKernel<T> extends Standard<Queue<T>>, Iterable<T> {
+public interface QueueKernel<T> extends Standard<WaitingLine<T>>, Iterable<T> {
 
     /**
      * Adds {@code x} to the end of {@code this}.

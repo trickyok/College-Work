@@ -1,12 +1,11 @@
 package components.waitingLine;
-import java.util.Comparator;
 
 /**
  * @author Gage Farmer
  * @author Nolan Xu
  * @author Minh Cho
  * @author Ben Holm-Bertelsen
- * @author Henry Fritz 
+ * @author Henry Fritz
  */
 
 /**
@@ -59,27 +58,26 @@ public interface WaitingLine<T> extends WaitingLineKernel<T> {
     T replaceFront(T x);
 
     /**
-     * Merges two waiting lines in a fair matter
+     * Merges two waiting lines in a fair matter.
      *
      * @param w
      *            the {@code WaitingLine} to be merged into {@code this}
      * @updates this
      * @clears w
      * @requires {@code entries(this) intersect entries(w) = empty set}
-     * @ensures for all a, b in this,
-     * 			if a, b in #this and #this.indexOf(a) < #this.indexOf(b) or
-     * 			if a, b in #w and #w.indexOf(a) < #w.indexOf(b) then
-     * 			this.indexOf(a) < this.indexOf(b)
+     * @ensures for all a, b in this, if a, b in #this and #this.indexOf(a) <
+     *          #this.indexOf(b) or if a, b in #w and #w.indexOf(a) <
+     *          #w.indexOf(b) then this.indexOf(a) < this.indexOf(b)
      */
     void merge(WaitingLine<T> w);
-    
+
     /**
-     * Splits one line into two, returns the second line
+     * Splits one line into two, returns the second line.
      *
      * @param x
-     *            the position where the split will occur, value at x
-     *            will be front of returned WaitingLine
-     * @return	new WaitingLine
+     *            the position where the split will occur, value at x will be
+     *            front of returned WaitingLine
+     * @return new WaitingLine
      * @updates this
      * @ensures |this| = |this| / 2
      */

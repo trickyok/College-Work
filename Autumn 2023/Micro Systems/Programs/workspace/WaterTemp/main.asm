@@ -9,11 +9,27 @@
             .def    RESET                   ; Export program entry-point to
                                             ; make it known to linker.
 ;-------------------------------------------------------------------------------
-            .text                           ; Assemble into program memory.
+            .data                           ; Assemble into program memory.
             .retain                         ; Override ELF conditional linking
                                             ; and retain current section.
             .retainrefs                     ; And retain any sections that have
                                             ; references to current section.
+
+TAP_COLD:	.set -1
+COLD:		.set 30
+WARM:		.set 40
+HOT:		.set 60
+EXTRA_HOT:	.set 95
+
+ind_TAP_COLD:	.set 0
+ind_COLD:		.set 2
+ind_WARM:		.set 4
+ind_HOT:		.set 6
+ind_EXTRA_HOT:	.set 8
+ind_WRAPAROUND:	.set 10
+
+target_temp:	.word	WARM
+ind_target_temp:.word	ind_WARM
 
 ;-------------------------------------------------------------------------------
 RESET       mov.w   #__STACK_END,SP         ; Initialize stackpointer
@@ -23,61 +39,44 @@ StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
 ;-------------------------------------------------------------------------------
 ; Main loop here
 ;-------------------------------------------------------------------------------
-			; Configure red LED for output, start with unlit LED
-			; Red LED is connected to P1.0
-			bic.b	#BIT0, &P1OUT				; Red LED off
-			bis.b	#BIT0, &P1DIR 				; Direction to outpu
 
-			; Configure green LED for output, start with unlit LED
-			; Green LED is connected to P9.7
-			bic.b	#BIT7, &P9OUT
-			bis.b	#BIT7, &P9DIR
+			; Configure S1 for input (P1.1)
+			bis.b	#BIT1,	&P1REN			; Resistor enabled
+			bis.b	#BIT1,	&P1OUT			; Pull-up resistor
+			bis.b	#BIT1,	&P1IES			; Falling edge resistors interrupt
+			bis.b	#BIT1,	&P1IE			; Interrupts enabled
 
-			; Configure push buttons S1 and S2 for input
-			; S1 is connected to P1.1; S2 is connected to P1.2
-			bis.b	#BIT1|BIT2, &P1REN 			; Resistor enabled
-			bis.b	#BIT1|BIT2, &P1OUT			; Pullup resistor
-			bic.b	#BIT1|BIT2, &P1IES			; Interrupt on raising-edge
-			bis.b	#BIT1|BIT2, &P1IE			; Enable port interrupts
-
-			; Disable power lock
-			bic.w	#LOCKLPM5, &PM5CTL0
-
-			; Clear all IFGs in P1 in case they are set during config
-			clr.b  	&P1IFG
-
+			; Enable interrupts
 			nop
-			eint 				; Enable general interrupts
+			eint
 			nop
 
-main:		jmp 	main
+main:		jmp main
+
+
+set_target_temp:
+			cmp.w	#TAP_COLD, target_temp
+			jne		check_COLD
+
+			mov.w	#COLD, target_temp
+
 
 ;-------------------------------------------------------------------------------
 ; Interrupt Service Routines
 ;-------------------------------------------------------------------------------
-P1_ISR:
 
-check_S1:	; Check source of interrupt: is it P1.1?
-			bit.b	#BIT1, &P1IFG
-			jnc		check_S2
+P1_ISR:
+			; Check the source of interrupt
+check_S1:
+			bit.b	#BIT1,	&P1IFG
+			jnc		P
 
 service_S1:
-			xor.b	#BIT7, &P9OUT
-			bic.b	#BIT1, &P1IFG	; clear the flag
+			bic.b
 
-check_S2:
-			; Check source of interrupt: is it P1.2?
-			bit.b	#BIT2, &P1IFG
-			jnc		return_from_P1_ISR
 
-service_S2:
-			xor.b	#BIT0, &P1OUT
-			bic.b	#BIT2, &P1IFG	; clear the flag
-
-return_from_P1_ISR:
-
-			reti					; return from interrupt
-
+return_ISR:
+ 			reti							; Return from interrupt
 
 ;-------------------------------------------------------------------------------
 ; Stack Pointer definition
@@ -90,7 +89,4 @@ return_from_P1_ISR:
 ;-------------------------------------------------------------------------------
             .sect   ".reset"                ; MSP430 RESET Vector
             .short  RESET
-
-            .sect	".int37"				; I/O Port 1 Vector
-			.short	P1_ISR
-
+            
