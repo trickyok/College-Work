@@ -10,8 +10,7 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
-"./fib.obj" \
-"./subroutine1.obj" \
+"./main.obj" \
 "../lnk_msp430fr6989.cmd" \
 $(GEN_CMDS__FLAG) \
 -llibmpu_init.a \
@@ -123,42 +122,42 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-classwork.out \
+blinky.out \
 
 EXE_OUTPUTS__QUOTED += \
-"classwork.out" \
+"blinky.out" \
 
 BIN_OUTPUTS += \
-classwork.hex \
+blinky.hex \
 
 BIN_OUTPUTS__QUOTED += \
-"classwork.hex" \
+"blinky.hex" \
 
 
 # All Target
 all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "classwork.out"
+	@$(MAKE) --no-print-directory -Onone "blinky.out"
 
 # Tool invocations
-classwork.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+blinky.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: MSP430 Linker'
-	"C:/ti/ccs1120/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --code_model=small --data_model=small --use_hw_mpy=F5 --advice:power=all --advice:hw_config=all --define=__MSP430FR6989__ --define=_MPU_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 -z -m"classwork.map" --heap_size=0 --stack_size=0 --cinit_hold_wdt=on -i"C:/ti/ccs1120/ccs/ccs_base/msp430/include" -i"C:/ti/ccs1120/ccs/ccs_base/msp430/lib/5xx_6xx_FRxx" -i"C:/ti/ccs1120/ccs/ccs_base/msp430/lib/FR59xx" -i"C:/ti/ccs1120/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/lib" -i"C:/ti/ccs1120/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --priority --reread_libs --define=_MPU_ENABLE --diag_wrap=off --display_error_number --warn_sections --xml_link_info="classwork_linkInfo.xml" --entry_point=RESET --use_hw_mpy=F5 -o "classwork.out" $(ORDERED_OBJS)
+	"C:/ti/ccs1120/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --code_model=small --data_model=small --use_hw_mpy=F5 --advice:power=all --advice:hw_config=all --define=__MSP430FR6989__ --define=_MPU_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 -z -m"blinky.map" --heap_size=0 --stack_size=0 --cinit_hold_wdt=on -i"C:/ti/ccs1120/ccs/ccs_base/msp430/include" -i"C:/ti/ccs1120/ccs/ccs_base/msp430/lib/5xx_6xx_FRxx" -i"C:/ti/ccs1120/ccs/ccs_base/msp430/lib/FR59xx" -i"C:/ti/ccs1120/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/lib" -i"C:/ti/ccs1120/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --priority --reread_libs --define=_MPU_ENABLE --diag_wrap=off --display_error_number --warn_sections --xml_link_info="blinky_linkInfo.xml" --entry_point=RESET --use_hw_mpy=F5 -o "blinky.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
-classwork.hex: $(EXE_OUTPUTS)
+blinky.hex: $(EXE_OUTPUTS)
 	@echo 'Building secondary target: "$@"'
 	@echo 'Invoking: MSP430 Hex Utility'
-	"C:/ti/ccs1120/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/hex430" --memwidth=8 --romwidth=8 --diag_wrap=off -o "classwork.hex" $(EXE_OUTPUTS__QUOTED)
+	"C:/ti/ccs1120/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/hex430" --memwidth=8 --romwidth=8 --diag_wrap=off -o "blinky.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building secondary target: "$@"'
 	@echo ' '
 
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "fib.obj" "subroutine1.obj" 
-	-$(RM) "fib.d" "subroutine1.d" 
+	-$(RM) "main.obj" 
+	-$(RM) "main.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

@@ -9,27 +9,21 @@ CMD_SRCS += \
 ../lnk_msp430fr6989.cmd 
 
 ASM_SRCS += \
-../fib.asm \
-../subroutine1.asm 
+../main.asm 
 
 OBJS += \
-./fib.obj \
-./subroutine1.obj 
+./main.obj 
 
 ASM_DEPS += \
-./fib.d \
-./subroutine1.d 
+./main.d 
 
 OBJS__QUOTED += \
-"fib.obj" \
-"subroutine1.obj" 
+"main.obj" 
 
 ASM_DEPS__QUOTED += \
-"fib.d" \
-"subroutine1.d" 
+"main.d" 
 
 ASM_SRCS__QUOTED += \
-"../fib.asm" \
-"../subroutine1.asm" 
+"../main.asm" 
 
 
