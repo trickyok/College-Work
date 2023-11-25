@@ -1,12 +1,9 @@
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
 import components.map.Map.Pair;
-import components.map.Map4;
 import components.naturalnumber.NaturalNumber;
-import components.set.Set1L;
 
 /**
  * Simple class to experiment with the Java Collections Framework and how it
@@ -46,18 +43,19 @@ public final class JCFExplorations {
             char initial, int raisePercent) {
         assert map != null : "Violation of: map is not null";
         assert raisePercent > 0 : "Violation of: raisePercent > 0";
-
+        
         Iterator<Pair<String, Integer>> itr = map.iterator();
-
+        Pair<String, Integer> object = null;
+        
         while (itr.hasNext()) {
-            Pair<String, Integer> object = itr.next();
-
-            if (object.key().charAt(0) == initial) {
-                int newValue = object.value()
-                        + (object.value() * raisePercent / 100);
-                map.replaceValue(object.key(), newValue);
-            }
+        	object = itr.next();
+        	
+        	if (object.key().charAt(0) == initial) {
+        		int newValue = object.value() + (object.value() * raisePercent / 100);
+        		map.replaceValue(object.key(), newValue);
+        	}
         }
+        
     }
 
     /**
@@ -97,7 +95,7 @@ public final class JCFExplorations {
 
             if (object.getKey().charAt(0) == initial) {
                 int newValue = object.getValue()
-                        + (object.getValue() * (raisePercent / 100));
+                        + (object.getValue() * raisePercent / 100);
                 map.replace(object.getKey(), newValue);
             }
         }
@@ -116,14 +114,18 @@ public final class JCFExplorations {
      */
     public static void incrementAll(components.set.Set<NaturalNumber> set) {
         assert set != null : "Violation of: set is not null";
-
-        Iterator<NaturalNumber> itr = set.iterator();
-
-        while (itr.hasNext()) {
-        	NaturalNumber object = set.removeAny();
-        	set.remove(object);
-        	
+        
+        NaturalNumber currentNum = null;
+        components.set.Set<NaturalNumber> newSet = set.newInstance();
+        int setSize = set.size();
+        
+        for (int i = 0; i < setSize; i++) {
+        	currentNum = set.removeAny();
+        	currentNum.increment();
+        	newSet.add(currentNum);
         }
+        
+        set.transferFrom(newSet);
     }
 
     /**
@@ -145,16 +147,20 @@ public final class JCFExplorations {
     public static void incrementAll(java.util.Set<NaturalNumber> set) {
         assert set != null : "Violation of: set is not null";
 
-        Object[] array = set.toArray();
+        Iterator<NaturalNumber> itr = set.iterator();
+        java.util.Set<NaturalNumber> newSet = new HashSet<NaturalNumber>();
+        int setSize = set.size();
+        NaturalNumber currentNum = null;
         
-        for (int i =0; i < array.length; i++) {
-        	NaturalNumber object = (NaturalNumber) array[i];	// select an object from array
-        	
-        	object.increment();									// increment object
-        	
-        	set.remove(array[i]);
-        	set.add(object);									// put object back into set
+        for (int i = 0; i < setSize; i++) {
+        	currentNum = itr.next();
+        	currentNum.increment();
+        	newSet.add(currentNum);
         }
+        
+        set = newSet;
+        newSet = set;
+        
     }
 
 }

@@ -234,6 +234,34 @@ public class JCFExplorationsTest {
         /* Evaluation */
         assertEquals(mExpected, m);
     }
+    
+    @Test
+    public final void testGiveRaiseOSU2() {
+        /* Setup */
+        components.map.Map<String, Integer> m = this.mapCreateFromArgsOSU(
+        		"lannister", "100000");
+        components.map.Map<String, Integer> mExpected =
+                this.mapCreateFromArgsOSU("lannister", "100000");
+        /* The Call */
+        JCFExplorations.giveRaise(m, 'h', 32);
+        /* Evaluation */
+        assertEquals(mExpected, m);
+    }
+
+    @Test
+    public final void testGiveRaiseJCF2() {
+        /* Setup */
+        java.util.Map<String, Integer> m = this.mapCreateFromArgsJCF(
+        		"lannister", "100000");
+        java.util.Map<String, Integer> mExpected =
+                this.mapCreateFromArgsJCF("lannister", "100000");
+        /* The Call */
+        JCFExplorations.giveRaise(m, 'h', 32);
+        /* Evaluation */
+        assertEquals(mExpected, m);
+    }
+    
+    
 
     // TODO - add other test cases for both versions of giveRaise
 
