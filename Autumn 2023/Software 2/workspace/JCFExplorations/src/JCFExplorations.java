@@ -159,7 +159,6 @@ public final class JCFExplorations {
         }
         
         set = newSet;
-        newSet = set;
         
     }
 
