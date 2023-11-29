@@ -206,9 +206,95 @@ public class JCFExplorationsTest {
         /* Evaluation */
         assertEquals(mExpected, m);
     }
+     
+    @Test
+    public final void testGiveRaiseOSU1() {
+        /* Setup */
+        components.map.Map<String, Integer> m = this.mapCreateFromArgsOSU(
+        		"han", "69000", "harry", "120000", "bert", "56000");
+        components.map.Map<String, Integer> mExpected =
+                this.mapCreateFromArgsOSU("han", "91080", "harry", "158400", 
+                		"bert", "56000");
+        /* The Call */
+        JCFExplorations.giveRaise(m, 'h', 32);
+        /* Evaluation */
+        assertEquals(mExpected, m);
+    }
 
-    // TODO - add other test cases for both versions of giveRaise
+    @Test
+    public final void testGiveRaiseJCF1() {
+        /* Setup */
+        java.util.Map<String, Integer> m = this.mapCreateFromArgsJCF("han",
+        		"69000", "harry", "120000", "bert", "56000");
+        java.util.Map<String, Integer> mExpected = this.mapCreateFromArgsJCF(
+        		"han", "91080", "harry", "158400", "bert", "56000");
+        /* The Call */
+        JCFExplorations.giveRaise(m, 'h', 32);
+        /* Evaluation */
+        assertEquals(mExpected, m);
+    }
+    
+    @Test
+    public final void testGiveRaiseOSU2() {
+        /* Setup */
+        components.map.Map<String, Integer> m = this.mapCreateFromArgsOSU(
+        		"lannister", "100000");
+        components.map.Map<String, Integer> mExpected =
+                this.mapCreateFromArgsOSU("lannister", "100000");
+        /* The Call */
+        JCFExplorations.giveRaise(m, 'h', 32);
+        /* Evaluation */
+        assertEquals(mExpected, m);
+    }
 
+    @Test
+    public final void testGiveRaiseJCF2() {
+        /* Setup */
+        java.util.Map<String, Integer> m = this.mapCreateFromArgsJCF(
+        		"lannister", "100000");
+        java.util.Map<String, Integer> mExpected =
+                this.mapCreateFromArgsJCF("lannister", "100000");
+        /* The Call */
+        JCFExplorations.giveRaise(m, 'h', 32);
+        /* Evaluation */
+        assertEquals(mExpected, m);
+    }
+    
+    @Test
+    public final void testGiveRaiseOSU3() {
+        /* Setup */
+        components.map.Map<String, Integer> m = this.mapCreateFromArgsOSU(
+        		"davis", "30000", "boris", "30000", "toris", "30000", 
+        		"doris", "30000", "dingle", "40000", "tingle", "40000");
+        components.map.Map<String, Integer> mExpected =
+                this.mapCreateFromArgsOSU("davis", "36000", "boris", 
+                		"30000", "toris", "33000", "doris", "36000", 
+                		"dingle", "48000", "tingle", "44000");
+        /* The Call */
+        JCFExplorations.giveRaise(m, 'd', 20);
+        JCFExplorations.giveRaise(m, 't', 10);
+        /* Evaluation */
+        assertEquals(mExpected, m);
+    }
+
+    @Test
+    public final void testGiveRaiseJCF3() {
+        /* Setup */
+    	java.util.Map<String, Integer> m = this.mapCreateFromArgsJCF(
+        		"davis", "30000", "boris", "30000", "toris", "30000", 
+        		"doris", "30000", "dingle", "40000", "tingle", "40000");
+    	java.util.Map<String, Integer> mExpected =this.mapCreateFromArgsJCF(
+    			"davis", "36000", "boris", "30000", "toris", "33000", 
+    			"doris", "36000", "dingle", "48000", "tingle", "44000");
+        /* The Call */
+        JCFExplorations.giveRaise(m, 'd', 20);
+        JCFExplorations.giveRaise(m, 't', 10);
+        /* Evaluation */
+        assertEquals(mExpected, m);
+    }
+    
+    // Test incrementAll ------------------------------------------------------
+    
     @Test
     public final void testIncrementAllOSUExample1() {
         /* Setup */
@@ -238,7 +324,46 @@ public class JCFExplorationsTest {
                     s.contains(n));
         }
     }
+    
+    @Test
+    public final void testIncrementAllOSU1() {
+        /* Setup */
+        components.set.Set<NaturalNumber> s =
+                this.setCreateFromArgsOSU("6", "9", "69", "6969");
+        components.set.Set<NaturalNumber> sExpected =
+                this.setCreateFromArgsOSU("6970", "7", "10", "70");
+        /* The Call */
+        JCFExplorations.incrementAll(s);
+        /* Evaluation */
+        assertEquals(sExpected, s);
+    }
 
+    @Test
+    public final void testIncrementAllOSU2() {
+        /* Setup */
+    	components.set.Set<NaturalNumber> s =
+                this.setCreateFromArgsOSU("68");
+    	components.set.Set<NaturalNumber> sExpected =
+                this.setCreateFromArgsOSU("69");
+        /* The Call */
+        JCFExplorations.incrementAll(s);
+        /* Evaluation */
+        assertEquals(sExpected, s);
+    }
+    
+    @Test
+    public final void testIncrementAllOSU3() {
+        /* Setup */
+    	components.set.Set<NaturalNumber> s =
+                this.setCreateFromArgsOSU("68", "69", "70", "71", "72");
+    	components.set.Set<NaturalNumber> sExpected =
+                this.setCreateFromArgsOSU("73", "69", "70", "71", "72");
+        /* The Call */
+        JCFExplorations.incrementAll(s);
+        /* Evaluation */
+        assertEquals(sExpected, s);
+    }
+    
     @Test
     public final void testIncrementAllJCFExample1() {
         /* Setup */
@@ -269,6 +394,42 @@ public class JCFExplorationsTest {
         }
     }
 
-    // TODO - add other test cases for both versions of incrementAll
+    @Test
+    public final void testIncrementAllJCF1() {
+        /* Setup */
+    	java.util.Set<NaturalNumber> s =
+                this.setCreateFromArgsJCF("6", "9", "69", "6969");
+    	java.util.Set<NaturalNumber> sExpected =
+                this.setCreateFromArgsJCF("6970", "7", "10", "70");
+        /* The Call */
+        JCFExplorations.incrementAll(s);
+        /* Evaluation */
+        assertEquals(sExpected, s);
+    }
 
+    @Test
+    public final void testIncrementAllJCF2() {
+        /* Setup */
+    	java.util.Set<NaturalNumber> s =
+                this.setCreateFromArgsJCF("68");
+    	java.util.Set<NaturalNumber> sExpected =
+                this.setCreateFromArgsJCF("69");
+        /* The Call */
+        JCFExplorations.incrementAll(s);
+        /* Evaluation */
+        assertEquals(sExpected, s);
+    }
+    
+    @Test
+    public final void testIncrementAllJCF3() {
+        /* Setup */
+    	java.util.Set<NaturalNumber> s =
+                this.setCreateFromArgsJCF("68", "69", "70", "71", "72");
+    	java.util.Set<NaturalNumber> sExpected =
+                this.setCreateFromArgsJCF("73", "69", "70", "71", "72");
+        /* The Call */
+        JCFExplorations.incrementAll(s);
+        /* Evaluation */
+        assertEquals(sExpected, s);
+    }
 }
