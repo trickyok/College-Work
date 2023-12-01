@@ -14,7 +14,7 @@
                                             ; and retain current section.
             .retainrefs                     ; And retain any sections that have
                                             ; references to current section.
-counter:	.word	1
+count:		.word	0
 ;-------------------------------------------------------------------------------
 RESET       mov.w   #__STACK_END,SP         ; Initialize stackpointer
 StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
@@ -51,7 +51,6 @@ StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
 			nop
 
 main:		jmp 	main
-			nop
 
 ;-------------------------------------------------------------------------------
 ; Interrupt Service Routines
@@ -63,26 +62,25 @@ check_S1:	; Check source of interrupt: is it P1.1?
 			jnc		check_S2
 
 service_S1:
-			push	R7
-			mov.w	counter, R7
+			inc.w	count
 
-blink_loop:
+			push	R9
+			mov.w	count, R9
+			add.w	R9, R9
+
+blink:
 			xor.b	#BIT7, &P9OUT			; turn lights on
 			xor.b	#BIT0, &P1OUT
 
 			call	#delay					; delay
 
-			xor.b	#BIT7, &P9OUT			; turn lights off
-			xor.b	#BIT0, &P1OUT
-
-			call	#delay					; delay again
-
-			dec.w	R7						; decrement counter
+			dec.w	R9						; decrement counter
 			jnz		blink_loop				; loop if not zero
 
-			pop		R7						; restore counter
-			inc.w	counter					; increment counter
-			jmp		return_from_P1_ISR
+			pop		R9						; restore counter
+			bic.b	#BIT1,	&P1IFG			; clear ifg
+
+			; FINISH FROM ANSWER SHEET vvv
 
 check_S2:
 			; Check source of interrupt: is it P1.2?
