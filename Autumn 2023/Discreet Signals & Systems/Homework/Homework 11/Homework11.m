@@ -1,64 +1,107 @@
 % Homework 11
+% Gage Farmer
+
 clc;
 clear;
 
+% Problem 11.1 ------------------------------------------------------------
 
-% Define the function f[n]
-syms n q
-f_n = symsum((n-2-32*q)^2 * rectpuls((n-2-32*q)/24, 24), q, -inf, inf);
+N = 64;
+n = 0:N-1;
+f = zeros(1, N);
 
-% a.) Period of the signal
-N = 32;
+for q = -100000:100000
+    f = f + ((n - 7 - 64 * q) / 4).^2 .* rectpuls((n - 7 - 64 * q) / 36, 3);
+end
 
-% b.) Display one complete cycle of f[n] in the range of 0 <= n <= (N-1)
-n_range = 0:(N-1);
-f_n_range = eval(subs(f_n, n, n_range));
-figure;
-stem(n_range, f_n_range);
-xlabel('n');
-ylabel('f[n]');
-title('One Complete Cycle of f[n]');
-grid on;
+% Display one complete cycle
 
-% c.) Calculate the discrete Fourier transform F[k]
-F_k = fft(f_n_range);
-
-% d.) Evaluate F[0], F[7], F[16], and F[25]
-F0 = F_k(1); % F[0]
-F7 = F_k(8); % F[7]
-F16 = F_k(17); % F[16]
-F25 = F_k(26); % F[25]
-
-% Plot the magnitude and phase of F[k]
-k_range = 0:(N-1);
 figure;
 subplot(2, 1, 1);
-stem(k_range, abs(F_k));
+stem(n, f);
+title('One Complete Cycle of f[n]');
+xlabel('n');
+ylabel('f[n]');
+
+% Calculate and plot the discrete Fourier transform
+
+F = fft(f);
+k = 0:N-1;
+
+subplot(2, 1, 2);
+stem(k, abs(F));
+title('Magnitude of F[k]');
 xlabel('k');
 ylabel('|F[k]|');
-title('Magnitude of F[k]');
-grid on;
-subplot(2, 1, 2);
-stem(k_range, angle(F_k) * 180 / pi);
+stem(k, angle(F) * (180 / pi)); % Convert phase to degrees
+title('Phase of F[k]');
 xlabel('k');
 ylabel('Phase (degrees)');
-title('Phase of F[k]');
-grid on;
 
-% Display the magnitude and phase of F[0], F[7], F[16], and F[25]
-disp('Magnitude and Phase of F[k]:');
-disp(['F[0]: Magnitude = ', num2str(abs(F0)), ', Phase = ', num2str(angle(F0) * 180 / pi), ' degrees']);
-disp(['F[7]: Magnitude = ', num2str(abs(F7)), ', Phase = ', num2str(angle(F7) * 180 / pi), ' degrees']);
-disp(['F[16]: Magnitude = ', num2str(abs(F16)), ', Phase = ', num2str(angle(F16) * 180 / pi), ' degrees']);
-disp(['F[25]: Magnitude = ', num2str(abs(F25)), ', Phase = ', num2str(angle(F25) * 180 / pi), ' degrees']);
-%Note: The rectpuls() function is used to generate a rectangular pulse, which is not a built-in Matlab function. You can define it as follows:
+datacursormode on
 
-function y = rectpuls(t, width)
-%RECTPULS Rectangular pulse function
-%   Y = RECTPULS(T, WIDTH) generates a rectangular pulse of width WIDTH
-%   centered at time T. T and WIDTH are scalar values.
-%   The function returns Y, a vector of the same size as T, with values 0 or 1.
+% Problem 11.2 ------------------------------------------------------------
 
-t = abs(t);
-y = double(t < width/2);
-end
+N = 16;
+n = 0:N-1;
+k = 0:N-1;
+ga = 2*cos(2*pi*n/8) + cos(2*pi*n/12);
+Ga = fft(ga);
+
+% Plot time function
+
+figure;
+subplot(3, 1, 1);
+stem(n, ga);
+title('ga[n]');
+axis tight
+xlabel('n');
+ylabel('Amplitude');
+
+% Plot magnitude of spectrum
+
+subplot(3, 1, 2);
+stem(k,abs(Ga));
+axis tight
+title('Magnitude of Ga[k]');
+xlabel('k');
+ylabel('|Ga[k]|');
+
+% Plot phase of spectrum (in degrees)
+
+subplot(3, 1, 3);
+stem(k,angle(Ga) * 180 / pi);
+title('Phase of Ga[k] (degrees)');
+xlabel('k');
+axis tight
+ylabel('Phase (degrees)');
+axis tight
+
+% Problem 11.3 ------------------------------------------------------------
+
+load('prob11_3.mat');
+t = (0:0.0586:N-1)*12.5e-6; 
+xs = xs / N;
+
+figure;
+subplot(3, 1, 1);
+stem(t, xs);
+xlabel('Time (s)'); 
+ylabel('xs'); 
+title('Time-domain signal');
+
+Fs = 1/12.5e-6; 
+Xs = fft(xs)/N; 
+f = (-N/2:0.0586:N/2-1)*Fs/N; 
+
+subplot(3, 1, 2);
+stem(f, real(Xs)); 
+xlabel('Frequency (Hz)'); 
+ylabel('Real(Xs)');
+title('Real part of spectrum');
+
+subplot(3, 1, 3);
+stem(f, imag(Xs)); 
+xlabel('Frequency (Hz)'); 
+ylabel('Imag(Xs)'); 
+title('Imaginary part of spectrum');
