@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -24,27 +25,36 @@ public final class EmailAccount1 implements EmailAccount {
     /**
      * Constructor.
      *
+     * @param name[]
+     * 			names
+     */
+    public EmailAccount1(String[] name) {
+
+        this.firstName = name[0];
+        this.lastName = name[1];
+        this.database = new HashMap<String, Integer>();
+
+        this.number = this.getNumber();
+
+    }
+    
+    /**
+     * Constructor.
+     *
      * @param firstName
      *            the first name
      * @param lastName
      *            the last name
      */
-    public EmailAccount1(String firstName, String lastName,
-            Map<String, Integer> database) {
+    public EmailAccount1(String firstName, String lastName) {
+    	 this.firstName = firstName;
+         this.lastName = lastName;
+         this.database = new HashMap<String, Integer>();
 
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.database = database;
+         this.number = this.getNumber();
+	}
 
-        this.number = this.getNumber();
-
-    }
-
-    /*
-     * Methods ----------------------------------------------------------------
-     */
-
-    @Override
+	@Override
     public String name() {
 
         // returns "Gage Farmer"
@@ -66,11 +76,16 @@ public final class EmailAccount1 implements EmailAccount {
     }
 
     private Integer getNumber() {
+    	int num = 1;
 
         if (this.database.containsKey(this.lastName)) {
-            this.database.get(this.lastName);
+            num = this.database.get(this.lastName);
+            num++;
+            this.database.replace(firstName, num - 1, num);
+        } else {
+        	this.database.put(this.lastName, num);
         }
-
+        
         return num;
     }
 
