@@ -1,7 +1,7 @@
 ;-------------------------------------------------------------------------------
 ; MSP430 Assembler Code Template for use with TI Code Composer Studio
 ;
-; ECE 2560 Final Exam -- Autumn 2023
+;
 ;-------------------------------------------------------------------------------
             .cdecls C,LIST,"msp430.h"       ; Include device header file
             
@@ -17,82 +17,24 @@
 
 ;-------------------------------------------------------------------------------
 RESET       mov.w   #__STACK_END,SP         ; Initialize stackpointer
-StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
 
+StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
 
 ;-------------------------------------------------------------------------------
 ; Main loop here
 ;-------------------------------------------------------------------------------
 
-; Configure Timer B0 to throw interrupts
-			bis.w	#TBCLR, &TB0CTL				; reset timer
-			bis.w	#TBSSEL__ACLK, &TB0CTL		; source is ACLK
+; Configure Timer B0 to raise interrupts
+			bis.w	#TBCLR, &TB0CTL
+			bis.w	#TBSSEL__ACLK, &TB0CTL		; connected to ACLK
 			bis.w	#MC__CONTINUOUS, &TB0CTL	; continuous mode
-			bis.w	#CNTL__12, &TB0CTL			; counter length = 12 bits
-			bis.w	#ID__4, &TB0CTL				; divide freq. by 4
 			bis.w	#TBIE, &TB0CTL 				; enable interrupts
-			clr.w	R4
-
-			nop
-			bis.w	#GIE|LPM3,	SR				; Enable general interrupts and LPM3
-			nop
 
 
 ;-------------------------------------------------------------------------------
 ; Interrupt Service Routine
 ;-------------------------------------------------------------------------------
-Timer_B0_ISR:
-			bit.b	#TBIFG,	&TB0CTL				; Check source of interrupt: is it B0?
-			jnc		return_from_ISR
 
-			inc.w	R4
-			rrc.w	R4
-			jnc		red_on
-
-green_on:
-			xor.b	#BIT1,	&P1OUT				; Toggle green LED
-			call	#delay						; delay
-			rrc.w	R4							; skip second delay
-			jnc		green_off
-			call	#delay						; delay
-
-green_off:
-			rlc.w	R4
-			rlc.w	R4
-			xor.b	#BIT1,	&P1OUT				; Toggle green LED
-			jmp		return_from_ISR
-
-red_on:
-			xor.b	#BIT0,	&P1OUT				; Toggle red LED
-			call	#delay						; delay
-			rrc.w	R4							; skip second delay
-			jnc		red_off
-			call	#delay						; delay
-
-red_off:
-			rlc.w	R4
-			rlc.w	R4
-			xor.b	#BIT0,	&P1OUT				; Toggle red LED
-
-return_from_ISR:
-			reti								; Return from interrupt
-
-
-;-------------------------------------------------------------------------------
-; Delay
-;-------------------------------------------------------------------------------
-
-delay:
-			push	R10
-			mov.w	#0xFFFF, R10
-
-countdown:
-			dec.w	R10
-			nop
-			jnz		countdown
-
-			pop 	R10
-			ret
 
 
 ;-------------------------------------------------------------------------------
@@ -104,8 +46,5 @@ countdown:
 ;-------------------------------------------------------------------------------
 ; Interrupt Vectors
 ;-------------------------------------------------------------------------------
-            .sect 	".int50"				; Timer B0 Vector
-            .short	Timer_B0_ISR
-
             .sect   ".reset"                ; MSP430 RESET Vector
             .short  RESET
