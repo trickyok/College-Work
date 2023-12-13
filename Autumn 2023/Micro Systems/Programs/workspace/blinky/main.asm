@@ -2,6 +2,8 @@
 ; MSP430 Assembler Code Template for use with TI Code Composer Studio
 ;
 ;
+;BLINKY V3
+;
 ;-------------------------------------------------------------------------------
             .cdecls C,LIST,"msp430.h"       ; Include device header file
             
@@ -24,6 +26,8 @@ StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
 ; Main loop here
 ;-------------------------------------------------------------------------------
 
+			clr.b	#BIT0,
+
 			; configure red LED for output - P1.0 - P1xyz registers BIT0
 			bic.b	#BIT0, &P1OUT
 			bis.b	#BIT0, &P1DIR
@@ -34,13 +38,15 @@ StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
 			bis.b	#BIT1, &P1IES			; interrupt on falling edge
 			bis.b	#BIT1, &P1IE			; interrupt enable for port 1
 
-			bic.w	#LOCKPM5,	&PM5CTL0
+;			bic.w	#LOCKPM5,&PM5CTL0
 
 			; clear all IFGs in P1
 			clr.b	&P1IFG
 
 			nop
 			eint
+			nop
+			bis.w	#GIE|LPM3,	SR			; Enable general interrupts and LPM3
 			nop
 
 main:		jmp main						; infinite loop

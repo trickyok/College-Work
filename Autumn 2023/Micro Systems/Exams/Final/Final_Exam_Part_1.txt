@@ -14,69 +14,53 @@
                                             ; and retain current section.
             .retainrefs                     ; And retain any sections that have
                                             ; references to current section.
-
 ;-------------------------------------------------------------------------------
+
 RESET       mov.w   #__STACK_END,SP         ; Initialize stackpointer
 StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
-
 
 ;-------------------------------------------------------------------------------
 ; Main loop here
 ;-------------------------------------------------------------------------------
 
-; Configure Timer B0 to throw interrupts
+			; Configure Timer B0 to throw interrupts
 			bis.w	#TBCLR, &TB0CTL				; reset timer
 			bis.w	#TBSSEL__ACLK, &TB0CTL		; source is ACLK
 			bis.w	#MC__CONTINUOUS, &TB0CTL	; continuous mode
 			bis.w	#CNTL__12, &TB0CTL			; counter length = 12 bits
 			bis.w	#ID__4, &TB0CTL				; divide freq. by 4
 			bis.w	#TBIE, &TB0CTL 				; enable interrupts
-			clr.w	R4
+			bic.w	#LOCKLPM5, &PM5CTL0			; Disable power lock
+
+			; Configure LEDs
+			bic.b	#BIT0,	&P1OUT				; Red LED off
+			bis.b	#BIT0,	&P1DIR 				; Direction to output
+			bis.b	#BIT7,	&P9OUT				; Green LED off
+			bis.b	#BIT7,	&P9DIR				; Direction to output
 
 			nop
 			bis.w	#GIE|LPM3,	SR				; Enable general interrupts and LPM3
 			nop
 
+main:		nop
+			jmp		main
+
 
 ;-------------------------------------------------------------------------------
-; Interrupt Service Routine
+; Interrupt Service Routines
 ;-------------------------------------------------------------------------------
+
 Timer_B0_ISR:
 			bit.b	#TBIFG,	&TB0CTL				; Check source of interrupt: is it B0?
 			jnc		return_from_ISR
 
-			inc.w	R4
-			rrc.w	R4
-			jnc		red_on
-
-green_on:
-			xor.b	#BIT1,	&P1OUT				; Toggle green LED
-			call	#delay						; delay
-			rrc.w	R4							; skip second delay
-			jnc		green_off
-			call	#delay						; delay
-
-green_off:
-			rlc.w	R4
-			rlc.w	R4
-			xor.b	#BIT1,	&P1OUT				; Toggle green LED
-			jmp		return_from_ISR
-
-red_on:
+toggle_lights:
+			xor.b	#BIT7,	&P9OUT				; Toggle green LED
 			xor.b	#BIT0,	&P1OUT				; Toggle red LED
 			call	#delay						; delay
-			rrc.w	R4							; skip second delay
-			jnc		red_off
-			call	#delay						; delay
-
-red_off:
-			rlc.w	R4
-			rlc.w	R4
-			xor.b	#BIT0,	&P1OUT				; Toggle red LED
 
 return_from_ISR:
 			reti								; Return from interrupt
-
 
 ;-------------------------------------------------------------------------------
 ; Delay
@@ -84,16 +68,17 @@ return_from_ISR:
 
 delay:
 			push	R10
+			nop
 			mov.w	#0xFFFF, R10
 
 countdown:
 			dec.w	R10
 			nop
+			nop
 			jnz		countdown
 
 			pop 	R10
 			ret
-
 
 ;-------------------------------------------------------------------------------
 ; Stack Pointer definition

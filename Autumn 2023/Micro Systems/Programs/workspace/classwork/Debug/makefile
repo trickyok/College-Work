@@ -10,6 +10,7 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
+"./Lecture_26.obj" \
 "./fib.obj" \
 "./subroutine1.obj" \
 "../lnk_msp430fr6989.cmd" \
@@ -157,8 +158,8 @@ classwork.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "fib.obj" "subroutine1.obj" 
-	-$(RM) "fib.d" "subroutine1.d" 
+	-$(RM) "Lecture_26.obj" "fib.obj" "subroutine1.obj" 
+	-$(RM) "Lecture_26.d" "fib.d" "subroutine1.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

@@ -1,10 +1,10 @@
 ******************************************************************************
                   MSP430 Linker PC v21.6.1                     
 ******************************************************************************
->> Linked Fri Nov 17 12:47:53 2023
+>> Linked Wed Dec 13 12:45:21 2023
 
 OUTPUT FILE NAME:   <classwork.out>
-ENTRY POINT SYMBOL: "RESET"  address: 00004400
+ENTRY POINT SYMBOL: "RESET"  address: 0000444e
 
 
 MEMORY CONFIGURATION
@@ -19,7 +19,7 @@ MEMORY CONFIGURATION
   INFOB                 00001900   00000080  00000000  00000080  RWIX
   INFOA                 00001980   00000080  00000000  00000080  RWIX
   RAM                   00001c00   00000800  00000000  00000800  RWIX
-  FRAM                  00004400   0000bb80  0000008a  0000baf6  RWIX
+  FRAM                  00004400   0000bb80  000000d0  0000bab0  RWIX
   JTAGSIGNATURE         0000ff80   00000004  00000004  00000000  RWIX  ffff 
   BSLSIGNATURE          0000ff84   00000004  00000004  00000000  RWIX  ffff 
   IPESIGNATURE          0000ff88   00000008  00000008  00000000  RWIX  ffff 
@@ -115,17 +115,18 @@ section   page    origin      length       input sections
 .init_array 
 *          0    00004400    00000000     UNINITIALIZED
 
-.text      0    00004400    00000082     
+.text      0    00004400    000000c8     
                   00004400    0000004e     fib.obj (.text)
-                  0000444e    00000034     subroutine1.obj (.text)
+                  0000444e    00000046     Lecture_26.obj (.text)
+                  00004494    00000034     subroutine1.obj (.text)
 
 .text:_isr 
-*          0    00004482    00000008     
-                  00004482    00000008     rts430x_sc_sd_eabi.lib : isr_trap.asm.obj (.text:_isr:__TI_ISR_TRAP)
+*          0    000044c8    00000008     
+                  000044c8    00000008     rts430x_sc_sd_eabi.lib : isr_trap.asm.obj (.text:_isr:__TI_ISR_TRAP)
 
 .stack     0    00002400    00000000     
 
-.reset     0    00000000    00000004     FAILED TO ALLOCATE
+.reset     0    00000000    00000006     FAILED TO ALLOCATE
 AES256     0    0000ffc6    00000002     
                   0000ffc6    00000002     rts430x_sc_sd_eabi.lib : int27.asm.obj (.int27)
 
@@ -172,7 +173,7 @@ TIMER1_A0
                   0000ffde    00000002     rts430x_sc_sd_eabi.lib : int39.asm.obj (.int39)
 
 DMA        0    0000ffe0    00000002     
-                  0000ffe0    00000002     rts430x_sc_sd_eabi.lib : int40.asm.obj (.int40)
+                  0000ffe0    00000002     Lecture_26.obj (.int40)
 
 USCI_B1    0    0000ffe2    00000002     
                   0000ffe2    00000002     rts430x_sc_sd_eabi.lib : int41.asm.obj (.int41)
@@ -235,9 +236,10 @@ MODULE SUMMARY
        ------             ----   -------   -------
     .\
        fib.obj            78     0         0      
+       Lecture_26.obj     70     2         0      
        subroutine1.obj    52     0         0      
     +--+------------------+------+---------+---------+
-       Total:             130    0         0      
+       Total:             200    2         0      
                                                   
     C:\ti\ccs1120\ccs\tools\compiler\ti-cgt-msp430_21.6.1.LTS\lib\rts430x_sc_sd_eabi.lib
        isr_trap.asm.obj   8      0         0      
@@ -254,7 +256,6 @@ MODULE SUMMARY
        int37.asm.obj      0      2         0      
        int38.asm.obj      0      2         0      
        int39.asm.obj      0      2         0      
-       int40.asm.obj      0      2         0      
        int41.asm.obj      0      2         0      
        int42.asm.obj      0      2         0      
        int43.asm.obj      0      2         0      
@@ -270,10 +271,10 @@ MODULE SUMMARY
        int53.asm.obj      0      2         0      
        int54.asm.obj      0      2         0      
     +--+------------------+------+---------+---------+
-       Total:             8      56        0      
+       Total:             8      54        0      
                                                   
     +--+------------------+------+---------+---------+
-       Grand Total:       138    56        0      
+       Grand Total:       208    56        0      
 
 
 GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
@@ -1350,7 +1351,7 @@ address   name
 000004ea  RES3                
 000004eb  RES3_H              
 000004ea  RES3_L              
-00004400  RESET               
+0000444e  RESET               
 000004cc  RESHI               
 000004cd  RESHI_H             
 000004cc  RESHI_L             
@@ -1659,7 +1660,7 @@ address   name
 0000015c  WDTCTL_L            
 00002400  __STACK_END         
 00000000  __STACK_SIZE        
-00004482  __TI_ISR_TRAP       
+000044c8  __TI_ISR_TRAP       
 0000ffc6  __TI_int27          
 0000ffc8  __TI_int28          
 0000ffca  __TI_int29          
@@ -3089,12 +3090,12 @@ address   name
 00000e7f  ESIRAM127           
 00001513  mpu_sam_value       
 00002400  __STACK_END         
-00004400  RESET               
 00004400  fram_ipe_end        
 00004400  fram_ipe_start      
 00004400  fram_rw_start       
 00004400  fram_rx_start       
-00004482  __TI_ISR_TRAP       
+0000444e  RESET               
+000044c8  __TI_ISR_TRAP       
 0000a501  mpu_ctl0_value      
 0000ffc6  __TI_int27          
 0000ffc8  __TI_int28          
