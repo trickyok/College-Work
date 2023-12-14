@@ -32,6 +32,10 @@ StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
 ;-------------------------------------------------------------------------------
 			mov.w	#LENGTH-2, R4
 
+			mov.b	#71, R4
+			add.b	#73, R4
+			nop
+
 next:		mov.w	x_array(R4), R6
 			mov.w	e_array(R4), R7
 			mov.w	N_array(R4), R8

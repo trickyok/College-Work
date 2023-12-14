@@ -23,61 +23,30 @@ StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
 ; Main loop here
 ;-------------------------------------------------------------------------------
 
-			; Configure Timer B0 to throw interrupts
-			bis.w	#TBCLR, &TB0CTL				; reset timer
-			bis.w	#TBSSEL__ACLK, &TB0CTL		; source is ACLK
-			bis.w	#MC__CONTINUOUS, &TB0CTL	; continuous mode
-			bis.w	#CNTL__12, &TB0CTL			; counter length = 12 bits
-			bis.w	#ID__4, &TB0CTL				; divide freq. by 4
-			bis.w	#TBIE, &TB0CTL 				; enable interrupts
-			bic.w	#LOCKLPM5, &PM5CTL0			; Disable power lock
+			call	#cfg
 
-			; Configure LEDs
-			bic.b	#BIT0,	&P1OUT				; Red LED off
-			bis.b	#BIT0,	&P1DIR 				; Direction to output
-			bis.b	#BIT7,	&P9OUT				; Green LED off
-			bis.b	#BIT7,	&P9DIR				; Direction to output
-
-			nop
-			bis.w	#GIE|LPM3,	SR				; Enable general interrupts and LPM3
-			nop
 
 main:		nop
 			jmp		main
 
-
 ;-------------------------------------------------------------------------------
-; Interrupt Service Routines
-;-------------------------------------------------------------------------------
-
-Timer_B0_ISR:
-			bit.b	#TBIFG,	&TB0CTL				; Check source of interrupt: is it B0?
-			jnc		return_from_ISR
-
-toggle_lights:
-			xor.b	#BIT7,	&P9OUT				; Toggle green LED
-			xor.b	#BIT0,	&P1OUT				; Toggle red LED
-			call	#delay						; delay
-
-return_from_ISR:
-			reti								; Return from interrupt
-
-;-------------------------------------------------------------------------------
-; Delay
+; Subroutine: cfg
+; input:	R10 = strictly positive integer n > 0
+; output:	R12 = sum of all positive integers less than and equal to n
+;
+; Free to modify R10 and R12 but no other core register
+;
 ;-------------------------------------------------------------------------------
 
-delay:
-			push	R10
-			nop
-			mov.w	#0xFFFF, R10
-
-countdown:
-			dec.w	R10
-			nop
-			nop
-			jnz		countdown
-
-			pop 	R10
+cfg:		
+			clr		R12
+			
+loop:
+			add.b	R10,  R12
+			
+			dec		R10
+			jnz		loop
+			
 			ret
 
 ;-------------------------------------------------------------------------------
@@ -89,8 +58,5 @@ countdown:
 ;-------------------------------------------------------------------------------
 ; Interrupt Vectors
 ;-------------------------------------------------------------------------------
-            .sect 	".int50"				; Timer B0 Vector
-            .short	Timer_B0_ISR
-
             .sect   ".reset"                ; MSP430 RESET Vector
             .short  RESET
