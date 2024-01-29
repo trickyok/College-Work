@@ -14,9 +14,15 @@ int main() {
     }
 
 
-
     while (randInt > 0) {
-        printf("%d\n", randInt);
+        int i = randInt - 1;
+
+        while (i > -1) {
+            printf("%d ", randInt - i);
+            i--;
+        }
+
+        printf("\n");
         randInt--;
     }
  
