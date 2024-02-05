@@ -1,2 +1,0 @@
-INDEX VERSION 1.131+C:\Users\Epic Gage\Documents\College-Work\Autumn 2023\Software 2\workspace\.metadata\.plugins\org.eclipse.jdt.core
-1865797976.index
