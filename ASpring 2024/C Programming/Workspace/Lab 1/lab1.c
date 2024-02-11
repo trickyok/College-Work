@@ -5,9 +5,30 @@
 
 #include <stdio.h>
 
+// function prototypes
 int checkPerfectNumber(int num);
 double power_int(double base, int exp);
 
+
+int main(void) {
+
+    // test case for even perfect number
+    int p= 496;
+    int n = 36;
+
+    printf("checkPerfectNumber(%d) = %d\n", p, checkPerfectNumber(p));
+    printf("checkPerfectNumber(%d) = %d\n", n, checkPerfectNumber(n));
+
+    // i did finish the bonus question
+    double b1 = -7.1, b2 = -3.0;
+    int e1 = -4, e2 = 4;
+
+    printf("power_int(%If, %d) = %If\n", b1, e1, power_int(b1, e1));
+    printf("power_int(%If, %d) = %If\n", b2, e2, power_int(b2, e2));
+}
+
+
+// function definitions
 int checkPerfectNumber(int num) {
     int sum = 0;
 
@@ -38,17 +59,3 @@ double power_int(double base, int exp) {
     return ans;
 }
 
-int main(void) {
-
-    int x = 28, y = 16;
-    double base1 = 7.1, base2 = -3.0;
-    int exp1 = -4, exp2 = 4;
-
-    printf("checkPerfectNumber(%d) = %d\n", x, checkPerfectNumber(x));
-    printf("checkPerfectNumber(%d) = %d\n", y, checkPerfectNumber(y));
-    printf("\n");
-    printf("checkPerfectrNumber(%If, %d) = %If\n", base1, exp1, power_int(base1,exp1));
-    printf("checkPerfectrNumber(%If, %d) = %If\n", base2, exp2, power_int(base2,exp2));
-
-    return 0;
-}
