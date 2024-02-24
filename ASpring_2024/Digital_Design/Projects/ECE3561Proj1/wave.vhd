@@ -51,11 +51,11 @@ BEGIN
 -- *** Test Bench - User Defined Section ***
 tb : PROCESS
 BEGIN
-				for i in 0 to 50 loop -- VHDL loop statement
+				for i in 0 to 20 loop -- VHDL loop statement
 							CLK <= TEMPORAL(0); --assigning the LSB of TEMPORAL to CLK
 							TEMPORAL <= std_logic_vector(UNSIGNED(TEMPORAL) + 1);
 							-- increment TEMPORAL
-							if (TEMPORAL = "010111") then -- VHDL if statement
+							if (i >= 10) then -- VHDL if statement
 									INPUT <= '1';
 				-- set INPUT=1 when TEMPORAL = "010110", 
 				-- i.e., INPUT is set to one logic level at 1150ns
