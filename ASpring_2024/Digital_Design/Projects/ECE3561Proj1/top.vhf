@@ -7,7 +7,7 @@
 -- \   \   \/     Version : 14.7
 --  \   \         Application : sch2hdl
 --  /   /         Filename : top.vhf
--- /___/   /\     Timestamp : 02/23/2024 19:41:42
+-- /___/   /\     Timestamp : 02/26/2024 09:27:16
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
@@ -411,7 +411,6 @@ architecture BEHAVIORAL of top is
    signal XLXN_31 : std_logic;
    signal XLXN_32 : std_logic;
    signal XLXN_33 : std_logic;
-   signal XLXN_34 : std_logic;
    signal XLXN_35 : std_logic;
    signal XLXN_36 : std_logic;
    signal XLXN_39 : std_logic;
@@ -424,6 +423,9 @@ architecture BEHAVIORAL of top is
    signal XLXN_63 : std_logic;
    signal XLXN_67 : std_logic;
    signal XLXN_68 : std_logic;
+   signal XLXN_71 : std_logic;
+   signal XLXN_72 : std_logic;
+   signal XLXN_81 : std_logic;
    component IBUF
       port ( I : in    std_logic; 
              O : out   std_logic);
@@ -503,7 +505,7 @@ begin
    
    XLXI_2 : IBUF
       port map (I=>PRE,
-                O=>XLXN_34);
+                O=>XLXN_72);
    
    XLXI_3 : IBUF
       port map (I=>CLK,
@@ -514,7 +516,7 @@ begin
                 O=>Q0);
    
    XLXI_5 : OBUF
-      port map (I=>XLXN_44,
+      port map (I=>XLXN_81,
                 O=>Q1);
    
    XLXI_6 : OBUF
@@ -523,16 +525,16 @@ begin
    
    XLXI_14 : AND2
       port map (I0=>XLXN_32,
-                I1=>XLXN_44,
+                I1=>XLXN_81,
                 O=>XLXN_35);
    
    XLXI_15 : AND2
       port map (I0=>XLXN_33,
                 I1=>XLXN_24,
-                O=>XLXN_34);
+                O=>XLXN_71);
    
    XLXI_16 : INV
-      port map (I=>XLXN_44,
+      port map (I=>XLXN_81,
                 O=>XLXN_24);
    
    XLXI_17 : INV
@@ -540,17 +542,17 @@ begin
                 O=>XLXN_33);
    
    XLXI_18 : OR2
-      port map (I0=>XLXN_34,
+      port map (I0=>XLXN_71,
                 I1=>XLXN_35,
                 O=>XLXN_36);
    
    XLXI_19 : FJKRSE_MXILINX_top
       port map (C=>XLXN_31,
                 CE=>XLXN_63,
-                J=>XLXN_44,
+                J=>XLXN_81,
                 K=>XLXN_63,
                 R=>XLXN_62,
-                S=>XLXN_34,
+                S=>XLXN_72,
                 Q=>XLXN_32);
    
    XLXI_20 : FJKRSE_MXILINX_top
@@ -559,13 +561,13 @@ begin
                 J=>XLXN_36,
                 K=>XLXN_36,
                 R=>XLXN_61,
-                S=>XLXN_34,
+                S=>XLXN_72,
                 Q=>XLXN_39);
    
    XLXI_21 : D3_8E_MXILINX_top
       port map (A0=>XLXN_32,
                 A1=>XLXN_39,
-                A2=>XLXN_44,
+                A2=>XLXN_81,
                 E=>XLXN_68,
                 D0=>XLXN_41,
                 D1=>open,
@@ -595,6 +597,10 @@ begin
    
    XLXI_27 : VCC
       port map (P=>XLXN_67);
+   
+   XLXI_28 : INV
+      port map (I=>XLXN_44,
+                O=>XLXN_81);
    
 end BEHAVIORAL;
 

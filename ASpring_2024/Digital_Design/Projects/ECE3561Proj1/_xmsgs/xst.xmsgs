@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf</arg>&quot; line <arg fmt="%d" index="2">567</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">D1</arg>&apos; of component &apos;<arg fmt="%s" index="4">D3_8E_MXILINX_top</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf</arg>&quot; line <arg fmt="%d" index="2">567</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">D2</arg>&apos; of component &apos;<arg fmt="%s" index="4">D3_8E_MXILINX_top</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf</arg>&quot; line <arg fmt="%d" index="2">567</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">D3</arg>&apos; of component &apos;<arg fmt="%s" index="4">D3_8E_MXILINX_top</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf</arg>&quot; line <arg fmt="%d" index="2">567</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">D4</arg>&apos; of component &apos;<arg fmt="%s" index="4">D3_8E_MXILINX_top</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf</arg>&quot; line <arg fmt="%d" index="2">567</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">D5</arg>&apos; of component &apos;<arg fmt="%s" index="4">D3_8E_MXILINX_top</arg>&apos;.
+</msg>
+
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf</arg>&quot; line <arg fmt="%d" index="2">567</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">D6</arg>&apos; of component &apos;<arg fmt="%s" index="4">D3_8E_MXILINX_top</arg>&apos;.
+</msg>
+
+</messages>
+

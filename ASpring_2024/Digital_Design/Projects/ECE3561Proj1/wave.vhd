@@ -12,6 +12,7 @@
 -- edit the user defined section below, adding code to generate the 
 -- stimulus for your design.
 --
+
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
@@ -22,47 +23,48 @@ END top_top_sch_tb;
 ARCHITECTURE behavioral OF top_top_sch_tb IS 
 
    COMPONENT top
-   PORT( Q0		:	OUT	STD_LOGIC;
-			CLK	:	IN		STD_LOGIC;
-			INPUT	:	IN		STD_LOGIC;
+   PORT(	Q0	:	OUT	STD_LOGIC;
+			CLK	:	IN	STD_LOGIC;
+			INPUT	:	IN	STD_LOGIC;
 			RCO	:	OUT	STD_LOGIC;
 			Q1		:	OUT	STD_LOGIC;
-			PRE	:	IN		STD_LOGIC);
+			PRE	:	IN	STD_LOGIC);
    END COMPONENT;
 
-	SIGNAL Q0		:	STD_LOGIC;
-	SIGNAL CLK		:	STD_LOGIC;
-	SIGNAL RCO		:	STD_LOGIC;
-	SIGNAL Q1		:	STD_LOGIC;
+	SIGNAL CLK	:	STD_LOGIC;
+	SIGNAL Q0	:	STD_LOGIC;
+	SIGNAL Q1	:	STD_LOGIC;
 	SIGNAL INPUT	:	STD_LOGIC:='0';
-	SIGNAL PRE		:	STD_LOGIC:='0';
-	SIGNAL TEMPORAL : STD_LOGIC_VECTOR(5 downto 0):= "000000";
+	SIGNAL RCO	:	STD_LOGIC;
+	SIGNAL PRE	:	STD_LOGIC:='0';
+	SIGNAL TEMPORAL	:	STD_LOGIC_VECTOR(5 downto 0):= "000000";
 
 BEGIN
 
    UUT: top PORT MAP(
-		Q0 => Q0,
 		CLK => CLK,
-		INPUT => INPUT,
-		RCO => RCO,
+		Q0 => Q0,
 		Q1 => Q1,
-		PRE => PRE);
+		RCO => RCO,
+		INPUT => INPUT,
+		PRE => PRE
+	);
 
 -- *** Test Bench - User Defined Section ***
 tb : PROCESS
 BEGIN
-				for i in 0 to 20 loop -- VHDL loop statement
-							CLK <= TEMPORAL(0); --assigning the LSB of TEMPORAL to CLK
-							TEMPORAL <= std_logic_vector(UNSIGNED(TEMPORAL) + 1);
-							-- increment TEMPORAL
-							if (i >= 10) then -- VHDL if statement
-									INPUT <= '1';
-				-- set INPUT=1 when TEMPORAL = "010110", 
-				-- i.e., INPUT is set to one logic level at 1150ns
+				for i in 0 to 50 loop -- VHDL loop statement
+					CLK <= TEMPORAL(0); --assigning the LSB of TEMPORAL to CLK
+					TEMPORAL <= std_logic_vector(UNSIGNED(TEMPORAL) + 1);
+					-- increment TEMPORAL
+					if (i >= 10) then -- VHDL if statement
+							INPUT <= '1';
+					-- set INPUT=1 when i >= 10,
+					-- i.e., INPUT is set to one logic level 10 clock cycles in
 							end if;
 							wait for 50 ns; -- CLK high/low for 50ns
-				end loop;
-				WAIT;
+					end loop;
+					WAIT;
 END PROCESS;
 -- *** End Test Bench - User Defined Section ***
 
