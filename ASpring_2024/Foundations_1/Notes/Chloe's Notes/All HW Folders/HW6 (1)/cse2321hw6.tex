@@ -1,0 +1,155 @@
+\documentclass[14pt]{extarticle}
+\usepackage{amssymb,amsthm,amsmath, color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fullpage}
+\usepackage{subfigure}
+\usepackage{graphics}
+\usepackage{mdframed}
+\usepackage{multicol}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{property}{Property}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{notation}{Notation}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{algorithm}{Algorithm}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{question}[conjecture]{Question}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\begin{document}
+\textbf{CSE 2321 Homework 6}
+
+\textbf{Turn In:} Submit to the Carmen dropbox a PDF file generated from LaTex source (see the template file provided with this homework and the Piazza post on LaTex).
+
+\textbf{Reminder:} Homework should be worked on individually. If you are stuck on a problem, please spend time thinking about the problem and trying different approaches before seeking help in office hours. If you come to office hours you will benefit more if you have already attempted these problems. 
+
+\begin{enumerate}
+\item (40 pts) Analyze the running time (i.e.~$T(n)$) of these functions. You should be able to find some simple function $f(n)$ such that $T(n) = \Theta(f(n))$. You should show your work and rigorously justify your answer.
+\begin{enumerate}
+
+\begin{multicols}{2}
+
+\item 
+\textbf{FuncA}$(n)$\\
+$s = 0$\\
+for $i = 1$ to $n^2$ do\\
+\tab for $j = 1$ to $n^2$ do\\
+\tab \tab for $k = 1$ to $j$ do\\
+\tab \tab \tab $s = s + i + j$\\
+return $s$
+
+
+\item 
+\textbf{FuncB}$(n)$\\
+$s = 0$\\
+for $i = 1$ to $n^2$ do\\
+\tab for $j = 1$ to $n^2$ do\\
+\tab \tab $s = s + i + j$\\
+\tab for $k = n^2 + 1$ to $n^3$ do\\
+\tab \tab $s = s + i + j$\\
+return $s$
+
+\columnbreak
+
+\item 
+\textbf{FuncC}$(n)$\\
+$s = 0$\\
+for $i = 1$ to $n^2$ do\\
+\tab $j = 1$\\
+\tab while $(j < n)$ do\\
+\tab \tab $j = j + 5$\\
+\tab \tab for $k = 1$ to $j$ do\\
+\tab \tab \tab $s = s + i + j$\\
+return $s$
+
+
+
+\item 
+\textbf{FuncD}$(n)$\\
+$s = 0$\\
+for $i = 1$ to $n^2$ do\\
+\tab $j = 2i$\\
+\tab while $(j < i^4)$ do\\
+\tab \tab $s = s + i + j$\\
+\tab \tab $j = 2j$\\
+return $s$\\
+
+\end{multicols}
+
+\pagebreak
+
+\begin{multicols}{2}
+
+\item 
+\textbf{FuncE}$(n)$\\
+$s = 0$\\
+$i = n$\\
+while $(i < 5n^3)$ do\\
+\tab $j = 10n^3$\\
+\tab while $(j > 3)$ do\\
+\tab \tab $s = s + i + j$\\
+\tab \tab $j = \lfloor j/5 \rfloor$\\
+\tab $i = 3i$\\
+return $s$\\
+
+
+
+\item 
+\textbf{FuncF}$(n)$\\
+$s = 0$\\
+for $i = 1$ to $n$ do\\
+\tab for $j = i$ to $n^2$ do\\
+\tab \tab for $k = j$ to $n^3$ do\\
+\tab \tab \tab $s = s + i + j$\\
+return $s$\\
+
+\columnbreak
+
+\item 
+\textbf{FuncG}$(n)$\\
+$s = 0$\\
+for $i = 1$ to $n/2$ do\\
+\tab for $j = i$ to $i^2$ do\\
+\tab \tab $s = s + i + j$\\
+return $s$\\
+
+\item 
+\textbf{FuncH}$(n)$\\
+$s = 0$\\
+$i = 1$\\
+while $(i < n)$ do\\
+\tab for $j = 1$ to $n$ do\\
+\tab \tab i = i + 1\\
+\tab \tab $s = s + i + j$\\
+return $s$
+
+\end{multicols}
+
+\end{enumerate}
+
+
+\item (10 pts) For each of the following recurrence relations, find the asymptotic running time ($\Theta$). Justify your answer using the recursion tree method from lectures (either with or without drawing the tree).
+\\ For each of these, let $T(n) = 1$ for $n \leq 1$.
+\begin{enumerate}
+\item $T(n) = T(n/2) + 5$.
+\item $T(n) = T(n/2) + n$.
+\end{enumerate}
+
+
+
+\end{enumerate}
+
+
+
+
+\end{document}

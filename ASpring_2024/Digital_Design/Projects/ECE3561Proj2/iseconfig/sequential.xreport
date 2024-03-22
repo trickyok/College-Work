@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2024-03-06T16:08:12</DateModified>
+  <DateModified>2024-03-08T08:23:14</DateModified>
   <ModuleName>sequential</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
   <SavedFilePath>/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj2/iseconfig/sequential.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj2</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj2/</ImplementationReportsDirectory>
   <DateInitialized>2024-03-06T16:08:12</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

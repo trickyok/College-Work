@@ -1,0 +1,149 @@
+\documentclass[14pt]{extarticle}
+\usepackage{amssymb,amsthm,amsmath, color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fullpage}
+\usepackage{subfigure}
+\usepackage{graphics}
+\usepackage{mdframed}
+\usepackage{multicol}
+
+\usepackage{listings, multicol}
+\usepackage{xcolor} % for setting colors
+
+% set the default code style
+\lstset{
+    %frame=single, % draw a frame at the top and bottom of the code block
+    tabsize=4, % tab space width
+    showstringspaces=false, % don't mark spaces in strings
+    %numbers=left, % display line numbers on the left
+    commentstyle=\color{green}, % comment color
+    keywordstyle=\color{blue}, % keyword color
+    stringstyle=\color{red} % string color
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{property}{Property}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{notation}{Notation}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{algorithm}{Algorithm}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{question}[conjecture]{Question}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\begin{document}
+\textbf{CSE 2321 Homework 9 Template}
+\section*{Problem 1}
+
+\begin{lstlisting}[language=Python]
+DFSModified(G)
+	boolean hamiltonian = false
+	node s = u # s is the start node
+	for each u in V
+		u.color = white
+		u.p = nil	# p is for parent
+	for each u in V
+		if u.color == white
+			hamiltonian = Visit(G,u, s)
+		if u.color == black
+			u.color == white # revisit past nodes
+	return hamiltonian
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+Visit(G, u, s)
+	boolean hamiltonian = false
+	for each v in G.Adj[u]
+		u.color = gray
+		if v.color == white
+		v.p = u
+		Visit(G, v)
+		u.color = black
+		if v == s # If the next node is the starting node
+			hamiltonian = true
+\end{lstlisting}
+
+\section*{Problem 2}
+\begin{lstlisting}[language=Python]
+FindSink(G) 
+	int i, j = 0
+	boolean hasSink = false
+	for i to |V| && !hasSink
+		if !(i == j) && G[i][j] == 0 
+		# j is not a sink, next column
+			j++;
+			hasSink = isSink(i)
+		else if !(i == j) && G[i][j] == 1 
+		 # i is not a sink, next row and column
+			i++
+			j++
+			hasSink = isSink(j)
+		else if i > |V| || j > |V|
+			hasSink = false
+	return hasSink
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+isSink(G, x) 
+	boolean isSink = true
+	
+	for int i = 0 to |V|
+		# The xth row should be all 0
+		if G[k][i] != 0
+			isSink = false
+		i++
+	for int i = 0 to |V|
+		# The xth column should be all 1s
+		if i != k && G[i][k] != 1 
+			isSink = false
+		else if !(i == j) && G[i][j] == 1 
+			isSink == false
+		i++	
+	return isSink
+\end{lstlisting}
+
+\section*{Problem 3}
+	\begin{lstlisting}[language=Python]
+Diameter(G)
+	int max = 0 # the diameter
+	for int i = 0 to |V| # test all starting points
+		# check all distances to other vertices
+		for int j = 0 to |V| 
+			int length = BFSModified(G, i)
+			# Note: if two nodes are not connected, infinity
+			if length != infinity && length > max 
+				max = length
+			j++
+		i++
+	
+	return max
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+BFSModified(G, s, e)
+	for each v in V
+		v.dist = infinity
+		s.dist = 0
+		q.enqueue(s)
+		while q != 0
+			v.dequeue
+				for each w s.t. (v,w) in E
+					if w.dist = infinity
+						q.enqueue(w)
+	return w.dist # Modified to return length of path
+\end{lstlisting}
+
+The running time of this algorithm is O($|V|^2 + |V||E|$).
+BFSModified has the same running time as BFS, which is O($|V|+|E|$).
+The for loops have the running time of O($|V|^2$).
+
+\end{document}

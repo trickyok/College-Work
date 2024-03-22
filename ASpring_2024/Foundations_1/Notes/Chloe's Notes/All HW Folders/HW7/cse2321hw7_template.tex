@@ -1,0 +1,193 @@
+\documentclass[14pt]{extarticle}
+\usepackage{amssymb,amsthm,amsmath, color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fullpage}
+\usepackage{subfigure}
+\usepackage{graphics}
+\usepackage{mdframed}
+\usepackage{multicol}
+
+\usepackage{listings, multicol}
+\usepackage{xcolor} % for setting colors
+
+% set the default code style
+\lstset{
+    %frame=single, % draw a frame at the top and bottom of the code block
+    tabsize=4, % tab space width
+    showstringspaces=false, % don't mark spaces in strings
+    %numbers=left, % display line numbers on the left
+    commentstyle=\color{green}, % comment color
+    keywordstyle=\color{blue}, % keyword color
+    stringstyle=\color{red} % string color
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{property}{Property}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{notation}{Notation}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{algorithm}{Algorithm}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{question}[conjecture]{Question}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\begin{document}
+\textbf{CSE 2321 Homework 7}
+
+\section*{Problem 1}
+
+% You don't need to write proofs here, just give the expression and evalaute it. The align environment is good for this:
+% The '&' tells it what to align each line on
+% The '\\' tells it where to make a new line
+% The '&&' and '\text{}' is good for adding comments to a line, I have an example below
+\begin{align*}
+T(n) &= \sum_{k=0}^{n-1} ar^k && \text{Geometric series is really useful!}  \\
+&= a \left( \frac{1 - r^n}{1 - r} \right) && \text{If } r \neq 1
+\end{align*}
+
+\subsection*{1A}
+
+Recurrence relation:
+$$T(n) = 2T\left(\frac{n}{2}\right) + 1$$
+Running time:
+$$T(n) = \Theta(n)$$
+
+Generic formula after k substitutions:
+\begin{equation}
+T(n) = 2^{k+1}T\left(\frac{n}{2^{k+1}}\right) + \sum_{i=0}^{k} 2^i
+\end{equation}
+$$\text{Stop when } \frac{n}{2^{k+1}} = 1$$
+$$k = \log_2(n) - 1$$
+\begin{equation}
+T(n) = 2^{(\log_2(n) - 1 + 1)}T\left(\frac{n}{2^{(\log_2(n) - 1 + 1)}}\right) + \sum_{i=0}^{(\log_2(n) - 1)} 2^i
+\end{equation}
+$$n \cdot 1 + n - 1$$
+$$T(n) = \Theta(n)$$
+
+\subsection*{1B}
+Recurrence relation:
+$$T(n) = 3T\left(\frac{n}{3}\right) + 1$$
+Running time:
+$$T(n) = \Theta(n)$$
+Generic formula after k substitutions:
+\begin{equation}
+T(n) = 3^{k+1}T\left(\frac{n}{3^{k+1}}\right) + \sum_{i=0}^{k} 3^i
+\end{equation}
+$$\text{Stop when } \frac{n}{3^{k+1}} = 1$$
+$$k = \log_3(n) - 1$$
+\begin{equation}
+T(n) = 3^{(\log_3(n) - 1 + 1)}T\left(\frac{n}{3^{(\log_3(n) - 1 + 1)}}\right) + \sum_{i=0}^{(\log_3(n) - 1)} 3^i
+\end{equation}
+$$n \cdot 1 + \frac{n-1}{2}$$
+$$T(n) = \Theta(n)$$
+\subsection*{1C}
+Recurrence relation:
+$$T(n) = T(n-1) + 1$$
+Running time:
+$$T(n) = \Theta(n)$$
+Generic formula after k substitutions:
+\begin{equation}
+T(n) = T(n-(k+1)) + (k+1)
+\end{equation}
+$$\text{Stop when } n - (k+1) = 1$$
+$$k = n-2$$
+\begin{equation}
+T(n - ((n - 2) + 1)) + ((n - 2) + 1)
+\end{equation}
+$$1 + n - 1 = n$$
+$$T(n) = \Theta(n)$$
+\subsection*{1D}
+Recurrence relation:
+$$T(n) = T(n-2) + 1$$
+Running time:
+$$T(n) = \Theta(n)$$
+Generic formula after k substitutions:
+\begin{equation}
+T(n) = T(n-2(k+1)) + (k+1)
+\end{equation}
+$$\text{Stop when } n-2(k+1)) = 1$$
+$$k = \frac{n-3}{2}$$
+$$T(n) = T\left(n - 2\left(\frac{n-3}{2}+1\right)\right) + \left(\frac{n-3}{2} + 1\right)$$
+$$1 + \frac{n-3}{2} + 1$$
+$$T(n) = \Theta(n)$$
+\subsection*{1E}
+Recurrence relation:
+$$T(n) = 3T\left(\frac{n}{2}\right) + 1$$
+Running time:
+$$T(n) = \Theta(n^{\frac{\log_3(n)}{\log_2(n)}})$$
+Generic formula after k substitutions:
+\begin{equation}
+T(n) = 3^{k+1}T\left(\frac{n}{2^{k+1}}\right) + \sum_{i=0}^{k} 3^i
+\end{equation}
+$$\text{Stop when } \frac{n}{2^{k+1}} = 1$$
+$$k = \log_2(n) - 1$$
+\begin{equation}
+T(n) = 3^{(\log_2(n) - 1 + 1)}T\left(\frac{n}{2^{(\log_2(n) - 1 + 1)}}\right) + \sum_{i=0}^{(\log_2(n) - 1)} 3^i
+\end{equation}
+$$3^{\log_2(n)} \cdot 1 + \frac{{1 - 3^{\log_2(n)}}}{-2}$$
+$$T(n) = \Theta(n^{\frac{\log_3(n)}{\log_2(n)}})$$
+
+
+
+
+\section*{Problem 3}
+% For your version of trinary search, you can use the lstlisting environment like I have for BinarySearch, just replace it with your code:
+\begin{lstlisting}[language=Python]
+int BinarySearch(A, i, j, k)
+	if i>j
+		index = -1
+	else
+		midpt1 = (i+j)/3
+		midpt2 = midpt1
+		if k = A[midpt1]
+			index = midpt1
+		else if k < A[midpt1]
+			index = BinarySearch(A, i, midpt1 - 1, k)
+		else if k = A[midpt2]
+			index = midpt2
+		else if k > A[midpt2]
+			index = BinarySearch(A, midpt2 + 1, j, k)
+		else
+			index = BinarySearch(A, midpt1 + 1, midpt2 - 1, k)
+	return index
+\end{lstlisting}
+% For you analysis of the running time, you can again use the align* argument from before.
+
+TrinarySearch: \\
+Recurrence relation:
+$$T(n) = T\left(\frac{n}{3}\right) + C$$
+Running time:
+$$T(n) = \Theta(log(n))$$ \\ \\
+Generic formula after k substitutions:
+\begin{equation}
+T(n) = T\left(\frac{n}{3^{k+1}}\right) + (k + 1)
+\end{equation}
+$$\text{Stop when } \frac{n}{3^{k+1}} = 1$$
+$$k = \log_3(n) - 1$$
+\begin{equation}
+T(n) = T\left(\frac{n}{3^{(\log_3(n) - 1 + 1)}}\right) + (\log_3(n) - 1 + 1)
+\end{equation}
+$$1 + log_3(n)$$
+$$T(n) = \Theta(log(n))$$
+
+
+BinarySearch (from class notes): \\ 
+Recurrence relation:
+$$T(n) = T\left(\frac{n}{2}\right) + C$$
+Running time:
+$$T(n) = \Theta(log(n))$$
+TrinarySearch has same running time as BinarySearch.
+
+
+
+
+\end{document}

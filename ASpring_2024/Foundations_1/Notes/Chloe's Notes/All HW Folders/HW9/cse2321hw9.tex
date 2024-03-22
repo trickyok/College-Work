@@ -1,0 +1,50 @@
+\documentclass[14pt]{extarticle}
+\usepackage{amssymb,amsthm,amsmath, color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fullpage}
+\usepackage{subfigure}
+\usepackage{graphics}
+\usepackage{mdframed}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{property}{Property}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{notation}{Notation}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{algorithm}{Algorithm}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{question}[conjecture]{Question}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\begin{document}
+\textbf{CSE 2321 Homework 9}
+
+\textbf{Turn In:} Submit to the Carmen dropbox a PDF file generated from LaTex source (see the template file provided with this homework and the Piazza post on LaTex).
+
+\textbf{Reminder:} Homework should be worked on individually. If you are stuck on a problem, please spend time thinking about the problem and trying different approaches before seeking help in office hours. If you come to office hours you will benefit more if you have already attempted these problems. 
+
+\begin{enumerate}
+
+\item (15 pts) Create an algorithm that returns true if a graph contains a Hamiltonian cycle, and false otherwise.\\ Hint: Do not worry about the running time for this algorithm.\\
+
+\item (15 pts) In a directed graph $G = (V, E)$, a \textit{universal sink} is a vertex with in-degree $|V| - 1$ and out-degree $0$. Write an algorithm that, given as input the adjacency matrix $A$ of $G$, determines if $G$ has a universal sink in time $O(|V|)$.\\
+(Hint: A graph has either 0 or 1 universal sink. Think first about how to quickly eliminate vertices that cannot be a universal sink.)\\
+
+\item (20 pts) The \textit{diameter} of a graph is the largest of all shortest-path distances in the graph. In other words, if $S_G(x, y)$ is the length of the shortest path from $x$ to $y$ in graph $G=(V, E)$, then the diameter of $G$ is 
+\[
+\max_{x, y \in V}\{S_G(x, y)\}. 
+\]
+Give an algorithm to compute the diameter of an undirected graph $G = (V, E)$, with running time $O\left(|V|^2 + |V||E|\right)$. Include an analysis of the running time.
+
+
+\end{enumerate}
+\end{document}

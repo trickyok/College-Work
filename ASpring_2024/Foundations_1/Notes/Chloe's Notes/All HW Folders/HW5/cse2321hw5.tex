@@ -1,0 +1,93 @@
+\documentclass[14pt]{extarticle}
+\usepackage{amssymb,amsthm,amsmath, color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fullpage}
+\usepackage{subfigure}
+\usepackage{graphics}
+\usepackage{mdframed}
+\usepackage{multicol}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{property}{Property}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{notation}{Notation}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{algorithm}{Algorithm}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{question}[conjecture]{Question}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\begin{document}
+\textbf{CSE 2321 Homework 5}
+
+\textbf{Turn In:} Submit to the Carmen dropbox a PDF file generated from LaTex source (see the template file provided with this homework and the Piazza post on LaTex).
+
+\textbf{Reminder:} Homework should be worked on individually. If you are stuck on a problem, please spend time thinking about the problem and trying different approaches before seeking help in office hours. If you come to office hours you will benefit more if you have already attempted these problems. 
+
+\begin{enumerate}
+
+\item (40 pts) Consider the following functions:
+\begin{itemize}
+\item $f_1(n) = \lg(n^3) + \lg(n^2)$
+\item $f_2(n) = 3^{n+1} + 5n^{4}$
+\item $f_3(n) = 3n^{0.2} + 3n^{0.8}$
+\item $f_4(n) = 2^{16}$
+\item $f_5(n) = 4 \lg(n^2+2n) + 6n^{0.7}$
+\item $f_6(n) = n^5 + 2^{n-2}$
+\item $f_7(n) = 3 n \lg(n^2 + 2) + n^2$
+\item $f_8(n) = ((9n^2)(6n)(121))^{1/2}$
+\item $f_9(n) = (4 + 5n + \lg(n))^{1/2}$
+\item $f_{10}(n) = \lg^2(n) + n\lg(n^3) + 500n$
+\item $f_{11}(n) = ((5n^5)(6n)(121n^{10}))^{1/5} + n\lg(n^{100})$
+\item $f_{12}(n) = n^{n-1}$
+\item $f_{13}(n) = 2^{3\sqrt{n}}$
+\item $f_{14}(n) = \sum_{i=1}^{n} i$
+\end{itemize}
+For these functions, do the following:
+\begin{enumerate}
+\item Analyze the asymptotic complexity of each of the functions, in simplest terms. That is, for each function $f$, find the ``simplest'' function $g$ such that $f(n) = \Theta(g(n))$.\\
+Make sure to rigorously justify your answer - this does not need to be a full proof, but you should use either the upper/lower bound process or the limit theorem from lecture.
+\item Order the functions by asymptotic dominance: give a sequence $f_1, f_2, \ldots$ such that $f_i(n) = O(f_{i+1}(n))$. Make a note if any two functions are asymptotically equivalent, i.e. if $f_i(n) = \Theta(f_{i+1}(n))$.
+\end{enumerate}
+
+
+
+
+\item (5 pts each) Analyze the running time (i.e.~$T(n)$) of these four functions. You should be able to find some simple function $f(n)$ such that $T(n) = \Theta(f(n))$. You should rigorously justify your answer.
+\begin{enumerate}
+
+\begin{multicols}{2}
+
+\item \textbf{Func1}$(n)$\\
+$s = 0$\\
+for $i = 1$ to $n^2$ do\\
+\tab for $j = 1$ to $n^2$ do\\
+\tab \tab $s = s + i + j$\\
+return $s$
+
+\item \textbf{Func2}$(n)$\\
+$s = 0$\\
+for $i = 1$ to $n^2$ do\\
+\tab for $j = 1$ to $i^2$ do\\
+\tab \tab $s = s + i + j$\\
+return $s$
+
+\end{multicols}
+
+\end{enumerate}
+
+
+
+
+
+\end{enumerate}
+\end{document}

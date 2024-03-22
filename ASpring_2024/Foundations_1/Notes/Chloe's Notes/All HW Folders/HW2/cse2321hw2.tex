@@ -1,0 +1,69 @@
+\documentclass[14pt]{extarticle}
+\usepackage{amssymb,amsthm,amsmath, color}
+\usepackage{graphicx}
+\usepackage{fullpage}
+\usepackage{subfigure}
+\usepackage{graphics}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{property}{Property}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{notation}{Notation}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{algorithm}{Algorithm}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{question}[conjecture]{Question}
+
+\begin{document}
+\textbf{CSE 2321 Homework 2}
+
+\textbf{Turn In:} Submit to the Carmen dropbox a PDF file generated from LaTex source (see the template file provided with this homework and the Piazza post on LaTex).
+
+\textbf{Reminder:} Homework should be worked on individually. If you are stuck on a problem, please spend time thinking about the problem and trying different approaches before seeking help in office hours. If you come to office hours you will benefit more if you have already attempted these problems. 
+
+\begin{enumerate}
+\item Let $P(x)$ be the predicate ``x is a dragon.''\\Let $Q(x)$ be the predicate ``x breathes fire.''\\Let $R(x, y)$ be the predicate ``x and y are the same object.''\\Let $S$ be an arbitrary nonempty set.
+\begin{enumerate}
+\item (24 pts) Rewrite the following English statements in symbolic notation using predicates $P, Q, R$, universal and existential quantifiers, and any variables you want.
+\begin{enumerate}
+\item There are no dragons in $S$.
+\item Not everything in $S$ is a dragon.
+\item There is at least one dragon in $S$.
+\item There are at least two dragons in $S$.
+\item There is at most one dragon in $S$.
+\item There is at exactly one dragon in $S$.
+\item Dragons in $S$ breathe fire.
+\item If an element of $S$ breathes fire, it must be a dragon.
+\end{enumerate}
+\item (12 pts) Rewrite the following statements in English.
+\begin{enumerate}
+\item $\forall x \in S, P(x)$
+
+Hello this is a test.
+\item $\exists x \in S, (P(x) \Rightarrow Q(x))$
+\item $\forall x \in S, (Q(x) \Rightarrow P(x))$
+\item $(\forall x \in S, Q(x)) \Rightarrow (\forall x \in S, P(x))$
+\item $(\exists x \in S, P(x)) \land (\exists x \in S, Q(x))$
+\item $\forall x \in S, \exists y \in S, R(x, y)$
+\end{enumerate}
+\end{enumerate}
+\pagebreak
+\item (14 pts) Let $\mathbb{N}$ be the set of natural numbers.
+Write each of the following statements without defining any new sets or using any English. 
+
+Your answer should use only quantifiers $\forall, \exists$, logical operators $\neg, \land, \lor, \Rightarrow, \iff$, and common math symbols like $\mathbb{N}, \in, >, \leq, +, \ldots$ 
+
+I basically mean any math symbol you could reasonably expect me or your fellow students to recognize. The goal here is just to express these ideas without using English. If you aren't sure if something is a ``common math symbol'' or not feel free to ask on piazza.
+\begin{enumerate}
+\item There is a smallest natural number.
+\item The sum of any two odd numbers is even.
+\end{enumerate}
+\end{enumerate}
+\end{document}

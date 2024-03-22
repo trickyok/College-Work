@@ -1,76 +1,84 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Company: Ohio State University
+-- Engineer: Gage Farmer
 -- 
 -- Create Date:    16:08:11 03/06/2024 
--- Design Name: 
--- Module Name:    sequential - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+-- Design Name: 	 Project 2
+-- Module Name:    wave - Behavioral 
+-- Project Name: 	 2
+-- Target Devices: Xilinx for Windows on Linux (via Wine Compatability Shell)
+-- Tool versions:  14.7
+-- Description: Designed to be a simple sequential machine
 --
--- Dependencies: 
+-- Dependencies: ieee
 --
--- Revision: 
+-- Revision: 1
 -- Revision 0.01 - File Created
--- Additional Comments: 
+-- Additional Comments: Hi Drew
 --
 ----------------------------------------------------------------------------------
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+ENTITY sequential IS
+PORT(	Q0		:	OUT	STD_LOGIC;
+		Q1		:	OUT	STD_LOGIC;
+		RCO	:	OUT	STD_LOGIC;
+		CLK	:	IN		STD_LOGIC;
+		INPUT	:	IN		STD_LOGIC;
+		CLR	:	IN		STD_LOGIC);
+END sequential;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+ARCHITECTURE behavioral OF sequential IS
 
-entity sequential is
-    Port ( INPUT : in  STD_LOGIC;
-           CLR : in  STD_LOGIC;
-           CLK : in  STD_LOGIC;
-           Q0 : out  STD_LOGIC;
-           Q1 : out  STD_LOGIC;
-           RCO : out  STD_LOGIC);
-end sequential;
+		SIGNAL	CE1	:	STD_LOGIC:= '1';
+		SIGNAL	CE0	:	STD_LOGIC;
+		SIGNAL	IQ0	:	STD_LOGIC:='0';
+		SIGNAL	IQ1	:	STD_LOGIC:='0';
 
-architecture Behavioral of sequential is
+BEGIN
+	process (IQ0,IQ1,INPUT)   -- output 1) the 3-8 decoder 2) Q0 3) Q1
+		begin
+			if IQ0='1' and IQ1='1' and INPUT='1' then
+				RCO <= '1';
+			elsif	IQ0='0' and IQ1='0' and INPUT='0' then
+				RCO <= '1';
+			else
+				RCO <= '0';
+			end if;
+			Q0 <= IQ0;
+			Q1 <= IQ1;
+	end process;
 
-begin
+	process (CLK, CLR) -- The first T flip-flop
+		begin
+			if (CLK'event and CLK='1') then
+				if CLR = '1' then
+					IQ1 <= '0';
+				elsif CE1 = '1' then
+					IQ1 <= not(IQ1);
+				end if;
+			end if;
+	end process;
 
-process (CLK)
-begin
+	process (CLK, CLR) -- The second T flip-flop
+		begin
+			if INPUT='1' and IQ1='1' then
+				CE0<='1';
+			elsif INPUT='0' and IQ1='0' then
+				CE0<='1';
+			else
+				CE0<='0';
+			end if;
 
-   if CLK'event and CLK='1' then  
-	
--- T Flip-Flop 0
-      if CLR='1' then   
-         Q0 <= '0';
-      elsif INPUT ='1' then
-         Q0 <= not(Q0);
-      end if;
-	
--- T Flip-Flop 1
-      if <reset>='1' then   
-         <output> <= '0';
-      elsif <clock_enable> ='1' then
-         <output> <= not(<output>);
-      end if;
-   end if;
-	
-	
-	
-	
-end process;
- 
-	
-end process;
- 
+			if CLK'event and CLK='1' then
+				if CLR='1' then
+					IQ0<='0';
+				elsif CE0='1' then
+					IQ0<=not(IQ0);
+				end if;
+			end if;
+	end process;
 
-
-end Behavioral;
-
+END;

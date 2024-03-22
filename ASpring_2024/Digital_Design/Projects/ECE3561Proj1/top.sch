@@ -31,8 +31,6 @@
         <signal name="PRE" />
         <signal name="XLXN_81" />
         <signal name="XLXN_61" />
-        <signal name="XLXN_83" />
-        <signal name="XLXN_85" />
         <port polarity="Input" name="INPUT" />
         <port polarity="Input" name="CLK" />
         <port polarity="Output" name="Q0" />
