@@ -1,0 +1,153 @@
+\documentclass[12 pt]{amsart}
+
+\usepackage{amsmath, amsfonts, amssymb,amsthm}
+\usepackage[pdftex]{color,graphicx}
+\usepackage[margin=1 in]{geometry}
+\usepackage[all]{xy}
+\usepackage{bbm}
+\usepackage{mathrsfs}
+%\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage[all]{xy}
+\usepackage{tasks}
+
+\setlength{\parindent}{2 em}
+\setlength{\parskip}{0.2 ex}
+\linespread{1.2}
+
+\newcommand{\Rr}{\mathbb{R}}
+\newcommand{\Qq}{\mathbb{Q}}
+\newcommand{\Zz}{\mathbb{Z}}
+\newcommand{\Nn}{\mathbb{N}}
+\newcommand{\Cc}{\mathbb{C}}
+\newcommand{\Tt}{\mathbb{T}}
+\newcommand{\Ss}{\mathbb{S}}
+\newcommand{\Dd}{\mathbb{D}}
+\newcommand{\Rp}{\mathbb{R}\mathrm{P}}
+\newcommand{\tH}{\widetilde{H}}
+\newcommand{\id}{\mathbbm{1}}
+\newcommand{\PWR}{\mathscr{P}}
+
+\newcommand{\sse}{\subseteq}
+\newcommand{\lra}{\Leftrightarrow}
+\newcommand{\imp}{\Rightarrow}
+
+\newcommand{\toup}[1]{\xrightarrow{#1}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\mb}[1]{\mathbf{#1}}
+
+\newcommand{\vs}{\vspace{\stretch{1}}}
+
+\newcommand{\hs}{\hspace*{0.5cm}}
+
+%\renewcommand{\theenumi}{(\alph{enumi})}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\nat}{Nat}
+\DeclareMathOperator{\POW}{POW}
+
+\newcommand{\st}{such that}
+\newcommand{\tfae}{the following are equivalent}
+\newcommand{\Tfae}{The following are equivalent}
+\newcommand{\ifff}{if and only if}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{df}[thm]{Definition}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{exam}{Example(s)}
+\newtheorem*{claim}{Claim}
+
+\begin{document}
+
+\begin{center} \Large
+	CSE 2321 - Foundations I - Spring 2024 - Dr. Estill \\ \large
+	Homework 8 - Due: Tuesday, April 2	\\
+\end{center}
+
+\vspace{2ex}
+
+	\begin{df}
+		A path in a graph is called \emph{simple}\label{simple} if all of its vertices are distinct (but not all vertices in the graph have to be visited).
+	\end{df}
+
+\begin{enumerate}[label=\arabic*.)]
+	
+	\item (20 points) In the graph depicted below, how many simple paths are there from $v$ to $w$?
+	Briefly justify your answer.
+	
+	\[\xymatrix@=15pt{
+		& \bigcirc\ar@{-}[dd]\ar@{-}[rd]	& & \bigcirc\ar@{-}[rd]	& & \bigcirc\ar@{-}[dd]\ar@{-}[rd]	& & \bigcirc\ar@{-}[rd]	& & \bigcirc\ar@{-}[dd]\ar@{-}[rd] \\
+	v\ar@{-}[ur]\ar@{-}[dr]	& & \bigcirc\ar@{-}[ur]\ar@{-}[rr]\ar@{-}[dr]	& & \bigcirc\ar@{-}[ur]\ar@{-}[dr]	& & \bigcirc\ar@{-}[ur]\ar@{-}[rr]\ar@{-}[dr]	& & \bigcirc\ar@{-}[ur]\ar@{-}[dr]	& & w \\
+		& \bigcirc\ar@{-}[ur]			& & \bigcirc\ar@{-}[ur]	& & \bigcirc\ar@{-}[ur]	& & \bigcirc\ar@{-}[ur]	& & \bigcirc\ar@{-}[ur]
+	}\]
+	
+	\vspace{1 cm}
+
+	
+	\item (40 points)The \emph{Hamming cube of dimension} $n$ is defined as the undirected graph $H_n = (V_n, E_n)$ where $V_n = \{ v : v \text{ is a binary string of length } n\}$ and $$E_n = \big\{ \{v, w \} \sse V_n : v \text{ and } w \text{ differ by one character}\big\}.$$
+		For example, $H_2$ looks like
+		\[\xymatrix{
+			00 \ar@{-}[r]\ar@{-}[d]	& 01 \ar@{-}[d] \\
+			10 \ar@{-}[r]			& 11
+		}\]
+		and $H_3$ looks like
+		\[\xymatrix@!0{
+			& 110 \ar@{-}[rr]\ar@{-}'[d][dd] & & 111 \ar@{-}[dd] \\
+			010 \ar@{-}[ur]\ar@{-}[rr]\ar@{-}[dd] & & 011 \ar@{-}[ur]\ar@{-}[dd] \\
+			& 100 \ar@{-}'[r][rr] & & 101 \\
+			000 \ar@{-}[rr]\ar@{-}[ur] & & 001 \ar@{-}[ur]
+		}\]
+				
+		\begin{enumerate}[label=(\alph*)]
+			\item What is $|V_n|$?
+			\item What is $|E_n|$? \emph{Justify your answer.}
+			\item Does $H_{17}$ have an Eulerian cycle? \emph{Justify your answer.}
+			\item Does $H_{42}$ have an Eulerian cycle? \emph{Justify your answer.}
+			\item Find a Hamiltonian cycle in $H_2$. List the sequence of vertices.
+			\item Find a Hamiltonian cycle in $H_3$. List the sequence of vertices.
+			\item Find a Hamiltonian cycle in $H_4$. List the sequence of vertices.
+%			\item True or false: $(\forall n \geq 2)[H_n \text{ has a Hamiltonian cycle}]$. \emph{Justify your answer.}
+		\end{enumerate}
+	
+	\vspace{1cm}	
+	
+	\begin{df}
+		Define the \emph{complement} of a graph, $G = (V,E)$, (either directed or undirected) as the graph $\overline{G} = (V,\overline{E})$ which has the same vertex set and where for every pair of distinct vertices, $v$ and $w$, $(v,w) \in \overline{E} \lra (v,w)\not\in E$.
+		That is to say, there's an edge in $\overline{G}$ if and only if there isn't an edge in $G$.
+		Or, to look at another way: take the adjacency matrix for $G$ and (except on the main diagonal) change each one to a zero and each zero to a one.
+		The resulting matrix is the adjacency matrix for $\overline{G}$.
+	\end{df}
+	
+	\bigskip
+	
+	\item (20 points) Give an example of a simple undirected graph on four vertices which is isomorphic to its complement.
+	A picture of your graph and its complement.are enough for your answer.
+	
+	\bigskip
+	
+	\item (20 points) For $n \geq 3$, let $C_n$ be the undirected graph consisting of a single simple cycle of length $n$.
+	I.e., $C_n = (V_n, E_n)$ where
+	\begin{align*}
+		V_n &= \{0, 1, 2, \dotsc, n-1 \} \text{ and} \\
+		E_n &= \left\{\left\{i, (i+1 \!\! \mod n)\right\} \,|\, 0 \leq i \leq n-1 \right\}.
+	\end{align*}
+	in simpler terms, one picture of $C_n$ would be an $n$-sided regular polygon, with the edges being the sides.
+	Find all values of $n$ such that $C_n$ is isomorphic to its complement.
+	Justify your answer.
+	
+\end{enumerate}
+
+
+\end{document}
