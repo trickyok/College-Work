@@ -1,0 +1,17 @@
+Hello, I'm just gonna try to use my words instead of a map thing to explain the concepts I remember.
+
+We've done a lot with latches and flip flops, learned how they work and how they can be used to put together registers, counters, and sequences.
+
+With these larger logical pieces, we then learned how to analyze sequential circuits, and break them down into different descriptive tables such as state tables, state diagrams, timing diagrams, write them into equations, and even draw them into pictures involving real components.
+
+Now that we've learned how each piece works, what these pieces can do when put together, and how to interpret and break down the systems which can be formed, we then moved on to the process of designing these circuits.
+
+The first step of learning sequential circuit design involved using state diagrams to visualize the paths that a sequence would take.
+
+Next we developed our understanding by learning how to minimize unnecessary states in order to simplify the circuit. Along the way we learned that this benefits in both time (ms) and money (u.s. dollars).
+
+State assignment was the final step of simplification, as it organized each of the assignments to a state which would be most efficient in bit switching for that particular sequence (least 00 <--> 11 or 01 <--> 10)
+
+Equations are equations. Done em before, did em again.
+
+We then began putting together larger circuits which involved adders, multiplexers, registers, clocks, and a lotta other fun stuff. This demonstrated several use cases for each of the different components, as well as ways to convert from one thing (d flip flop) to another (j-k flip flop) if necessary.
