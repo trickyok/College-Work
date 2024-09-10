@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<indexing>
+ <object alt="" name="Image1" object_type="graphic"/>
+ <object alt="" name="Image2" object_type="graphic"/>
+ <object alt="" name="Image3" object_type="graphic"/>
+ <object alt="" name="Image4" object_type="graphic"/>
+ <object alt="" name="Image5" object_type="graphic"/>
+ <object alt="" name="Image6" object_type="graphic"/>
+ <object alt="" name="Image7" object_type="graphic"/>
+ <paragraph index="31" node_type="writer">Example 2</paragraph>
+ <paragraph index="33" node_type="writer"> </paragraph>
+ <paragraph index="36" node_type="writer"> </paragraph>
+ <paragraph index="38" node_type="writer">Example 3</paragraph>
+ <paragraph index="40" node_type="writer"> </paragraph>
+ <paragraph index="41" node_type="writer"> </paragraph>
+ <paragraph index="42" node_type="writer"> </paragraph>
+ <paragraph index="43" node_type="writer"> </paragraph>
+ <paragraph index="45" node_type="writer">List of things:</paragraph>
+ <paragraph index="47" node_type="writer">R1) YAGEO 1kΩ Resistor - $0.10</paragraph>
+ <paragraph index="48" node_type="writer">R2) YAGEO 1kΩ Resistor - $0.10</paragraph>
+ <paragraph index="49" node_type="writer">RF) YAGEO 100kΩ Resistor - $0.09</paragraph>
+ <paragraph index="50" node_type="writer">Op-Amp) Texas Instruments LMV358IPWR - $0.42</paragraph>
+ <paragraph index="51" node_type="writer">Voltage Source) AliExpress “AC-DC AC 100V-240V to DC 5V 12V 1A 2A 2.5A Switching Power Supply Module Switch Overvoltage Overcurrent Short Circuit Protection” - $0.58</paragraph>
+ <paragraph index="53" node_type="writer">Total - $1.29, but I have zero faith in the voltage source</paragraph>
+</indexing>

@@ -26,4 +26,10 @@
 		<nature>net.sf.eclipsecs.core.CheckstyleNature</nature>
 		<nature>edu.umd.cs.findbugs.plugin.eclipse.findbugsNature</nature>
 	</natures>
+	<variableList>
+		<variable>
+			<name>components</name>
+			<value>file:/C:/Users/Epic%20Gage/Documents/College-Work/Old/Spring%202023/Software%201/components.jar</value>
+		</variable>
+	</variableList>
 </projectDescription>

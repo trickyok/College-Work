@@ -1,0 +1,276 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
+ 
+--> 
+Reading design: top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "top.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "top"
+Output Format                      : NGC
+Target Device                      : XC9500 CPLDs
+
+---- Source Options
+Top Module Name                    : top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+
+---- Target Options
+Add IO Buffers                     : YES
+MACRO Preserve                     : YES
+XOR Preserve                       : YES
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : Yes
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Verilog 2001                       : YES
+
+---- Other Options
+wysiwyg                            : NO
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf" in Library work.
+Entity <d3_8e_mxilinx_top> compiled.
+Entity <d3_8e_mxilinx_top> (Architecture <behavioral>) compiled.
+Entity <fd_mxilinx_top> compiled.
+Entity <fd_mxilinx_top> (Architecture <behavioral>) compiled.
+Entity <fdre_mxilinx_top> compiled.
+Entity <fdre_mxilinx_top> (Architecture <behavioral>) compiled.
+Entity <fjkrse_mxilinx_top> compiled.
+Entity <fjkrse_mxilinx_top> (Architecture <behavioral>) compiled.
+Entity <top> compiled.
+Entity <top> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <top> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <FJKRSE_MXILINX_top> in library <work> (architecture <behavioral>) with generics.
+	INIT = '0'
+
+Analyzing hierarchy for entity <D3_8E_MXILINX_top> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <FDRE_MXILINX_top> in library <work> (architecture <behavioral>) with generics.
+	INIT = '0'
+
+Analyzing hierarchy for entity <FD_MXILINX_top> in library <work> (architecture <behavioral>) with generics.
+	INIT = '0'
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <top> in library <work> (Architecture <behavioral>).
+    Set user-defined property "SLEW =  SLOW" for instance <XLXI_4> in unit <top>.
+    Set user-defined property "SLEW =  SLOW" for instance <XLXI_5> in unit <top>.
+    Set user-defined property "SLEW =  SLOW" for instance <XLXI_6> in unit <top>.
+    Set user-defined property "HU_SET =  XLXI_19_2" for instance <XLXI_19> in unit <top>.
+    Set user-defined property "HU_SET =  XLXI_20_3" for instance <XLXI_20> in unit <top>.
+WARNING:Xst:753 - "/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf" line 567: Unconnected output port 'D1' of component 'D3_8E_MXILINX_top'.
+WARNING:Xst:753 - "/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf" line 567: Unconnected output port 'D2' of component 'D3_8E_MXILINX_top'.
+WARNING:Xst:753 - "/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf" line 567: Unconnected output port 'D3' of component 'D3_8E_MXILINX_top'.
+WARNING:Xst:753 - "/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf" line 567: Unconnected output port 'D4' of component 'D3_8E_MXILINX_top'.
+WARNING:Xst:753 - "/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf" line 567: Unconnected output port 'D5' of component 'D3_8E_MXILINX_top'.
+WARNING:Xst:753 - "/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf" line 567: Unconnected output port 'D6' of component 'D3_8E_MXILINX_top'.
+    Set user-defined property "HU_SET =  XLXI_21_4" for instance <XLXI_21> in unit <top>.
+Entity <top> analyzed. Unit <top> generated.
+
+Analyzing generic Entity <FJKRSE_MXILINX_top> in library <work> (Architecture <behavioral>).
+	INIT = '0'
+    Set user-defined property "HU_SET =  I_36_32_1" for instance <I_36_32> in unit <FJKRSE_MXILINX_top>.
+Entity <FJKRSE_MXILINX_top> analyzed. Unit <FJKRSE_MXILINX_top> generated.
+
+Analyzing generic Entity <FDRE_MXILINX_top> in library <work> (Architecture <behavioral>).
+	INIT = '0'
+    Set user-defined property "HU_SET =  I_36_42_0" for instance <I_36_42> in unit <FDRE_MXILINX_top>.
+    Set user-defined property "RLOC =  R0C0" for instance <I_36_42> in unit <FDRE_MXILINX_top>.
+Entity <FDRE_MXILINX_top> analyzed. Unit <FDRE_MXILINX_top> generated.
+
+Analyzing generic Entity <FD_MXILINX_top> in library <work> (Architecture <behavioral>).
+	INIT = '0'
+    Set user-defined property "INIT =  0" for instance <U0> in unit <FD_MXILINX_top>.
+Entity <FD_MXILINX_top> analyzed. Unit <FD_MXILINX_top> generated.
+
+Analyzing Entity <D3_8E_MXILINX_top> in library <work> (Architecture <behavioral>).
+Entity <D3_8E_MXILINX_top> analyzed. Unit <D3_8E_MXILINX_top> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <D3_8E_MXILINX_top>.
+    Related source file is "/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf".
+Unit <D3_8E_MXILINX_top> synthesized.
+
+
+Synthesizing Unit <FD_MXILINX_top>.
+    Related source file is "/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf".
+Unit <FD_MXILINX_top> synthesized.
+
+
+Synthesizing Unit <FDRE_MXILINX_top>.
+    Related source file is "/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf".
+Unit <FDRE_MXILINX_top> synthesized.
+
+
+Synthesizing Unit <FJKRSE_MXILINX_top>.
+    Related source file is "/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf".
+Unit <FJKRSE_MXILINX_top> synthesized.
+
+
+Synthesizing Unit <top>.
+    Related source file is "/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf".
+Unit <top> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 2
+ Flip-Flops                                            : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <top> ...
+
+Optimizing unit <D3_8E_MXILINX_top> ...
+
+Optimizing unit <FD_MXILINX_top> ...
+  implementation constraint: INIT=0	 : U0
+
+Optimizing unit <FDRE_MXILINX_top> ...
+
+Optimizing unit <FJKRSE_MXILINX_top> ...
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : top.ngr
+Top Level Output File Name         : top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : Yes
+Target Technology                  : XC9500 CPLDs
+Macro Preserve                     : YES
+XOR Preserve                       : YES
+wysiwyg                            : NO
+
+Design Statistics
+# IOs                              : 6
+
+Cell Usage :
+# BELS                             : 18
+#      AND2                        : 2
+#      AND4                        : 1
+#      GND                         : 3
+#      INV                         : 3
+#      OR2                         : 6
+#      OR4                         : 2
+#      VCC                         : 1
+# FlipFlops/Latches                : 2
+#      FDCP                        : 2
+# IO Buffers                       : 6
+#      IBUF                        : 3
+#      OBUF                        : 3
+# Others                           : 17
+#      AND2B1                      : 2
+#      AND3B1                      : 4
+#      AND3B2                      : 4
+#      AND4B1                      : 3
+#      AND4B2                      : 3
+#      AND4B3                      : 1
+=========================================================================
+
+
+Total REAL time to Xst completion: 3.00 secs
+Total CPU time to Xst completion: 2.78 secs
+ 
+--> 
+
+
+Total memory usage is 514436 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    6 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

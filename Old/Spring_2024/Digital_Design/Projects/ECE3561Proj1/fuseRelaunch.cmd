@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top_top_sch_tb_isim_beh.exe" -prj "/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top_top_sch_tb_beh.prj" "work.top_top_sch_tb" 

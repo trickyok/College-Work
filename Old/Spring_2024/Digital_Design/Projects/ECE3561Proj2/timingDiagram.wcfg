@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj2/wave_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="wave" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="11" />
+   <wvobject fp_name="/wave/clk" type="logic" db_ref_id="1">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+      <obj_property name="label">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave/input" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">input</obj_property>
+      <obj_property name="ObjectShortName">input</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave/clr" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clr</obj_property>
+      <obj_property name="ObjectShortName">clr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave/q0" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">q0</obj_property>
+      <obj_property name="ObjectShortName">q0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave/q1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">q1</obj_property>
+      <obj_property name="ObjectShortName">q1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave/rco" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rco</obj_property>
+      <obj_property name="ObjectShortName">rco</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave/ce1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ce1</obj_property>
+      <obj_property name="ObjectShortName">ce1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave/ce0" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ce0</obj_property>
+      <obj_property name="ObjectShortName">ce0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave/iq0" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">iq0</obj_property>
+      <obj_property name="ObjectShortName">iq0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave/iq1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">iq1</obj_property>
+      <obj_property name="ObjectShortName">iq1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave/temporal" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">temporal[5:0]</obj_property>
+      <obj_property name="ObjectShortName">temporal[5:0]</obj_property>
+   </wvobject>
+</wave_config>

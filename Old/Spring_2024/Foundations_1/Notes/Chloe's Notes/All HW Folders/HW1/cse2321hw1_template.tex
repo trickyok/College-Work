@@ -1,0 +1,330 @@
+\documentclass[14pt]{extarticle}
+\usepackage{amssymb,amsthm,amsmath, color}
+\usepackage{graphicx}
+\usepackage{fullpage}
+\usepackage{subfigure}
+\usepackage{graphics}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{property}{Property}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{notation}{Notation}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{algorithm}{Algorithm}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{question}[conjecture]{Question}
+
+
+%All latex files begin with a bunch of imports and definitions. Ignore those above, don't change any. 
+
+\begin{document}
+\section*{CSE 2321 Homework 1 Template}
+%This is a template file to make it easier for you to nicely writeup and submit your homework. For each problem I have put an example below with comments on how to nicely format your answers. If you have any trouble with this file or figuring out the format, please post on Piazza.
+
+
+\section*{Problem 1}
+
+\subsection*{a}
+tautology
+%Here is a nice template for making truth tables. You can copy and paste this for each part of question 1. 
+%First we start the math environment, and set up an array to display the truth table:
+\[
+\makebox[\displaywidth][l]{$
+\begin{array}{|c|c|c|} %To increase the number of columns add additional c's here, separated by |'s to create lines between columns
+P & \neg P & P\lor \neg P \\ %This is the first row of the truth table. The & separates values into different columns, and the \\ marks the end of the row
+\hline %This creates the line between the top row where the predicates go and the rows below where T/F goes
+T & F & T \\
+F & T & T \\ 
+%You can add as many rows as you want, just remember to include the & and \\ where needed!
+\end{array}
+$}
+\]
+
+\subsection*{b}
+contradiction
+\[
+\makebox[\displaywidth][l]{$
+\begin{array}{|c|c|c|} 
+P & \neg P & P\land \neg P\\ 
+\hline 
+T & F & F\\
+F & T & F\\ 
+\end{array}
+$}
+\]
+
+\subsection*{c}
+contingency
+\[
+\makebox[\displaywidth][l]{$
+\begin{array}{|c|c|c|c|c|c|c|c|c|c|} 
+P & Q & R & Q \lor R & P \land Q & P \land R & \neg (P \lor Q) & P \land (Q \lor R) & \neg (P \lor Q) \lor (P \land R)\\ 
+\hline 
+T & T & T & T & T & T & F & T & T\\
+T & T & F & T & T & F & F & T & F\\ 
+T & F & T & T & F & T & T & T & T\\
+T & F & F & F & F & F & T & F & T\\
+F & T & T & T & F & F & T & F & T\\
+F & T & F & T & F & F & T & F & T\\
+F & F & T & T & F & F & T & F & T\\
+F & F & F & F & F & F & T & F & T\\
+
+\end{array}
+$}
+\]
+\[
+\makebox[\displaywidth][l]{$
+\begin{array}{|c|c|c|c|c|c|c|c|c|c|} 
+P \land (Q \lor R) \Rightarrow \neg (P \lor Q) \lor (P \land R\\ 
+\hline 
+T \\
+F \\
+T \\
+T \\
+T \\
+T \\
+T \\
+T \\
+
+
+\end{array}
+$}
+\]
+
+%This ends the math environment
+%The commands you will need here are 
+%   \neg (for ``not'', negation)
+%   \land (for ``and'', conjunction)
+%   \lor (for ``or'', disjunction)
+%   \Rightarrow (for ``if _ then _'', conditional)
+%   \iff (for ``_ if and only if _'', biconditional)
+
+\subsection*{d}
+contingency
+\[
+\makebox[\displaywidth][l]{$
+\begin{array}{|c|c|c|c|c|c|c|c|c|c|} 
+P & Q & \neg P & \neg Q & P \land Q & \neg P \Rightarrow \neg Q & P \land Q \iff \neg P \Rightarrow \neg Q \\ 
+\hline 
+T & T & F & F & T & T & T\\
+T & F  & F & T  & F  & T & F \\ 
+F & T  & T & F & F & F  & T \\
+F & F  & T & T & F  & T & F \\
+
+\end{array}
+$}
+\]
+
+\subsection*{e}
+contingency
+\[
+\makebox[\displaywidth][l]{$
+\begin{array}{|c|c|c|c|c|c|c|c|c|c|} 
+P & Q & P \lor Q & \neg P & \neg Q & \neg (P \lor Q) & \neg P \lor \neg Q & \neg P \lor \neg Q \iff \neg (P \lor Q)  \\ 
+\hline 
+T & T & T  & F  & F & F & F & T\\
+T & F  & T  & F  & T  & F  & T  & F\\ 
+F & T   & T  & T  & F  & F  & T  & F\\
+F & F   & F  & T  & T  & T  & T  & T\\
+
+\end{array}
+$}
+\]
+
+\subsection*{f}
+contingency
+\[
+\makebox[\displaywidth][l]{$
+\begin{array}{|c|c|c|c|c|c|c|c|c|c|} 
+P & Q  & P \land Q & \neg (P \land Q) & \neg P & \neg Q  & \neg P \land \neg Q & \neg (P \land Q) \iff \neg P \land \neg Q\\ 
+\hline 
+T & T & T & F & F & F & F & T \\
+T & F & F & T & F & T & F & F \\ 
+F & T & F & T & T & F & F & F \\
+F & F & F & T & T & T & T & T\\
+
+\end{array}
+$}
+\]
+
+\subsection*{g}
+contingency
+\[
+\makebox[\displaywidth][l]{$
+\begin{array}{|c|c|c|c|c|c|c|c|c|c|} 
+P & Q & R & Q \Rightarrow R & P \Rightarrow Q & \neg(Q \Rightarrow R) & (P \Rightarrow Q) \lor \neg (Q \Rightarrow R) & P \Rightarrow (Q \Rightarrow R) \\ 
+\hline 
+T & T & T & T & T & F & T & T \\
+T & T & F & F & T & T & T & F \\
+T & F & T & T & F & F & F & T \\
+T & F & F & T & F & F & F & T \\
+F & T & T & T & T & F & T & T \\
+F & T & F & F & T & T & T & T\\
+F & F & T & T & T & F & T & T\\
+F & F & F & T & T & F & T & T\\
+
+\end{array}
+$}
+\]
+
+\[
+\makebox[\displaywidth][l]{$
+\begin{array}{|c|c|c|} 
+P \Rightarrow (Q \Rightarrow R) \iff (P \Rightarrow Q) \lor \neg (Q \Rightarrow R) \\ 
+\hline 
+T \\
+F \\
+F \\
+F \\
+T \\
+T \\
+T \\
+T \\
+
+
+\end{array}
+$}
+\]
+\subsection*{h}
+contingency
+\[
+\makebox[\displaywidth][l]{$
+\begin{array}{|c|c|c|c|c|c|c|c|c|c|} 
+P & Q & \neg P & \neg Q & P \lor Q & P \lor \neg Q & \neg P \lor Q & \neg P \lor \neg Q\\ 
+\hline 
+T & T & F & F & T & T & T & F \\
+T & F & F & T & T & T & F & T \\ 
+F & T & T & F & T & F & T & T \\
+F & F & T & T & T & T & T & T\\
+
+\end{array}
+$}
+\]
+
+\[
+\makebox[\displaywidth][l]{$
+\begin{array}{|c|c|c|c|c|c|c|c|c|c|} 
+(P \lor Q) \land (P \lor \neg Q) \land (\neg P \lor Q) \land (\neg P \lor \neg Q) \\
+\hline
+F \\
+F\\
+F\\
+T\\
+\end{array}
+$}
+\]
+
+\subsection*{i}
+\[
+\makebox[\displaywidth][l]{$
+\begin{array}{|c|c|c|c|c|c|c|c|c|c|} 
+P & Q & R & S\\ 
+\hline 
+T & T & T & T \\
+T & T & T & F \\
+T & T & F & T \\
+T & T & F & F \\
+T & F & T & T \\
+T & F & T & F \\
+T & F & F & T \\
+T & F & F & F \\
+F & T & T & T \\
+F & T & T & F \\
+F & T & F & T \\
+F & T & F & F \\
+F & F & T & T \\
+F & F & T & F \\
+F & F & F & T \\
+F & F & F & F \\
+
+\end{array}
+$}
+\]
+
+
+\section*{Problem 2}
+
+\subsection*{a}
+\[ 
+\neg Q \land P
+\] 
+%The \[ ... \] below creates a math environment so we can use math commands. You can copy and paste this for each part of question 2.
+\subsection*{b}
+\[ 
+R\land \neg P
+\] 
+\subsection*{c}
+\[
+R \iff Q
+\]
+\subsection*{d}
+\[
+P \lor (Q \land \neg R)
+\]
+\subsection*{e}
+\[
+P \land \neg R \Rightarrow Q
+\]
+\subsection*{f}
+\[
+R \iff\neg Q
+\]
+
+%This ends the math environment
+%The commands you will need here are 
+%   \neg (for ``not'', negation)
+%   \land (for ``and'', conjunction)
+%   \lor (for ``or'', disjunction)
+%   \Rightarrow (for ``if _ then _'', conditional)
+%   \iff (for ``_ if and only if _'', biconditional)
+
+
+\section*{Problem 3}
+%You can just type test here, no math enironment needed!
+A sufficient condition would be that I am watching a YouTube video on my iPad, as the only way to do that is if my wifi is working.
+
+
+\section*{Problem 4}
+%You can just type test here, no math enironment needed!
+A necessary but not sufficient condition would be that I am using a space telescope. You cannot see Jupiter with your bare eyes, so we know that if you don't have a telescope, you couldn't possibly see Jupiter, but just because you are using a telescope, doesn't mean that you can actually see Jupiter. 
+
+
+\section*{Problem 5}
+
+\subsection*{a}
+Note: Using a column to show the desired truth table results (the expression being replaced).
+%Again with the truth tables. Your answer should be the last column in the truth table.
+\[
+\makebox[\displaywidth][l]{$
+\begin{array}{|c|c|c|} %To increase the number of columns add additional c's here, separated by |'s to create lines between columns
+A & \neg A & A \odot A\\%This is the first row of the truth table. The & separates values into different columns, and the \\ marks the end of the row
+\hline %This creates the line between the top row where the predicates go and the rows below where T/F goes
+T & F & F \\
+F & T & T \\
+\end{array}
+$}
+\]
+
+\subsection*{b}
+\[
+\makebox[\displaywidth][l]{$
+\begin{array}{|c|c|c|c|c|} %To increase the number of columns add additional c's here, separated by |'s to create lines between columns
+A & B & A \odot B & A \land B & (A \odot B) \odot (A \odot B)\\%This is the first row of the truth table. The & separates values into different columns, and the \\ marks the end of the row
+\hline %This creates the line between the top row where the predicates go and the rows below where T/F goes
+T & T & F & T & T \\
+T & F & T & F & F\\
+F & T & T & F & F \\
+F & F & T & F & F\\
+\end{array}
+$}
+\]
+
+
+\end{document}

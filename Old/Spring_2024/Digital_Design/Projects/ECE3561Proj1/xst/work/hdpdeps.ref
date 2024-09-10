@@ -1,0 +1,40 @@
+V3 32
+FL /home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf 2024/02/24.17:50:48 P.20131013
+EN work/D3_8E_MXILINX_top 1708815856 \
+      FL /home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 LB UNISIM \
+      PH unisim/VCOMPONENTS 1381692182
+AR work/D3_8E_MXILINX_top/BEHAVIORAL 1708815857 \
+      FL /home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf \
+      EN work/D3_8E_MXILINX_top 1708815856 CP AND4 CP AND4B1 CP AND4B2 CP AND4B3
+EN work/FD_MXILINX_top 1708815858 \
+      FL /home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 LB UNISIM \
+      PH unisim/VCOMPONENTS 1381692182
+AR work/FD_MXILINX_top/BEHAVIORAL 1708815859 \
+      FL /home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf \
+      EN work/FD_MXILINX_top 1708815858 CP GND CP FDCP
+EN work/FDRE_MXILINX_top 1708815860 \
+      FL /home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 LB UNISIM \
+      PH unisim/VCOMPONENTS 1381692182
+AR work/FDRE_MXILINX_top/BEHAVIORAL 1708815861 \
+      FL /home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf \
+      EN work/FDRE_MXILINX_top 1708815860 CP AND3B1 CP AND3B2 CP OR2 \
+      CP FD_MXILINX_top
+EN work/FJKRSE_MXILINX_top 1708815862 \
+      FL /home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 LB UNISIM \
+      PH unisim/VCOMPONENTS 1381692182
+AR work/FJKRSE_MXILINX_top/BEHAVIORAL 1708815863 \
+      FL /home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf \
+      EN work/FJKRSE_MXILINX_top 1708815862 CP FDRE_MXILINX_top CP AND3B2 CP AND3B1 \
+      CP AND2B1 CP OR4 CP OR2
+EN work/top 1708815864 \
+      FL /home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 LB UNISIM \
+      PH unisim/VCOMPONENTS 1381692182
+AR work/top/BEHAVIORAL 1708815865 \
+      FL /home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf \
+      EN work/top 1708815864 CP IBUF CP OBUF CP AND2 CP INV CP OR2 \
+      CP FJKRSE_MXILINX_top CP D3_8E_MXILINX_top CP GND CP VCC

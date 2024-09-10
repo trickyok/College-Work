@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj2/wave_isim_beh.exe" -prj "/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj2/wave_beh.prj" "work.wave" 

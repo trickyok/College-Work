@@ -1,0 +1,151 @@
+\documentclass[12 pt]{amsart}
+
+\usepackage{amsmath, amsfonts, amssymb,amsthm}
+\usepackage[pdftex]{color,graphicx}
+\usepackage[margin=1 in]{geometry}
+\usepackage[all]{xy}
+\usepackage{bbm}
+\usepackage{mathrsfs}
+%\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage[all]{xy}
+\usepackage{tasks}
+
+\setlength{\parindent}{2 em}
+\setlength{\parskip}{0.2 ex}
+\linespread{1.2}
+
+\newcommand{\Rr}{\mathbb{R}}
+\newcommand{\Qq}{\mathbb{Q}}
+\newcommand{\Zz}{\mathbb{Z}}
+\newcommand{\Nn}{\mathbb{N}}
+\newcommand{\Cc}{\mathbb{C}}
+\newcommand{\Tt}{\mathbb{T}}
+\newcommand{\Ss}{\mathbb{S}}
+\newcommand{\Dd}{\mathbb{D}}
+\newcommand{\Rp}{\mathbb{R}\mathrm{P}}
+\newcommand{\tH}{\widetilde{H}}
+\newcommand{\id}{\mathbbm{1}}
+\newcommand{\PWR}{\mathscr{P}}
+
+\newcommand{\sse}{\subseteq}
+\newcommand{\lra}{\Leftrightarrow}
+\newcommand{\imp}{\Rightarrow}
+
+\newcommand{\toup}[1]{\xrightarrow{#1}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\mb}[1]{\mathbf{#1}}
+
+\newcommand{\vs}{\vspace{\stretch{1}}}
+
+\newcommand{\hs}{\hspace*{0.5cm}}
+
+%\renewcommand{\theenumi}{(\alph{enumi})}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\nat}{Nat}
+\DeclareMathOperator{\POW}{POW}
+
+\newcommand{\st}{such that}
+\newcommand{\tfae}{the following are equivalent}
+\newcommand{\Tfae}{The following are equivalent}
+\newcommand{\ifff}{if and only if}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{df}[thm]{Definition}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{exam}{Example(s)}
+\newtheorem*{claim}{Claim}
+
+\begin{document}
+
+\begin{center} \Large
+	CSE 2321 \quad Foundations I \quad Spring, 2024 \quad Dr. Estill \\ \large
+	Homework 7 \quad Due: Friday, March 22
+\end{center}
+
+\vspace{3ex}
+
+\begin{thm}[Master Theorem] \small
+	\rule{0pt}{1ex} \\ Let $a \geq 1$ and $b>1$ be constants, let $f(n)$ be a function $f:\Nn \to \Rr^+$, and let $T(n)$ be defined on the nonnegative integers by the recurrence $$T(n) = aT(n/b) + f(n).$$
+	Then $T(n)$ has the following asymptotic bounds:
+	\begin{enumerate}[label=\arabic*.]
+		\item if $f(n) \in O(n^{\log_b a - \epsilon})$ for some constant $\epsilon > 0$, then $T(n) \in \Theta(n^{\log_b a})$,
+		\item if $f(n) \in \Theta(n^{\log_b a})$ then $T(n) \in \Theta(n^{\log_b a}\log n)$, and
+		\item if $f(n) \in \Omega(n^{\log_b a+ \epsilon})$ for some $\epsilon>0$ and if $a f(n/b) \leq d f(n)$ for some constant $d<1$ and all sufficiently large n, then $T(n) \in \Theta(f(n))$.
+	\end{enumerate}
+\end{thm}
+
+\bigskip
+
+Use the Master Theorem above to solve the following recurrences when possible.
+If you need to confirm the regularity condition (\(af(n/b) \leq df(n)\) for \(d < 1\)), work should be shown, but otherwise answers are all that is needed.
+(Note that not every blank needs to be filled in in every problem.):
+
+\emph{(20 points each)}
+
+\bigskip
+
+\begin{enumerate}[label=\arabic*.)]
+
+%\begin{enumerate}[label=\alph*.)]
+	\item $T(n) = T(n/3) + c$ \\
+	$f(n) = c$ versus $n^{\log_b a} = n^{3}$ \\
+	Which is growing faster: $f(n)$ or  $n^{\log_b a}$?     $n^{\log_b a}$ \\
+	Which case of the Master Theorem does that potentially put us in?     Case 1 \\
+	What can you conclude?     $T(n) = \theta(n^{3})$
+	
+	\bigskip
+	
+	\item $T(n) = T(n/3) + c\log_2 n$ \\
+	$f(n) = \log_2 n$ versus $n^{\log_b a} = n^{3}$ \\
+	Which is growing faster: $f(n)$ or  $n^{\log_b a}$?  - $n^{log_b a}$ \\
+	Which case of the Master Theorem does that potentially put us in?     Case 1 \\
+	What can you conclude?  - $T(n) = \theta(n^{3})$
+	
+	\bigskip
+	
+	\item $T(n) = 4T(n/2) + cn$ \\
+	$f(n) = cn$ versus $n^{\log_b a} = n^{2}$ \\
+	Which is growing faster: $f(n)$ or  $n^{\log_b a}$?     $n^{\log_b a}$ \\
+	Which case of the Master Theorem does that potentially put us in?     Case 1 \\
+	What can you conclude?      $T(n) = \theta(n^{2})$
+	
+	\bigskip
+	
+	\item $T(n) = 4T(n/2) + cn^3$ \\
+	$f(n) = cn^{3}$ versus $n^{\log_b a} = n^{2}$ \\
+	Which is growing faster: $f(n)$ or  $n^{\log_b a}$?     $f(n)$\\
+	Which case of the Master Theorem does that potentially put us in?     Case 3 \\
+	If you're potentially in case one or three, is it possible to find an epsilon which makes either $f(n) \in O(n^{\log_b a - \epsilon})$ (if you're in case one) or $f(n) \in \Omega(n^{\log_b a+ \epsilon})$ (if you're in case three) true? Choose one or show an inequality.    $n^{3} <= 2dn^{3}$ \\
+	If you're potentially in case three and there is an $\epsilon$, try to find a constant $d<1$ such that $a f(n/b) \leq d f(n)$ for large enough $n$'s.
+	    $d = 1/2$ \\
+	What can you conclude?      $T(n) = \theta(n^{3})$
+	
+	\bigskip
+	
+	\item $T(n) = 2T(n/6) + \sqrt{n\,}$ \\
+	$f(n) = n^{0.500}$ versus $n^{\log_b a} = n^{0.387}$ \\
+	Which is growing faster: $f(n)$ or  $n^{\log_b a}$?     $f(n)$ \\
+	Which case of the Master Theorem does that potentially put us in?   Case 3 \\
+	If you're potentially in case one or three, is it possible to find an epsilon which makes either $f(n) \in O(n^{\log_b a - \epsilon})$ (if you're in case one) or $f(n) \in \Omega(n^{\log_b a+ \epsilon})$ (if you're in case three) true? Choose one or show an inequality.   $2f(n/6) <= d\sqrt{n\,}$ \\
+	If you're potentially in case three and there is an $\epsilon$, try to find a constant $d<1$ such that $a f(n/b) \leq d f(n)$ for large enough $n$'s.
+	    $d = 0.816$ \\
+	What can you conclude?      $T(n) = \theta(\sqrt{n\,})$
+	
+\end{enumerate}
+
+
+\end{document}

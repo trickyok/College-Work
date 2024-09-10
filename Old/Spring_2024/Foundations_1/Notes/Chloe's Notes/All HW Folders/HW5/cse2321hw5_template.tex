@@ -1,0 +1,130 @@
+\documentclass[14pt]{extarticle}
+\usepackage{amssymb,amsthm,amsmath, color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fullpage}
+\usepackage{subfigure}
+\usepackage{graphics}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{property}{Property}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{notation}{Notation}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{algorithm}{Algorithm}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{question}[conjecture]{Question}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\begin{document}
+\textbf{CSE 2321 Homework 5 Template}
+
+
+\subsection*{1a}
+
+
+% 1
+$f_1(n) = \Theta(\lg(n))$ \\
+% Upper Lower Bounds: \\
+$\lg(n^3) + \lg(n^2) = 5\lg(n)$ \\
+$5\lg(n) \leq 6\lg(n)$ for $n \geq 1$ \\
+$5\lg(n) \geq \lg(n)$ for $n \geq 1$ \\
+$\lg(n) \leq 5\lg(n) \leq 6\lg(n)$ for $n \geq 1$ \\ \\
+% 2
+$f_2(n) = \Theta(3^n)$ \\
+$3^{n+1}$ is the dominant term. \\
+$3^{n+1} \geq \frac{2}{3} \cdot 3^{n+1}$ for all $n \geq 1$ \\
+$3^{n+1} \leq \frac{4}{3} \cdot 3^{n+1}$ for all $n \geq 1$ \\
+$\frac{2}{3} \cdot 3^{n+1} \leq 3^{n+1} \leq \frac{2}{3} \cdot 3^{n+1}$ for all $n \geq 1$ \\ \\
+% 3
+$f_3(n) = \Theta(n^{0.8})$ \\
+$n^{0.8}$ is the dominant term.\\
+$\lim_{n \to \infty} \frac{3n^{0.2} + 3n^{0.8}}{n^{0.8}} = \lim_{n \to \infty} \left(\frac{3n^{0.2}}{n^{0.8}} + \frac{3n^{0.8}}{n^{0.8}}\right) = \lim_{n \to \infty} (3n^{-0.6} + 3) = 0 + 3 = 3$ \\ \\
+% 4
+$f_4(n) = \Theta(1)$ \\
+$2^{16} \leq 2^{17}$ for all $n \geq 1$ \\
+$2^{16} \geq 1$ for all $n \geq 1$ \\
+$1 \leq 2^{16} \leq 2^{17}$ for all $n \geq 1$ \\ \\
+% 5
+$f_5(n) = \Theta(n^{0.7})$ \\
+$n^{0.7}$ is the dominant term. \\
+$\lim_{n \to \infty} \frac{4\lg(n^2+2n)+6n^{0.7}}{n^{0.7}}
+= \lim_{n \to \infty} \left(\frac{4\lg(n^2+2n)}{n^{0.7}} + \frac{6n^{0.7}}{n^{0.7}}\right) 
+= 0 + 6 = 6 $ \\ \\
+% 6 
+$f_6(n) = \Theta(2^n)$ \\
+$2^{n-2}$ is the dominant term. \\
+$2^{n-2} \leq 2^n$ for all $n \geq 1$ \\
+$2^{n-2} \geq 2^{-2} \cdot 2^n$ for all $n \geq 1$ \\
+$2^{-2} \cdot 2^n \leq 2^{n-2} \leq 2^n$ \\ \\
+% 7
+$f_7(n) = \Theta(n^2)$ \\
+The dominant term is $n^2$. \\
+$\lim_{n \to \infty} \frac{3n\lg(n^2+2)+n^2}{n^2} = \lim_{n \to \infty} \left(\frac{3n\lg(n^2+2)}{n^2} + \frac{n^2}{n^2}\right) = \lim_{n \to \infty} (0 + 1) = 1$\\ \\
+% 8
+$f_8(n) = \Theta(n^{1.5})$ \\
+$\sqrt{(9n^2)(6n)(121)} = \sqrt{6534} \cdot n^{1.5}$ \\
+$\lim_{n \to \infty} \frac{\sqrt{6534} \cdot n^{1.5}}{n^{1.5}} = \sqrt{6534}$ \\ \\
+% 9
+$f_9(n) = \Theta(n^\frac{1}{2})$ \\
+$2 + \sqrt{5}n^{\frac{1}{2}} + \frac{1}{2}\lg(n)$ \\
+The dominant term is $n^{1/2}$. \\
+$(5n)^{\frac{1}{2}} \leq (4 + 5n + \lg(n))^{1.2} \leq (10n)^{\frac{1}{2}}$ \\ \\
+% 10
+$f_{10}(n) = \Theta(n lg(n))$ \\
+The dominant term is $n lg(n)$. \\
+$\lim_{n \to \infty} \frac{\lg(2^n) + n\lg(n^3) + 500n}{n\lg(n)} = \lim_{n \to \infty} (\frac{n\lg(2)}{n\lg(n)} + \frac{3n\lg(n)}{n\lg(n)} + \frac{500n}{n\lg(n)}) = 0 + 3 + 0 = 3$\\ \\
+% 11
+$f_{11}(n) = \Theta(n^{16/5})$ \\
+$\sqrt[5]{(5n^5)(6n)(121n^{10})} + n\lg(100n) = \sqrt[5]{Cn^{16}} + 100n\lg(n)$ \\
+The dominant term is $n^{16/5}$. \\
+$\lim_{n \to \infty} \frac{Cn^{16/5}}{n^{16/5}} + \frac{100n\lg(n)}{n^{16/5}} = C + 0 = C$ \\ \\
+% 12
+$f_{12}(n) = \Theta(n^n)$ \\
+$n^{n-2} \leq n^{n-1} \leq n^n$ \\ \\
+% 13
+$f_{13}(n) = \Theta(8^n)$ \\
+$8^n - 1 \leq 8n^{\frac{1}{2}} \leq 8^n$ \\ \\
+%14
+$f_{14}(n) = \Theta(n^2)$ \\
+The dominant term is $n^2$. \\
+$\sum_{i=1}^{n} i = \frac{n(n + 1)}{2} = \frac{1}{2}n^2 + \frac{1}{2}n$ \\
+$\lim_{n \to \infty} \frac{\frac{1}{2n^2} + \frac{1}{2n}}{n^2} = \lim_{n \to \infty} \frac{\frac{1}{2n^2}}{n^2} + \lim_{n \to \infty} \frac{\frac{1}{2n}}{n^2} = \frac{1}{2} + 0 = \frac{1}{2}$ \\
+
+
+\subsection*{1b}
+
+% You can just replace this sequence with your sequence:
+\[
+f_4, f_9, f_5, f_1, f_{10}, f_3, f_7 = f_{14}, f_{11} = f_8, f_6, f_2, f_{13}, f_{12}
+\]
+
+
+
+\subsection*{2a}
+
+$T(n) = \Theta(n^4)$ \\
+$\sum_{a=1}^{n^2} \sum_{b=1}^{n^2} 1 = n^2 \cdot n^2 = n^4$ \\ \\
+$n^4 \leq 2n^4$ for all $n \geq 1$ \\
+$n^4 \geq \frac{1}{2}n^4$ for all $n \geq 1$ \\
+$\frac{1}{2}n^4 \leq n^4 \leq 2n^4$ \\
+
+
+\subsection*{2b}
+
+$T(n) = \Theta(n^6)$  \\
+$\sum_{a=1}^{n^2} \left( \sum_{b=1}^{a^2} 1 \right)$ \\
+$\sum_{a=1}^{n^2} a^2 = \frac{n^2(n^2 + 1)(2n^2 + 1)}{6}$ \\
+Dominant term is $n^{6}$. Discard other terms (polynomials with power of less than 6). \\
+$n^6 \leq 2n^6$ for all $n \geq 1$ \\
+$n^6 \geq \frac{1}{2}n^6$ for all $n \geq 1$ \\
+$\frac{1}{2}n^6 \leq n^6 \leq 2n^6$ \\
+\end{document}

@@ -1,0 +1,7 @@
+Tom 99.3
+Adam 92.6
+Ada 91.5
+Nick 89.5
+Sam 92.1
+Tim 72.5
+Jack 90.0

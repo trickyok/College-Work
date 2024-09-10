@@ -1,0 +1,22 @@
+// 1.1: Turn this into all NAND gates
+F = A'BC' + BD + AC + B'CD'
+
+// XY = (X' + Y')
+// X + Y = (X'Y')'
+// X(Y + Z) = XY + XZ
+
+F = A + B' + C + B' + D' + A' + C' + B + C' + D
+F = A + A' + B + B' + B' + C + C' + C' + D + D'
+F = B' + C'
+
+// ^ maybe wrong?
+// v definitely right.
+
+F = A'BC' + BD + AC + B'CD'
+F = B(A'C' + D) + C(A + B'D')
+F = B((A'C')'D')' + C(A'(B'D')')
+F = ([B((A'C')'D')']'[C(A'(B'D')')]')'		// disgusting, but it works.
+
+
+// 1.2: Convert circuit into only NAND and XOR gates
+F = ((BC + A') + ((BC)' + A)) + ((B'C' + A) + ((B'C')' + A'))

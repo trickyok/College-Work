@@ -1,0 +1,46 @@
+Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -o /home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top_top_sch_tb_isim_beh.exe -prj /home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top_top_sch_tb_beh.prj work.top_top_sch_tb 
+ISim P.20131013 (signature 0xfbc00daa)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Determining compilation order of HDL files
+Parsing VHDL file "/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top.vhf" into library work
+Parsing VHDL file "/home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/wave.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 101196 KB
+Fuse CPU Usage: 1260 ms
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package numeric_std
+Compiling package vcomponents
+Compiling package textio
+Compiling package vital_timing
+Compiling architecture ibuf_v of entity IBUF [\IBUF("DONT_CARE","0",true,"AUTO...]
+Compiling architecture obuf_v of entity OBUF [\OBUF("DONT_CARE",12,"DEFAULT","...]
+Compiling architecture and2_v of entity AND2 [and2_default]
+Compiling architecture inv_v of entity INV [inv_default]
+Compiling architecture or2_v of entity OR2 [or2_default]
+Compiling architecture and3b1_v of entity AND3B1 [and3b1_default]
+Compiling architecture and3b2_v of entity AND3B2 [and3b2_default]
+Compiling architecture gnd_v of entity GND [gnd_default]
+Compiling architecture fdcp_v of entity FDCP [\FDCP('0')\]
+Compiling architecture behavioral of entity FD_MXILINX_top [\FD_MXILINX_top('0')\]
+Compiling architecture behavioral of entity FDRE_MXILINX_top [\FDRE_MXILINX_top('0')\]
+Compiling architecture and2b1_v of entity AND2B1 [and2b1_default]
+Compiling architecture or4_v of entity OR4 [or4_default]
+Compiling architecture behavioral of entity FJKRSE_MXILINX_top [\FJKRSE_MXILINX_top('0')\]
+Compiling architecture and4_v of entity AND4 [and4_default]
+Compiling architecture and4b1_v of entity AND4B1 [and4b1_default]
+Compiling architecture and4b2_v of entity AND4B2 [and4b2_default]
+Compiling architecture and4b3_v of entity AND4B3 [and4b3_default]
+Compiling architecture behavioral of entity D3_8E_MXILINX_top [d3_8e_mxilinx_top_default]
+Compiling architecture vcc_v of entity VCC [vcc_default]
+Compiling architecture behavioral of entity top [top_default]
+Compiling architecture behavioral of entity top_top_sch_tb
+Time Resolution for simulation is 1ps.
+Waiting for 5 sub-compilation(s) to finish...
+Compiled 49 VHDL Units
+Built simulation executable /home/gage/Documents/College-Work/ASpring_2024/Digital_Design/Projects/ECE3561Proj1/top_top_sch_tb_isim_beh.exe
+Fuse Memory Usage: 1203328 KB
+Fuse CPU Usage: 1550 ms
+GCC CPU Usage: 2480 ms

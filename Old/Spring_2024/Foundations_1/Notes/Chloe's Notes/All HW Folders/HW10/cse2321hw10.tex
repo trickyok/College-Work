@@ -1,0 +1,60 @@
+\documentclass[14pt]{extarticle}
+\usepackage{amssymb,amsthm,amsmath, color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fullpage}
+\usepackage{subfigure}
+\usepackage{graphics}
+\usepackage{mdframed}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{property}{Property}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{notation}{Notation}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{algorithm}{Algorithm}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{question}[conjecture]{Question}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\begin{document}
+\textbf{CSE 2321 Homework 10}
+
+\textbf{Turn In:} Submit to the Carmen dropbox a PDF file generated from LaTex source (see the template file provided with this homework and the Piazza post on LaTex).
+
+\textbf{Reminder:} Homework should be worked on individually. If you are stuck on a problem, please spend time thinking about the problem and trying different approaches before seeking help in office hours. If you come to office hours you will benefit more if you have already attempted these problems. 
+
+\begin{enumerate}
+
+\item (15 pts) In class we saw the two-color algorithm, which is an adaptation of breadth first search (BFS) to test if a graph is bipartite. In a similar way, rewrite the depth first search (DFS) algorithm from class to test if a graph is bipartite. Your algorithm should be able to handle graphs with multiple connected components.
+
+
+\item (20 pts) Rewrite the DFS procedure given in class (can be found on page 604 in CLRS or in the ``Graph Traversal'' notes on Carmen) so that it uses a stack instead of recursion.\\
+Your stack version of DFS should still compute the parameters pi, d, f for each  vertex.
+
+
+\item (15 pts) Suppose you are given a sorted list of words $A$ written in an unfamiliar alphabet, and the alphabet has $k$ symbols. Write an algorithm that will output a guess on the ordering of the alphabet. For example, if the alphabet is $\{\natural, \flat, \diamondsuit, \heartsuit\}$ and your input A is a list of three words 
+\[
+A = \natural \flat \natural, \flat \flat, \diamondsuit \heartsuit
+\]
+then your algorithm should output one of these possible guesses about the alphabet:
+%\pagebreak
+\begin{itemize}
+\item $\natural, \flat, \diamondsuit, \heartsuit$
+\item $\natural, \flat, \heartsuit, \diamondsuit$
+\item $\natural, \heartsuit, \flat, \diamondsuit$
+\item $\heartsuit, \natural, \flat, \diamondsuit$
+\end{itemize}
+You algorithm should run in time much faster than $O\left(k! \cdot |A|\right)$ (This is the running time you would get if you do the ``easy'' algorithm and just iterate through all orderings until you find one that is valid).\\
+You may assume no word on the list is longer than 50 symbols.
+
+\end{enumerate}
+\end{document}

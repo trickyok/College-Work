@@ -1,0 +1,140 @@
+\documentclass[12 pt]{amsart}
+
+\usepackage{amsmath, amsfonts, amssymb,amsthm}
+\usepackage[pdftex]{color,graphicx}
+\usepackage[margin=1 in]{geometry}
+\usepackage[all]{xy}
+\usepackage{bbm}
+\usepackage{mathrsfs}
+%\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage[all]{xy}
+\usepackage{tasks}
+
+\setlength{\parindent}{2 em}
+\setlength{\parskip}{0.2 ex}
+\linespread{1.2}
+
+\newcommand{\Rr}{\mathbb{R}}
+\newcommand{\Qq}{\mathbb{Q}}
+\newcommand{\Zz}{\mathbb{Z}}
+\newcommand{\Nn}{\mathbb{N}}
+\newcommand{\Cc}{\mathbb{C}}
+\newcommand{\Tt}{\mathbb{T}}
+\newcommand{\Ss}{\mathbb{S}}
+\newcommand{\Dd}{\mathbb{D}}
+\newcommand{\Rp}{\mathbb{R}\mathrm{P}}
+\newcommand{\tH}{\widetilde{H}}
+\newcommand{\id}{\mathbbm{1}}
+\newcommand{\PWR}{\mathscr{P}}
+
+\newcommand{\sse}{\subseteq}
+\newcommand{\lra}{\Leftrightarrow}
+\newcommand{\imp}{\Rightarrow}
+
+\newcommand{\toup}[1]{\xrightarrow{#1}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\mb}[1]{\mathbf{#1}}
+
+\newcommand{\vs}{\vspace{\stretch{1}}}
+
+\newcommand{\hs}{\hspace*{0.5cm}}
+
+%\renewcommand{\theenumi}{(\alph{enumi})}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\nat}{Nat}
+\DeclareMathOperator{\POW}{POW}
+
+\newcommand{\st}{such that}
+\newcommand{\tfae}{the following are equivalent}
+\newcommand{\Tfae}{The following are equivalent}
+\newcommand{\ifff}{if and only if}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{df}[thm]{Definition}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{exam}{Example(s)}
+\newtheorem*{claim}{Claim}
+
+\begin{document}
+
+\begin{center} \Large
+	CSE 2321 \quad Foundations I \quad Spring, 2024 \quad Dr. Estill \\ \large
+	Homework 11 \quad Due: Friday, April 19
+\end{center}
+
+\vspace{3ex}
+
+
+\begin{enumerate}[label=\arabic*.)]
+	
+	\item (30 points) Use the first topological sort algorithm (``$TopSort$'') to topologically sort the following acyclic graph.
+	Assume that the vertex list and all adjacency lists are in alphabetical order.
+	
+	\[\xymatrix@+20pt{
+		*++[o][F]{A} \ar[ddr] 				& *++[o][F]{C} \ar[r] \ar[d] \ar[l]	 	& *++[o][F]{E} \ar[dll] \\
+		*++[o][F]{G} \ar[drr] \ar[u]			& *++[o][F]{H} 					& *++[o][F]{I} \ar[ul] \ar[u] \ar[d] \\
+		*++[o][F]{N} \ar[urr] \ar[u] \ar[r]		& *++[o][F]{P} \ar[u]				& *++[o][F]{R} \ar@/_2pc/[uull]
+	}\]
+	
+	\vspace{1.5cm}
+	
+	Write down the sorted vertices: \rule{3 in}{0.1pt}
+	
+	\newpage
+	
+	\noindent We'll be finding the strongly-connected components (SCCs) of the following graph.
+	
+	\vspace{1cm}
+	
+	\item (25 points) Run the depth-first search algorithm on the following graph.
+	Room has been left in the vertices for the discovery and finish times (which are required) and the predecessor (which isn't required, but is recommended).
+	
+	\noindent\emph{Note: Read question 3 before starting the work.}
+	
+	\smallskip
+	
+	\begin{center}
+		\includegraphics[scale=1]{SCCGraph}
+	\end{center}
+	
+	\bigskip
+	
+	\item (10 points) List the vertices in reverse finish time order (i.e., from last finished to first).
+	%\rule{5.5 in}{0.1pt}
+	
+	\bigskip
+	
+	\pagebreak
+	
+	\item (25 points) Run the depth-first search algorithm on the following graph with the vertex list and all adjacency lists in the order given by the previous part.
+	Mark tree edges and no other type of edges.
+	No other information is required, but use what will help you keep track.
+	
+	\smallskip
+	
+	\begin{center}
+		\includegraphics[scale=1]{SCCGraphTranspose}
+	\end{center}
+	
+	\bigskip
+	
+	\item (10 points) List the strongly connected components as sets or circle them on the cleaner of the two above graphs.
+
+\end{enumerate}
+
+
+\end{document}

@@ -1,0 +1,152 @@
+\documentclass[14pt]{extarticle}
+\usepackage{amssymb,amsthm,amsmath, color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fullpage}
+\usepackage{subfigure}
+\usepackage{graphics}
+\usepackage{mdframed}
+\usepackage{multicol}
+
+\usepackage{listings, multicol}
+\usepackage{xcolor} % for setting colors
+
+% set the default code style
+\lstset{
+    %frame=single, % draw a frame at the top and bottom of the code block
+    tabsize=4, % tab space width
+    showstringspaces=false, % don't mark spaces in strings
+    %numbers=left, % display line numbers on the left
+    commentstyle=\color{green}, % comment color
+    keywordstyle=\color{blue}, % keyword color
+    stringstyle=\color{red} % string color
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{property}{Property}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{notation}{Notation}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{algorithm}{Algorithm}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{question}[conjecture]{Question}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\begin{document}
+\textbf{CSE 2321 Homework 6}
+
+\section*{Problem 1}
+
+% You don't need to write proofs here, just give the expression and evalaute it. The align environment is good for this:
+% The '&' tells it what to align each line on
+% The '\\' tells it where to make a new line
+% The '&&' and '\text{}' is good for adding comments to a line, I have an example below
+\begin{align*}
+T(n) &= \sum_{k=0}^{n-1} ar^k && \text{Geometric series is really useful!}  \\
+&= a \left( \frac{1 - r^n}{1 - r} \right) && \text{If } r \neq 1
+\end{align*}
+
+\subsection*{1A}
+\begin{align*}
+T(n) &= \sum_{a=1}^{n^2}(\sum_{b=1}^{n^2}(\sum_{c=1}^{b}1)) && \text{}  \\
+&= \sum_{a=1}^{n^2}(\sum_{b=1}^{n^2}b) && \text{} \\
+&= \sum_{a=1}^{n^2}(\frac{n^2(n^2+1)}{2}) && \text{} \\
+&= \sum_{a=1}^{n^2}(\frac{n^2(n^2+1)}{2}) && \text{} \\
+&= \sum_{a=1}^{n^2}* n^4 && \text{} \\
+&= n^2*n^4 = n^6 && \text{} \\
+T(n) &= \Theta(n^6) \\
+\end{align*}
+\subsection*{1B}
+\begin{align*}
+T(n) &= \sum_{a=1}^{n^2}(\sum_{b=1}^{n^3}1) && \text{}  \\
+&= \sum_{a=1}^{n^2}* n^3 && \text{} \\
+&= n^2*n^3 = n^5 && \text{} \\
+T(n) &= \Theta(n^5)
+\end{align*}
+\subsection*{1C}
+\begin{align*}
+T(n) &= \sum_{a=1}^{n^2}(\sum_{b=1}^{n/5}(\sum_{c=1}^{5b}1)) && \text{}  \\
+&= \sum_{a=1}^{n^2}(\sum_{b=1}^{n/5}5b) \\
+&= \sum_{a=1}^{n^2}n \\
+&= \frac{n^2(n^2+1)}{2} = Cn^4 + ... \\
+T(n) &= \Theta(n^4)
+\end{align*}
+\subsection*{1D}
+\begin{align*}
+T(n) &= \sum_{a=1}^{n^2}(\sum_{b=1}^{3log_2(a) - 1}1) && \text{}  \\
+&= \sum_{a=1}^{n^2}3log_2(a) - 1 \\
+&= ((3log_2(n) - 1)(3log_2(n) - 1 + 1))/(2)\\
+T(n) &= \Theta(6log(n))
+\end{align*}
+\subsection*{1E}
+\begin{align*}
+T(n) &= \sum_{a=1}^{log_3(5n^2)}(\sum_{b=1}^{log_5(10/3)n^3}1) && \text{}  \\
+&= \sum_{a=1}^{log_3(5n^2)} log_5(10/3)n^3 && \text{}  \\
+&= log_3(5n^2) * log_5((10/3)n^3) \\
+T(n) &= \Theta(log(n))
+\end{align*}
+\subsection*{1F}
+\begin{align*}
+T(n) &= \sum_{a=1}^{n}(\sum_{b=a}^{n^2}(\sum_{c=1}^{n^3}1)) && \text{}  \\
+&= \sum_{a=1}^{n}(\sum_{b=a}^{n^2}* n^3) \\
+&= \sum_{a=1}^{n} n^2 * n^3 \\
+&= \sum_{a=1}^{n} n^5 \\
+&= n *n^5 = n^6 \\
+T(n) &= \Theta(n^6)
+\end{align*}
+\subsection*{1G}
+\begin{align*}
+T(n) &= \sum_{a=1}^{n/2}(\sum_{b=a}^{a^2}1) && \text{}  \\
+&= \sum_{a=1}^{n/2}a^2 && \text{} \\
+&= \frac{(n/2)(n/2+1)(2(n/2)+1)}{6} \\
+&= \frac{Cn^3 + ...}{6} \\
+&= n^3 \\
+T(n) &= \Theta(n^3)
+\end{align*} 
+\subsection*{1H}
+\begin{align*}
+T(n) &= \sum_{a=1}^{n}1 && \text{} \\
+&= n && \text{} \\
+T(n) &= \Theta(n)
+\end{align*} 
+
+
+
+\section*{Problem 2}
+
+% You don't need to write proofs here, just give the expression and evalaute it. The align environment is also good for these kinds of problems.
+
+\subsection*{2A}
+\begin{align*}
+T(n) &= T(n/2) + 5  && \text{}  \\
+T(1) &= 1 && \text{} \\
+&= T'(n/4) + n/2 + 5 + 5 \\
+&= T'(n/8) + n/4 + n/2 + 5 + 5 + 5\\
+T'(n) &= T'(n/(2^k+1)) + 5k\\ 
+k &= \log_2(n) - 1 \\
+T'(n) &= T'(n/2^{log_2(n)}) + 5(log_2(n) - 1) \\
+T'(n) &= n + 5(log_2(n)) - 5 \\
+T'(n) &= n + (log_2(n^5)) \\
+T'(n) &= \Theta(n)
+\end{align*} 
+\subsection*{2B}
+\begin{align*}
+T(n) &= T(n/2) + n  && \text{}  \\
+T(1) &= 1 && \text{} \\
+&= T'(n/4) + n/2 + n \\
+&= T'(n/8) + n/4 + n/2 + n \\
+T'(n) &= T'(n/(2^k+1)) + n \\ 
+k &= \log_2(n) - 1 \\
+T'(n) &= T'(n/2^{log_2(n)}) + n \\
+ &= n + n = 2n \\
+ T(n) &= \Theta(n)
+\end{align*} 
+\end{document}

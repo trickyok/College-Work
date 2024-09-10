@@ -1,0 +1,92 @@
+\documentclass[14pt]{extarticle}
+\usepackage{amssymb,amsthm,color}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fullpage}
+\usepackage{subfigure}
+\usepackage{graphics}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{property}{Property}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{notation}{Notation}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{algorithm}{Algorithm}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{question}[conjecture]{Question}
+
+\begin{document}
+\section*{CSE 2321 Homework 4 Template}
+%This is a template file to make it easier for you to nicely writeup and submit your homework. For each problem I have put an example below with comments on how to nicely format your answers. If you have any trouble with this file or figuring out the format, please post on Piazza.
+
+The align environment is good for when you have a sequence of equations: 
+% & specifies what each line should be aligned on
+% \\ creates a newline
+\begin{align*}
+x^2 &= -2x -1 \\
+x^2 +2x + 1 &= 0 \\
+(x+1)(x+1) &= 0
+\end{align*}
+
+
+\subsection*{1}
+The product of two odd numbers is odd.
+\begin{proof}\hfill \\
+Proof
+Let n, m be an odd integer.\\
+Then there $\exists j,k \in \mathbb{Z}$ such that\\
+n = 2j + 1 and m = 2k + 1 \\ \\
+Therefore,\\
+n * m = (2j + 1)(2k + 1)\\
+      = 4jk + 2j + 2k + 1 \\
+      = 2(jk + j + k ) + 1 \\
+      
+Since $\exists j,k \in \mathbb{Z}$, we have that  2(jk + j + k ) + 1 $\in \mathbb{Z}$ \\
+
+All multiples of 2 are even, and the sum of an even number plus one is always odd. \\
+So 2(jk + j + k ) + 1 is odd. \\
+So n * m is odd. \\
+Therefore, the products of 2 odd integers is also odd. \\
+\end{proof}
+
+\subsection*{2}
+Let $G =(V, E)$ be an undirected graph.\\
+$G$ is bipartite $\Rightarrow$ $G$ contains no cycles of odd length.
+\begin{proof}[Proof By Contradiction]\hfill \\ \\
+Assume that G is bipartite and G contains a cycle of odd length. \\
+So we know G has a bipartition, A and B. \\
+So G contains a cycle of odd length called C.\\ \\
+Let C = $V_0, V_1, V_2, ..., V_k, V_0 $ \\
+So let $V_0 \in A$ and $V_1 \in B$ \\
+All odd-numbered vertices $V_e\in A$ and even numbered vertices $V_o \in B$. \\ \\
+So, if the cycle starts at $V_0 \in A$, it must end at $V_0$.\\
+Because the graph has a bipartition, it must go to $V_1 \in B$.\\
+Then the next vertex must be $V_2 \in A$. \\ \\
+So, regardless of cycle length, for the graph to start and end at a vertice $V_0 \in A$, it must travel to and back from a vertex $V_k \in B$. \\ 
+Which increases the cycle length k by 2. \\
+
+To increase the cycle length by 1 and obtain a cycle with an odd length, \\ the cycle must start from an even vertex $V_e \in A$ and end at an odd vertex $V_o \in B$.  \\
+
+Contradiction:  $V_0 \in B \land V_0 \in A$ \\
+
+Conclusion: G is bipartite and only contains cycles of even length.
+
+
+\end{proof}
+
+\subsection*{3}
+
+Let $a, b \in \mathbb{R}$. If $b>0$ then $(n+a)^b = \Theta(n^b)$.
+\begin{proof}
+Your proof goes here.
+\end{proof}
+
+\end{document}

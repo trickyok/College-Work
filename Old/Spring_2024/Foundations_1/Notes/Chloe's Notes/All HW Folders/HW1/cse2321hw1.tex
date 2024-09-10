@@ -1,0 +1,79 @@
+\documentclass[14pt]{extarticle}
+\usepackage{amssymb,amsthm,amsmath, color}
+\usepackage{graphicx}
+\usepackage{fullpage}
+\usepackage{subfigure}
+\usepackage{graphics}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{property}{Property}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{notation}{Notation}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{algorithm}{Algorithm}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{question}[conjecture]{Question}
+
+\begin{document}
+\textbf{CSE 2321 Homework 1}
+
+\textbf{Turn In:} Submit to the Carmen dropbox a PDF file generated from LaTex source (see the template file provided with this homework and the Piazza post on LaTex).
+
+\textbf{Reminder:} Homework should be worked on individually. If you are stuck on a problem, please spend time thinking about the problem and trying different approaches before seeking help in office hours. If you come to office hours you will benefit more if you have already attempted these problems. 
+
+\begin{enumerate}
+\item (18 pts) For each of the following propositions, indicate whether it is a \textit{tautology}, a \textit{contradiction}, or a \textit{contingency}. Justify each answer with a complete truth table. (Reminder: our order of operations is $\neg, \land, \lor, \Rightarrow, \Leftrightarrow$)
+\begin{enumerate}
+\item $P \lor \neg P$
+\item $P \land \neg P$
+\item $P \land (Q \lor R) \Rightarrow \neg (P \land Q) \lor (P \land R)$
+\item $P \land Q \Leftrightarrow \neg P \Rightarrow \neg Q$
+\item $\neg P \lor \neg Q \Leftrightarrow \neg (P \lor Q)$
+\item $\neg (P \land Q) \Leftrightarrow \neg P \land \neg Q$
+\item $P \Rightarrow (Q \Rightarrow R) \Leftrightarrow (P \Rightarrow Q) \lor \neg (Q \Rightarrow R)$
+\item $(P \lor Q) \land (P \lor \neg Q) \land (\neg P \lor Q) \land (\neg P \lor \neg Q)$
+\item $\neg (P \lor R \Rightarrow Q \lor S) \Rightarrow \neg ((P \Rightarrow Q) \land (R \Rightarrow S))$
+\end{enumerate}
+
+\item (12 pts) Let $P$ be the proposition ``Ann went to the park.'' \\Let $Q$ be the proposition ``Ann got ice cream.'' \\
+Let $R$ be the proposition ``Ann's family went to the park on Saturday.''\\Rewrite the following in symbolic language using $P, Q, R, \neg, \land, \lor, \Rightarrow, \Leftrightarrow$.
+\begin{enumerate}
+\item Ann did not get ice cream, but did go to the park.
+\item Ann's family went to the park on Saturday or Ann did not go to the park.
+\item Ann got ice cream if and only if her family went to the park on Saturday.
+\item Either Ann went to the park, or Ann got ice cream and her family did not go to the park on Saturday.
+\item If Ann went to the park and Ann's family did not go to the park on Saturday then Ann got ice cream.
+\item Only if her family went to the park on Saturday did Ann not get ice cream.
+\end{enumerate}
+
+\item (5 pts) When $P \Rightarrow Q$ is true, we say that $P$ is a \textit{sufficient condition} for $Q$. In other words, knowing that $P \Rightarrow Q$ is true and that $P$ is true is \emph{sufficient} information for me to conclude that $Q$ is also true. Give a sufficient condition for the proposition ``I know my wifi is working''. Your sufficient condition cannot be ``I know my wifi is working''.
+
+\item (5 pts) When $P \Rightarrow Q$ is true, we say that $Q$ is a \textit{necessary condition} for $P$. In other words, if I know that $P \Rightarrow Q$ is true and that $Q$ is false then it is \textit{necessary} that $P$ is false. Give a necessary but not sufficient condition for the proposition ``I can see Jupiter''.
+
+\item (10 pts) 
+%Recall from class that we showed $\neg$, $\land$, and $\lor$ can be used to express the other Boolean functions. Now, observe that $A \lor B$ is is logically equivalent to $\neg (\neg A \land \neg B)$. Since $\neg$ and $\land$ can be used to write all the other functions, we say the set $\{\neg, \land\}$ is \textit{Universal}. 
+Let $\odot$ be a new Boolean function, defined by the following truth table:
+\begin{center}
+\begin{tabular}{ |c|c|c| }
+\hline
+$A$ & $B$ & $A \odot B$ \\
+True & True & False \\
+True & False & True \\
+False & True & True \\
+False & False & True \\
+\hline
+\end{tabular}
+\end{center}
+\begin{enumerate}
+\item Find an expression logically equivalent to $\neg A$ using only $\odot$ and the proposition $A$. Demonstrate this logical equivalence with a truth table.
+\item Find an expression logically equivalent to $A \land B$ using only $\odot$ and the propositions $A, B$. Demonstrate this logical equivalence with a truth table.
+\end{enumerate}
+\end{enumerate}
+\end{document}

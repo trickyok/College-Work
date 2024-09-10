@@ -1,0 +1,159 @@
+\documentclass[14pt]{extarticle}
+\usepackage{amssymb,amsthm,amsmath, color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fullpage}
+\usepackage{subfigure}
+\usepackage{graphics}
+\usepackage{mdframed}
+
+\usepackage{listings, multicol}
+\usepackage{xcolor} % for setting colors
+
+% set the default code style
+\lstset{
+    %frame=single, % draw a frame at the top and bottom of the code block
+    tabsize=4, % tab space width
+    showstringspaces=false, % don't mark spaces in strings
+    %numbers=left, % display line numbers on the left
+    commentstyle=\color{green}, % comment color
+    keywordstyle=\color{blue}, % keyword color
+    stringstyle=\color{red} % string color
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{property}{Property}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{notation}{Notation}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{algorithm}{Algorithm}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{question}[conjecture]{Question}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\begin{document}
+\textbf{CSE 2321 Homework 7}
+
+\textbf{Turn In:} Submit to the Carmen dropbox a PDF file generated from LaTex source (see the template file provided with this homework and the Piazza post on LaTex).
+
+\textbf{Reminder:} Homework should be worked on individually. If you are stuck on a problem, please spend time thinking about the problem and trying different approaches before seeking help in office hours. If you come to office hours you will benefit more if you have already attempted these problems. 
+
+
+\begin{enumerate}
+
+\item (30 pts) For each of the following functions, create a recurrence relation describing the running time and use that to find the asymptotic running time ($\Theta$). Justify your answer using the recursion tree method from lectures.
+% \\ For each of these, let the input A be an array of length n, indexed from 1 to n
+\begin{enumerate}
+\item % $T(n) = 2 \cdot T(n/2) + 10$.
+\begin{lstlisting}[language=Python]
+int RecA(int n):
+  if (n > 1):
+    return RecA(n/2) + RecA(n/2)
+  else
+    for (int i=0; i<n; i++):
+      print(i);
+    end
+    return 1
+  end
+end
+\end{lstlisting}
+
+\item %$T(n) = 3 \cdot T(n/3) + n$.
+\begin{lstlisting}[language=Python]
+int RecB(int n):
+  if (n > 1):
+    return RecB(n/3) + RecB(n/3) + RecB(n/3)
+  else
+    for (int i=0; i<n; i++):
+      print(i);
+    end
+    return 1
+  end
+end
+\end{lstlisting}
+
+%\item $T(n) = 5 \cdot T(n/2)$.
+
+\item %$T(n) = T(n-1) + 1$.
+\begin{lstlisting}[language=Python]
+int RecC(int n):
+  if (n > 1):
+    return RecC(n-1) + 1
+  else
+    return 1
+  end
+end
+\end{lstlisting}
+
+\item %$T(n) = T(n-2) + 3n$.
+\begin{lstlisting}[language=Python]
+int RecD(int n):
+  if (n > 1):
+    return RecD(n-2)
+  else
+    for (int i=0; i<n; i++):
+      print(i);
+    end
+    return 1
+  end
+end
+\end{lstlisting}
+
+\item %$T(n) = 3T(n/2) + n^2$.
+\begin{lstlisting}[language=Python]
+int RecE(int n):
+  if (n > 1):
+    int result = RecD(n/2)
+    result += RecD(n/2)
+    result += RecD(n/2)
+    return Result
+  else
+    for (int i=0; i<n; i++):
+      for (int j=0; i<n; i++):
+        print(i + j);
+      end
+    end
+  end
+end
+\end{lstlisting}
+
+\end{enumerate}
+
+%\pagebreak
+%\item (5 pts) Express the running time $T(n)$ of the following code as a recurrence relation. Find a function $g(n)$ such that $T(n) = \Theta(g(n))$.
+%\begin{lstlisting}[language=Python]
+%int Recurse(int n):
+%  if (n < 10):
+%    return 1
+%  else
+%    return Recurse(n/2) + Recurse(n/2)
+%  end
+%end
+%\end{lstlisting}
+
+\pagebreak
+\item (20 pts) Rewrite the BinarySearch algorithm from class to create a ``trinary search'' algorithm; i.e.~we split the array into thirds and recursively search for the value in one of the thirds. You can write this in the pseudo-code style from class, or as code for whatever language you are most comfortable with. Compare the running time of your TrinarySearch to BinarySearch, is one better than the other?
+
+
+
+
+
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+\end{document}

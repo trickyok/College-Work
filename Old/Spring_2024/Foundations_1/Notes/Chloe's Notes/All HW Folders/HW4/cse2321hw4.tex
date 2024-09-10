@@ -1,0 +1,58 @@
+\documentclass[14pt]{extarticle}
+\usepackage{amssymb,amsthm,amsmath, color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fullpage}
+\usepackage{subfigure}
+\usepackage{graphics}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{property}{Property}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{notation}{Notation}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{algorithm}{Algorithm}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{question}[conjecture]{Question}
+
+\begin{document}
+\textbf{CSE 2321 Homework 4}
+
+\textbf{Turn In:} Submit to the Carmen dropbox a PDF file generated from LaTex source (see the template file provided with this homework and the Piazza post on LaTex).
+
+\textbf{Reminder:} Homework should be worked on individually. If you are stuck on a problem, please spend time thinking about the problem and trying different approaches before seeking help in office hours. If you come to office hours you will benefit more if you have already attempted these problems. \\
+
+Using the proof techniques and format guidelines presented in lecture, prove the following things:
+\begin{enumerate}
+
+\item (15 pts) Prove that the product of two odd numbers is odd, using a direct proof.
+
+\item (20 pts) Use proof by contradiction to prove the following:
+\begin{align*}
+&\mbox{Let $G =(V, E)$ be an undirected graph.}\\
+&\mbox{$G$ is bipartite} \Rightarrow \mbox{$G$ contains no cycles of odd length}.
+\end{align*}
+Hint: first draw a few bipartite graphs to convince yourself this is true, and remember that $A \Rightarrow B$ is logically equivalent to $\neg A \lor B$.
+
+\item (15 pts) Let $a, b \in \mathbb{R}$. Prove that if $b>0$ then $(n+a)^b = \Theta(n^b)$.
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

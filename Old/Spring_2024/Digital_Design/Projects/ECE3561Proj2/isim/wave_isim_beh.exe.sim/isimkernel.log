@@ -1,0 +1,29 @@
+Command line:
+   wave_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  39293
+
+Sat Mar  9 14:29:47 2024
+
+
+ Elaboration Time: 0.03 sec
+
+ Current Memory Usage: 184.099 Meg
+
+ Total Signals          : 21
+ Total Nets             : 20
+ Total Signal Drivers   : 10
+ Total Blocks           : 4
+ Total Primitive Blocks : 3
+ Total Processes        : 4
+ Total Traceable Variables  : 13
+ Total Scalar Nets and Variables : 503
+Total Line Count : 27
+
+ Total Simulation Time: 0.06 sec
+
+ Current Memory Usage: 259.6 Meg
+
+Sat Mar  9 14:34:24 2024
+

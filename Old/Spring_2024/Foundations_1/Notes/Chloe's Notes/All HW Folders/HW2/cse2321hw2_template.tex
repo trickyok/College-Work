@@ -1,0 +1,89 @@
+\documentclass[14pt]{extarticle}
+\usepackage{amssymb,amsthm,amsmath, color}
+\usepackage{graphicx}
+\usepackage{fullpage}
+\usepackage{subfigure}
+\usepackage{graphics}
+\usepackage{enumerate}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{property}{Property}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{notation}{Notation}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{algorithm}{Algorithm}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{question}[conjecture]{Question}
+
+\begin{document}
+\section*{CSE 2321 Homework 2 Template}
+%This is a template file to make it easier for you to nicely writeup and submit your homework. For each problem I have put an example below with comments on how to nicely format your answers. If you have any trouble with this file or figuring out the format, please post on Piazza.
+
+
+% Some math commands you may need:
+%
+% \mathbb{N} for the set of natural numbers
+% \mathbb{Z} for the set of integers
+%
+% \in for set membership
+%
+% \forall and \exists for quantifiers
+% \neg \land \lor \Rightarrow \iff for logical operators
+%
+% If you need help figuring out how to get other math symbols you want to use, make a post on Piazza
+
+\subsection*{Problem 1}
+Let $P(x)$ be the predicate ``x is a dragon.''\\
+Let $Q(x)$ be the predicate ``x breathes fire.''\\
+Let $R(x, y)$ be the predicate ``x and y are the same object.''\\
+Let $S$ be an arbitrary nonempty set.
+
+\subsubsection*{a}
+% The enumerate environment is nice for creating lists of items
+% Add items to the enumerate with the command \item
+\begin{enumerate}[i]
+% You can use $   $ to create a nice inline math environment
+% Here is an example
+\item $\forall x \in S, \neg P(x)$
+\item $\exists x \in S, \neg P(x)$
+\item $\exists x \in S, P(x) $
+\item $ \exists x, y \in S, (P(x) \land P(y)) \Rightarrow \neg R(x,y) $
+\item $ \exists x, y \in S, (P(x) \land P(y)) \Rightarrow R(x,y) $
+\item $ (\exists x \in S, P(x)) \land (\exists x, y \in S, P(x) \land P(y) \Rightarrow R(x,y))$
+\item $\forall x \in S, (P(x) \Rightarrow Q(x)) $
+\item $\forall x \in S, (Q(x) \iff P(x)) $
+
+
+\end{enumerate}
+
+\subsubsection*{b}
+% The enumerate environment is nice for creating lists of items
+% Add items to the enumerate with the command \item
+\begin{enumerate}[i]
+\item Everything in S is a dragon.
+\item There exists at least one dragon in S such that if it is a dragon, it breathes fire.
+\item If it breathes fire, it is a dragon.
+\item If everything in S breathes fire, everything in S must be a dragon.
+\item There is at least one dragon in S that breathes fire.
+\item For everything that exists in S, there is another object that is the same object.
+\end{enumerate}
+
+
+\subsection*{Problem 2}
+\subsubsection*{a}
+%Replace this with you answer:
+
+$\exists x \in \mathbb{N}, \forall y \in \mathbb{N}, (x \leq y)$
+
+\subsubsection*{b}
+%Replace this with you answer:
+$\forall x, y \in \mathbb{N}, ((x  \%  2 = 1) \land (y \% 2 = 1) \Rightarrow ((x+y)\%2=0) $
+
+\end{document}
