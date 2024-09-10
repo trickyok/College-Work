@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.7.3" sequence="12" timestamp="1696527494386" analysisTimestamp="1696527494207" release="">
+  <Project projectName="StackWithLinkedList">
+    <Jar>C:\Users\Epic Gage\Documents\College-Work\Autumn 2023\Software 2\workspace\StackWithLinkedList\bin\StackTest.class</Jar>
+    <AuxClasspathEntry>C:\Users\Epic Gage\Documents\College-Work\Autumn 2023\Software 2\workspace\StackWithLinkedList\bin</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Epic Gage\Documents\College-Work\Autumn 2023\Software 2\components.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Epic Gage\.p2\pool\plugins\org.junit_4.13.2.v20211018-1956.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Epic Gage\.p2\pool\plugins\org.hamcrest.core_1.3.0.v20180420-1519.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Epic Gage\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.5.v20221102-0933\jre\lib\jrt-fs.jar</AuxClasspathEntry>
+    <SrcDir>C:\Users\Epic Gage\Documents\College-Work\Autumn 2023\Software 2\workspace\StackWithLinkedList\src</SrcDir>
+    <SrcDir>C:\Users\Epic Gage\Documents\College-Work\Autumn 2023\Software 2\workspace\StackWithLinkedList\test</SrcDir>
+  </Project>
+  <BugInstance type="UWF_UNWRITTEN_FIELD" priority="2" rank="12" abbrev="UwF" category="CORRECTNESS" first="1" last="1" removedByChange="true">
+    <Class classname="Stack2$Node">
+      <SourceLine classname="Stack2$Node" sourcefile="Stack2.java" sourcepath="Stack2.java"/>
+    </Class>
+    <Field classname="Stack2$Node" name="data" signature="Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="Stack2$Node" sourcefile="Stack2.java" sourcepath="Stack2.java"/>
+    </Field>
+    <SourceLine classname="Stack2$Stack2Iterator" start="238" end="238" startBytecode="42" endBytecode="42" sourcefile="Stack2.java" sourcepath="Stack2.java"/>
+  </BugInstance>
+  <BugInstance type="UWF_UNWRITTEN_FIELD" priority="2" rank="12" abbrev="UwF" category="CORRECTNESS" first="1" last="1" removedByChange="true">
+    <Class classname="Stack2$Node">
+      <SourceLine classname="Stack2$Node" sourcefile="Stack2.java" sourcepath="Stack2.java"/>
+    </Class>
+    <Field classname="Stack2$Node" name="next" signature="LStack2$Node;" isStatic="false">
+      <SourceLine classname="Stack2$Node" sourcefile="Stack2.java" sourcepath="Stack2.java"/>
+    </Field>
+    <SourceLine classname="Stack2$Stack2Iterator" start="239" end="239" startBytecode="51" endBytecode="51" sourcefile="Stack2.java" sourcepath="Stack2.java"/>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Thu, 5 Oct 2023 13:38:14 -0400" total_classes="1" referenced_classes="17" total_bugs="0" total_size="125" num_packages="1" java_version="17.0.5" vm_version="17.0.5+8" cpu_seconds="0.98" clock_seconds="0.18" peak_mbytes="1134.66" alloc_mbytes="2048.00" gc_seconds="0.00">
+    <PackageStats package="" total_bugs="0" total_types="1" total_size="125">
+      <ClassStats class="StackTest" sourceFile="StackTest.java" interface="false" size="125" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="36" invocations="2" avgMicrosecondsPerInvocation="18039" maxMicrosecondsPerInvocation="32114" standardDeviationMicrosecondsPerInvocation="14074"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="35" invocations="379" avgMicrosecondsPerInvocation="93" maxMicrosecondsPerInvocation="1377" standardDeviationMicrosecondsPerInvocation="170"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="33" invocations="380" avgMicrosecondsPerInvocation="88" maxMicrosecondsPerInvocation="387" standardDeviationMicrosecondsPerInvocation="53"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1696477315334" release="" codeSize="0" numClasses="0"/>
+    <AppVersion sequence="1" timestamp="1696477315334" release="" codeSize="117" numClasses="5"/>
+    <AppVersion sequence="2" timestamp="1696482692139" release="" codeSize="154" numClasses="4"/>
+    <AppVersion sequence="3" timestamp="1696482874662" release="" codeSize="54" numClasses="1"/>
+    <AppVersion sequence="4" timestamp="1696482907927" release="" codeSize="54" numClasses="1"/>
+    <AppVersion sequence="5" timestamp="1696483271102" release="" codeSize="65" numClasses="1"/>
+    <AppVersion sequence="6" timestamp="1696483577779" release="" codeSize="102" numClasses="3"/>
+    <AppVersion sequence="7" timestamp="1696484201628" release="" codeSize="103" numClasses="3"/>
+    <AppVersion sequence="8" timestamp="1696527141552" release="" codeSize="60" numClasses="1"/>
+    <AppVersion sequence="9" timestamp="1696527183143" release="" codeSize="60" numClasses="1"/>
+    <AppVersion sequence="10" timestamp="1696527333626" release="" codeSize="78" numClasses="1"/>
+    <AppVersion sequence="11" timestamp="1696527388679" release="" codeSize="105" numClasses="1"/>
+  </History>
+</BugCollection>

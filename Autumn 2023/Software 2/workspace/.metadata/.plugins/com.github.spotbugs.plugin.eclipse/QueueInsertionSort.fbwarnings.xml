@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.7.3" sequence="4" timestamp="1696474836849" analysisTimestamp="1696474835865" release="">
+  <Project projectName="QueueInsertionSort">
+    <Jar>C:\Users\Epic Gage\Documents\College-Work\Autumn 2023\Software 2\workspace\QueueInsertionSort\bin\SortingMachine3.class</Jar>
+    <AuxClasspathEntry>C:\Users\Epic Gage\Documents\College-Work\Autumn 2023\Software 2\workspace\QueueInsertionSort\bin</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Epic Gage\Documents\College-Work\Autumn 2023\Software 2\components.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Epic Gage\.p2\pool\plugins\org.junit_4.13.2.v20211018-1956.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Epic Gage\.p2\pool\plugins\org.hamcrest.core_1.3.0.v20180420-1519.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Epic Gage\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.5.v20221102-0933\jre\lib\jrt-fs.jar</AuxClasspathEntry>
+    <SrcDir>C:\Users\Epic Gage\Documents\College-Work\Autumn 2023\Software 2\workspace\QueueInsertionSort\src</SrcDir>
+    <SrcDir>C:\Users\Epic Gage\Documents\College-Work\Autumn 2023\Software 2\workspace\QueueInsertionSort\test</SrcDir>
+  </Project>
+  <BugInstance type="SE_COMPARATOR_SHOULD_BE_SERIALIZABLE" priority="2" rank="19" abbrev="Se" category="BAD_PRACTICE" first="1">
+    <Class classname="QueueSortMain$StringLT">
+      <SourceLine classname="QueueSortMain$StringLT" start="1" end="23" sourcefile="QueueSortMain.java" sourcepath="QueueSortMain.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="SE_COMPARATOR_SHOULD_BE_SERIALIZABLE" priority="2" rank="19" abbrev="Se" category="BAD_PRACTICE" first="1">
+    <Class classname="SortingMachineTest$StringLT">
+      <SourceLine classname="SortingMachineTest$StringLT" start="1" end="110" sourcefile="SortingMachineTest.java" sourcepath="SortingMachineTest.java"/>
+    </Class>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Wed, 4 Oct 2023 23:00:35 -0400" total_classes="1" referenced_classes="30" total_bugs="2" total_size="77" num_packages="1" java_version="17.0.5" vm_version="17.0.5+8" cpu_seconds="7.73" clock_seconds="0.99" peak_mbytes="989.90" alloc_mbytes="2048.00" gc_seconds="0.01" priority_2="2">
+    <PackageStats package="" total_bugs="2" total_types="3" total_size="77" priority_2="2">
+      <ClassStats class="SortingMachine3" sourceFile="SortingMachine3.java" interface="false" size="77" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="312" invocations="2" avgMicrosecondsPerInvocation="156170" maxMicrosecondsPerInvocation="205141" standardDeviationMicrosecondsPerInvocation="48971"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="174" invocations="440" avgMicrosecondsPerInvocation="396" maxMicrosecondsPerInvocation="13655" standardDeviationMicrosecondsPerInvocation="1020"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="53" invocations="443" avgMicrosecondsPerInvocation="120" maxMicrosecondsPerInvocation="513" standardDeviationMicrosecondsPerInvocation="70"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="36" invocations="30" avgMicrosecondsPerInvocation="1226" maxMicrosecondsPerInvocation="9871" standardDeviationMicrosecondsPerInvocation="2310"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="25" invocations="103" avgMicrosecondsPerInvocation="248" maxMicrosecondsPerInvocation="2333" standardDeviationMicrosecondsPerInvocation="331"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="22" invocations="16" avgMicrosecondsPerInvocation="1386" maxMicrosecondsPerInvocation="19941" standardDeviationMicrosecondsPerInvocation="4794"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="20" invocations="61" avgMicrosecondsPerInvocation="330" maxMicrosecondsPerInvocation="11074" standardDeviationMicrosecondsPerInvocation="1444"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="18" invocations="30" avgMicrosecondsPerInvocation="603" maxMicrosecondsPerInvocation="4243" standardDeviationMicrosecondsPerInvocation="913"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="15" invocations="22" avgMicrosecondsPerInvocation="713" maxMicrosecondsPerInvocation="6119" standardDeviationMicrosecondsPerInvocation="1443"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="14" invocations="406" avgMicrosecondsPerInvocation="36" maxMicrosecondsPerInvocation="664" standardDeviationMicrosecondsPerInvocation="79"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1695686321365" release="" codeSize="0" numClasses="0"/>
+    <AppVersion sequence="1" timestamp="1695686321368" release="" codeSize="165" numClasses="7"/>
+    <AppVersion sequence="2" timestamp="1695860004592" release="" codeSize="34" numClasses="1"/>
+    <AppVersion sequence="3" timestamp="1695903308479" release="" codeSize="64" numClasses="1"/>
+  </History>
+</BugCollection>
