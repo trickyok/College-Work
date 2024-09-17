@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="components.binarytree.BinaryTree"/>
+    <fullyQualifiedTypeName name="components.queue.Queue"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="components.queue.Queue1L"/>
+    <fullyQualifiedTypeName name="components.simplereader.SimpleReader1L"/>
+    <fullyQualifiedTypeName name="components.simplereader.SimpleReader"/>
+    <fullyQualifiedTypeName name="components.simplewriter.SimpleWriter1L"/>
+    <fullyQualifiedTypeName name="components.simplewriter.SimpleWriter"/>
+    <fullyQualifiedTypeName name="components.queue.Queue3"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="org.junit.Test"/>
+    <fullyQualifiedTypeName name="components.statement.Statement"/>
+</qualifiedTypeNameHistroy>

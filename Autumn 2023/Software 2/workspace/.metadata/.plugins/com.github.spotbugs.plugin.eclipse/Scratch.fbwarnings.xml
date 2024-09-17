@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.7.3" sequence="2" timestamp="1695174717402" analysisTimestamp="1695174717175" release="">
+  <Project projectName="Scratch">
+    <Jar>C:\Users\Epic Gage\Documents\College-Work\Autumn 2023\Software 2\workspace\Scratch\bin\Homework12.class</Jar>
+    <AuxClasspathEntry>C:\Users\Epic Gage\Documents\College-Work\Autumn 2023\Software 2\workspace\Scratch\bin</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Epic Gage\Documents\College-Work\Autumn 2023\Software 2\components.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Epic Gage\.p2\pool\plugins\org.junit_4.13.2.v20211018-1956.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Epic Gage\.p2\pool\plugins\org.hamcrest.core_1.3.0.v20180420-1519.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Epic Gage\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.5.v20221102-0933\jre\lib\jrt-fs.jar</AuxClasspathEntry>
+    <SrcDir>C:\Users\Epic Gage\Documents\College-Work\Autumn 2023\Software 2\workspace\Scratch\src</SrcDir>
+    <SrcDir>C:\Users\Epic Gage\Documents\College-Work\Autumn 2023\Software 2\workspace\Scratch\test</SrcDir>
+  </Project>
+  <BugInstance type="EC_NULL_ARG" priority="2" rank="9" abbrev="EC" category="CORRECTNESS" first="1">
+    <Class classname="HelloWorld">
+      <SourceLine classname="HelloWorld" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+    </Class>
+    <Method classname="HelloWorld" name="copy" signature="(Lcomponents/binarytree/BinaryTree;)Lcomponents/binarytree/BinaryTree;" isStatic="true">
+      <SourceLine classname="HelloWorld" start="58" end="72" startBytecode="0" endBytecode="32" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+    </Method>
+    <SourceLine classname="HelloWorld" start="63" end="63" startBytecode="20" endBytecode="20" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+    <SourceLine classname="HelloWorld" start="63" end="63" startBytecode="20" endBytecode="20" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+  </BugInstance>
+  <BugInstance type="EC_NULL_ARG" priority="2" rank="9" abbrev="EC" category="CORRECTNESS" first="1">
+    <Class classname="HelloWorld">
+      <SourceLine classname="HelloWorld" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+    </Class>
+    <Method classname="HelloWorld" name="treeToString" signature="(Lcomponents/binarytree/BinaryTree;)Ljava/lang/String;" isStatic="true">
+      <SourceLine classname="HelloWorld" start="32" end="44" startBytecode="0" endBytecode="43" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+    </Method>
+    <SourceLine classname="HelloWorld" start="37" end="37" startBytecode="18" endBytecode="18" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+    <SourceLine classname="HelloWorld" start="37" end="37" startBytecode="18" endBytecode="18" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+  </BugInstance>
+  <BugInstance type="NP_ALWAYS_NULL" priority="1" rank="5" abbrev="NP" category="CORRECTNESS" first="1">
+    <Class classname="HelloWorld">
+      <SourceLine classname="HelloWorld" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+    </Class>
+    <Method classname="HelloWorld" name="copy" signature="(Lcomponents/binarytree/BinaryTree;)Lcomponents/binarytree/BinaryTree;" isStatic="true">
+      <SourceLine classname="HelloWorld" start="58" end="72" startBytecode="0" endBytecode="254" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+    </Method>
+    <LocalVariable name="copy" register="3" pc="43" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <SourceLine classname="HelloWorld" start="66" end="66" startBytecode="46" endBytecode="46" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java" role="SOURCE_LINE_DEREF"/>
+  </BugInstance>
+  <BugInstance type="NP_NULL_PARAM_DEREF_NONVIRTUAL" priority="1" rank="6" abbrev="NP" category="CORRECTNESS" first="1">
+    <Class classname="HelloWorld">
+      <SourceLine classname="HelloWorld" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+    </Class>
+    <Method classname="HelloWorld" name="copy" signature="(Lcomponents/binarytree/BinaryTree;)Lcomponents/binarytree/BinaryTree;" isStatic="true">
+      <SourceLine classname="HelloWorld" start="58" end="72" startBytecode="0" endBytecode="254" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+    </Method>
+    <Method classname="HelloWorld" name="copy" signature="(Lcomponents/binarytree/BinaryTree;)Lcomponents/binarytree/BinaryTree;" isStatic="true" role="METHOD_CALLED">
+      <SourceLine classname="HelloWorld" start="58" end="72" startBytecode="0" endBytecode="254" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+    </Method>
+    <SourceLine classname="HelloWorld" start="66" end="66" startBytecode="39" endBytecode="39" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+    <LocalVariable name="left" register="1" pc="38" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <Int value="1" role="INT_NULL_ARG"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ACTUAL_PARAMETER_GUARANTEED_NULL" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ALL_DANGEROUS_TARGETS" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ARG_DEFINITELY_NULL" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.MONOMORPHIC_CALL_SITE" value="true"/>
+  </BugInstance>
+  <BugInstance type="NP_NULL_PARAM_DEREF_NONVIRTUAL" priority="1" rank="6" abbrev="NP" category="CORRECTNESS" first="1">
+    <Class classname="HelloWorld">
+      <SourceLine classname="HelloWorld" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+    </Class>
+    <Method classname="HelloWorld" name="copy" signature="(Lcomponents/binarytree/BinaryTree;)Lcomponents/binarytree/BinaryTree;" isStatic="true">
+      <SourceLine classname="HelloWorld" start="58" end="72" startBytecode="0" endBytecode="254" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+    </Method>
+    <Method classname="HelloWorld" name="copy" signature="(Lcomponents/binarytree/BinaryTree;)Lcomponents/binarytree/BinaryTree;" isStatic="true" role="METHOD_CALLED">
+      <SourceLine classname="HelloWorld" start="58" end="72" startBytecode="0" endBytecode="254" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+    </Method>
+    <SourceLine classname="HelloWorld" start="66" end="66" startBytecode="43" endBytecode="43" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+    <LocalVariable name="right" register="2" pc="42" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <Int value="1" role="INT_NULL_ARG"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ACTUAL_PARAMETER_GUARANTEED_NULL" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ALL_DANGEROUS_TARGETS" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ARG_DEFINITELY_NULL" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.MONOMORPHIC_CALL_SITE" value="true"/>
+  </BugInstance>
+  <BugInstance type="NP_NULL_PARAM_DEREF_NONVIRTUAL" priority="1" rank="6" abbrev="NP" category="CORRECTNESS" first="1">
+    <Class classname="HelloWorld">
+      <SourceLine classname="HelloWorld" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+    </Class>
+    <Method classname="HelloWorld" name="treeToString" signature="(Lcomponents/binarytree/BinaryTree;)Ljava/lang/String;" isStatic="true">
+      <SourceLine classname="HelloWorld" start="32" end="44" startBytecode="0" endBytecode="283" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+    </Method>
+    <Method classname="HelloWorld" name="treeToString" signature="(Lcomponents/binarytree/BinaryTree;)Ljava/lang/String;" isStatic="true" role="METHOD_CALLED">
+      <SourceLine classname="HelloWorld" start="32" end="44" startBytecode="0" endBytecode="283" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+    </Method>
+    <SourceLine classname="HelloWorld" start="39" end="39" startBytecode="58" endBytecode="58" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+    <LocalVariable name="left" register="2" pc="57" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <Int value="1" role="INT_NULL_ARG"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ACTUAL_PARAMETER_GUARANTEED_NULL" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ALL_DANGEROUS_TARGETS" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ARG_DEFINITELY_NULL" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.MONOMORPHIC_CALL_SITE" value="true"/>
+  </BugInstance>
+  <BugInstance type="NP_NULL_PARAM_DEREF_NONVIRTUAL" priority="1" rank="6" abbrev="NP" category="CORRECTNESS" first="1">
+    <Class classname="HelloWorld">
+      <SourceLine classname="HelloWorld" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+    </Class>
+    <Method classname="HelloWorld" name="treeToString" signature="(Lcomponents/binarytree/BinaryTree;)Ljava/lang/String;" isStatic="true">
+      <SourceLine classname="HelloWorld" start="32" end="44" startBytecode="0" endBytecode="283" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+    </Method>
+    <Method classname="HelloWorld" name="treeToString" signature="(Lcomponents/binarytree/BinaryTree;)Ljava/lang/String;" isStatic="true" role="METHOD_CALLED">
+      <SourceLine classname="HelloWorld" start="32" end="44" startBytecode="0" endBytecode="283" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+    </Method>
+    <SourceLine classname="HelloWorld" start="39" end="39" startBytecode="65" endBytecode="65" sourcefile="HelloWorld.java" sourcepath="HelloWorld.java"/>
+    <LocalVariable name="right" register="3" pc="64" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <Int value="1" role="INT_NULL_ARG"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ACTUAL_PARAMETER_GUARANTEED_NULL" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ALL_DANGEROUS_TARGETS" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ARG_DEFINITELY_NULL" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.MONOMORPHIC_CALL_SITE" value="true"/>
+  </BugInstance>
+  <BugInstance type="EC_NULL_ARG" priority="2" rank="9" abbrev="EC" category="CORRECTNESS" first="2">
+    <Class classname="Homework12">
+      <SourceLine classname="Homework12" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+    </Class>
+    <Method classname="Homework12" name="copy" signature="(Lcomponents/binarytree/BinaryTree;)Lcomponents/binarytree/BinaryTree;" isStatic="true">
+      <SourceLine classname="Homework12" start="58" end="72" startBytecode="0" endBytecode="32" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+    </Method>
+    <SourceLine classname="Homework12" start="63" end="63" startBytecode="20" endBytecode="20" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+    <SourceLine classname="Homework12" start="63" end="63" startBytecode="20" endBytecode="20" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+  </BugInstance>
+  <BugInstance type="EC_NULL_ARG" priority="2" rank="9" abbrev="EC" category="CORRECTNESS" first="2">
+    <Class classname="Homework12">
+      <SourceLine classname="Homework12" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+    </Class>
+    <Method classname="Homework12" name="treeToString" signature="(Lcomponents/binarytree/BinaryTree;)Ljava/lang/String;" isStatic="true">
+      <SourceLine classname="Homework12" start="32" end="44" startBytecode="0" endBytecode="43" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+    </Method>
+    <SourceLine classname="Homework12" start="37" end="37" startBytecode="18" endBytecode="18" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+    <SourceLine classname="Homework12" start="37" end="37" startBytecode="18" endBytecode="18" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+  </BugInstance>
+  <BugInstance type="NP_ALWAYS_NULL" priority="1" rank="5" abbrev="NP" category="CORRECTNESS" first="2">
+    <Class classname="Homework12">
+      <SourceLine classname="Homework12" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+    </Class>
+    <Method classname="Homework12" name="copy" signature="(Lcomponents/binarytree/BinaryTree;)Lcomponents/binarytree/BinaryTree;" isStatic="true">
+      <SourceLine classname="Homework12" start="58" end="72" startBytecode="0" endBytecode="254" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+    </Method>
+    <LocalVariable name="copy" register="3" pc="43" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <SourceLine classname="Homework12" start="66" end="66" startBytecode="46" endBytecode="46" sourcefile="Homework12.java" sourcepath="Homework12.java" role="SOURCE_LINE_DEREF"/>
+  </BugInstance>
+  <BugInstance type="NP_NULL_PARAM_DEREF_NONVIRTUAL" priority="1" rank="6" abbrev="NP" category="CORRECTNESS" first="2">
+    <Class classname="Homework12">
+      <SourceLine classname="Homework12" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+    </Class>
+    <Method classname="Homework12" name="copy" signature="(Lcomponents/binarytree/BinaryTree;)Lcomponents/binarytree/BinaryTree;" isStatic="true">
+      <SourceLine classname="Homework12" start="58" end="72" startBytecode="0" endBytecode="254" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+    </Method>
+    <Method classname="Homework12" name="copy" signature="(Lcomponents/binarytree/BinaryTree;)Lcomponents/binarytree/BinaryTree;" isStatic="true" role="METHOD_CALLED">
+      <SourceLine classname="Homework12" start="58" end="72" startBytecode="0" endBytecode="254" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+    </Method>
+    <SourceLine classname="Homework12" start="66" end="66" startBytecode="39" endBytecode="39" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+    <LocalVariable name="left" register="1" pc="38" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <Int value="1" role="INT_NULL_ARG"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ACTUAL_PARAMETER_GUARANTEED_NULL" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ALL_DANGEROUS_TARGETS" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ARG_DEFINITELY_NULL" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.MONOMORPHIC_CALL_SITE" value="true"/>
+  </BugInstance>
+  <BugInstance type="NP_NULL_PARAM_DEREF_NONVIRTUAL" priority="1" rank="6" abbrev="NP" category="CORRECTNESS" first="2">
+    <Class classname="Homework12">
+      <SourceLine classname="Homework12" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+    </Class>
+    <Method classname="Homework12" name="copy" signature="(Lcomponents/binarytree/BinaryTree;)Lcomponents/binarytree/BinaryTree;" isStatic="true">
+      <SourceLine classname="Homework12" start="58" end="72" startBytecode="0" endBytecode="254" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+    </Method>
+    <Method classname="Homework12" name="copy" signature="(Lcomponents/binarytree/BinaryTree;)Lcomponents/binarytree/BinaryTree;" isStatic="true" role="METHOD_CALLED">
+      <SourceLine classname="Homework12" start="58" end="72" startBytecode="0" endBytecode="254" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+    </Method>
+    <SourceLine classname="Homework12" start="66" end="66" startBytecode="43" endBytecode="43" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+    <LocalVariable name="right" register="2" pc="42" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <Int value="1" role="INT_NULL_ARG"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ACTUAL_PARAMETER_GUARANTEED_NULL" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ALL_DANGEROUS_TARGETS" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ARG_DEFINITELY_NULL" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.MONOMORPHIC_CALL_SITE" value="true"/>
+  </BugInstance>
+  <BugInstance type="NP_NULL_PARAM_DEREF_NONVIRTUAL" priority="1" rank="6" abbrev="NP" category="CORRECTNESS" first="2">
+    <Class classname="Homework12">
+      <SourceLine classname="Homework12" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+    </Class>
+    <Method classname="Homework12" name="treeToString" signature="(Lcomponents/binarytree/BinaryTree;)Ljava/lang/String;" isStatic="true">
+      <SourceLine classname="Homework12" start="32" end="44" startBytecode="0" endBytecode="283" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+    </Method>
+    <Method classname="Homework12" name="treeToString" signature="(Lcomponents/binarytree/BinaryTree;)Ljava/lang/String;" isStatic="true" role="METHOD_CALLED">
+      <SourceLine classname="Homework12" start="32" end="44" startBytecode="0" endBytecode="283" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+    </Method>
+    <SourceLine classname="Homework12" start="39" end="39" startBytecode="58" endBytecode="58" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+    <LocalVariable name="left" register="2" pc="57" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <Int value="1" role="INT_NULL_ARG"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ACTUAL_PARAMETER_GUARANTEED_NULL" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ALL_DANGEROUS_TARGETS" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ARG_DEFINITELY_NULL" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.MONOMORPHIC_CALL_SITE" value="true"/>
+  </BugInstance>
+  <BugInstance type="NP_NULL_PARAM_DEREF_NONVIRTUAL" priority="1" rank="6" abbrev="NP" category="CORRECTNESS" first="2">
+    <Class classname="Homework12">
+      <SourceLine classname="Homework12" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+    </Class>
+    <Method classname="Homework12" name="treeToString" signature="(Lcomponents/binarytree/BinaryTree;)Ljava/lang/String;" isStatic="true">
+      <SourceLine classname="Homework12" start="32" end="44" startBytecode="0" endBytecode="283" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+    </Method>
+    <Method classname="Homework12" name="treeToString" signature="(Lcomponents/binarytree/BinaryTree;)Ljava/lang/String;" isStatic="true" role="METHOD_CALLED">
+      <SourceLine classname="Homework12" start="32" end="44" startBytecode="0" endBytecode="283" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+    </Method>
+    <SourceLine classname="Homework12" start="39" end="39" startBytecode="65" endBytecode="65" sourcefile="Homework12.java" sourcepath="Homework12.java"/>
+    <LocalVariable name="right" register="3" pc="64" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <Int value="1" role="INT_NULL_ARG"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ACTUAL_PARAMETER_GUARANTEED_NULL" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ALL_DANGEROUS_TARGETS" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ARG_DEFINITELY_NULL" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.MONOMORPHIC_CALL_SITE" value="true"/>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Tue, 19 Sep 2023 21:51:57 -0400" total_classes="1" referenced_classes="14" total_bugs="14" total_size="24" num_packages="1" java_version="17.0.5" vm_version="17.0.5+8" cpu_seconds="1.89" clock_seconds="0.23" peak_mbytes="1165.66" alloc_mbytes="2048.00" gc_seconds="0.00" priority_2="4" priority_1="10">
+    <PackageStats package="" total_bugs="14" total_types="2" total_size="24" priority_2="4" priority_1="10">
+      <ClassStats class="Homework12" sourceFile="Homework12.java" interface="false" size="24" bugs="7" priority_2="2" priority_1="5"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="47" invocations="367" avgMicrosecondsPerInvocation="129" maxMicrosecondsPerInvocation="1511" standardDeviationMicrosecondsPerInvocation="228"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="44" invocations="368" avgMicrosecondsPerInvocation="119" maxMicrosecondsPerInvocation="435" standardDeviationMicrosecondsPerInvocation="68"/>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="43" invocations="2" avgMicrosecondsPerInvocation="21624" maxMicrosecondsPerInvocation="37928" standardDeviationMicrosecondsPerInvocation="16304"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="13" invocations="14" avgMicrosecondsPerInvocation="955" maxMicrosecondsPerInvocation="4946" standardDeviationMicrosecondsPerInvocation="1443"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1695174696705" release="" codeSize="0" numClasses="0"/>
+    <AppVersion sequence="1" timestamp="1695174696706" release="" codeSize="24" numClasses="1"/>
+  </History>
+</BugCollection>

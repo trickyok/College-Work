@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.7.3" sequence="3" timestamp="1696993265851" analysisTimestamp="1696993265585" release="">
+  <Project projectName="SortingMachineWithHeapsort">
+    <Jar>C:\Users\Epic Gage\Documents\Github\project-05-au2023-115\SortingMachineWithHeapsort\bin\SortingMachineTest$StringLT.class</Jar>
+    <Jar>C:\Users\Epic Gage\Documents\Github\project-05-au2023-115\SortingMachineWithHeapsort\bin\SortingMachineTest.class</Jar>
+    <AuxClasspathEntry>C:\Users\Epic Gage\Documents\Github\project-05-au2023-115\SortingMachineWithHeapsort\bin</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Epic Gage\Documents\College-Work\Autumn 2023\Software 2\components.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Epic Gage\.p2\pool\plugins\org.junit_4.13.2.v20211018-1956.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Epic Gage\.p2\pool\plugins\org.hamcrest.core_1.3.0.v20180420-1519.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Epic Gage\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.5.v20221102-0933\jre\lib\jrt-fs.jar</AuxClasspathEntry>
+    <SrcDir>C:\Users\Epic Gage\Documents\Github\project-05-au2023-115\SortingMachineWithHeapsort\test</SrcDir>
+    <SrcDir>C:\Users\Epic Gage\Documents\Github\project-05-au2023-115\SortingMachineWithHeapsort\src</SrcDir>
+  </Project>
+  <BugInstance type="SE_COMPARATOR_SHOULD_BE_SERIALIZABLE" priority="2" rank="19" abbrev="Se" category="BAD_PRACTICE" first="1">
+    <Class classname="SortingMachineTest$StringLT">
+      <SourceLine classname="SortingMachineTest$StringLT" start="1" end="110" sourcefile="SortingMachineTest.java" sourcepath="SortingMachineTest.java"/>
+    </Class>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Tue, 10 Oct 2023 23:01:05 -0400" total_classes="2" referenced_classes="36" total_bugs="1" total_size="117" num_packages="1" java_version="17.0.5" vm_version="17.0.5+8" cpu_seconds="2.30" clock_seconds="0.27" peak_mbytes="796.47" alloc_mbytes="2048.00" gc_seconds="0.00" priority_2="1">
+    <PackageStats package="" total_bugs="1" total_types="2" total_size="117" priority_2="1">
+      <ClassStats class="SortingMachineTest" sourceFile="SortingMachineTest.java" interface="false" size="110" bugs="0"/>
+      <ClassStats class="SortingMachineTest$StringLT" sourceFile="SortingMachineTest.java" interface="false" size="7" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="51" invocations="506" avgMicrosecondsPerInvocation="100" maxMicrosecondsPerInvocation="1442" standardDeviationMicrosecondsPerInvocation="169"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="50" invocations="508" avgMicrosecondsPerInvocation="99" maxMicrosecondsPerInvocation="409" standardDeviationMicrosecondsPerInvocation="53"/>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="41" invocations="2" avgMicrosecondsPerInvocation="20553" maxMicrosecondsPerInvocation="35061" standardDeviationMicrosecondsPerInvocation="14508"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="12" invocations="36" avgMicrosecondsPerInvocation="337" maxMicrosecondsPerInvocation="2335" standardDeviationMicrosecondsPerInvocation="597"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1696992252820" release="" codeSize="0" numClasses="0"/>
+    <AppVersion sequence="1" timestamp="1696992252822" release="" codeSize="97" numClasses="2"/>
+    <AppVersion sequence="2" timestamp="1696992334270" release="" codeSize="115" numClasses="2"/>
+  </History>
+</BugCollection>
