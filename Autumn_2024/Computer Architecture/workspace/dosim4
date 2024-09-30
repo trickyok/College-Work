@@ -1,0 +1,49 @@
+#!/bin/csh
+
+if ("$1" == ""  || "$1" == "-help") then 
+   echo "Usage: dosim4  -option microinstruction_file  tests_file "
+   echo "     options are      -debug     make details.dat file "
+   echo "                      -g     (grade version). Suppress details.dat"
+   echo "                              and many registers "
+   echo "                      -wcc  (without CC's) Like -g but also"
+   echo "                            suppress CC's"
+   echo "  "
+   echo "         microinstruction_file is copied to file specs.dat "
+   echo "  "
+   echo "         test_file is copied to memory.dat"
+   exit
+endif
+
+if (-e "$2") then
+#  echo " copying into memory.dat"
+  cp "$2" specs.dat
+else 
+  echo " You have not specified an existing microinstruction file. I quit\!"
+  exit
+endif 
+
+if (-e "$3") then
+  cp "$3" memory.dat
+else
+  echo " You have not specified an existing test file."
+  echo " I will assume you have a memory.dat file"
+endif
+
+#echo "Do you want me to remove old details.* and summary.* files? (y or n)"
+#if ("$<" == "y") then
+#  echo "Removing old test results..."
+  rm -f details.* >&  /dev/null
+  rm -f summary.* >&  /dev/null
+endif
+
+if ("$1" == "-debug") then 
+    echo "-d"  |  ./sim4
+    #echo "-d"  |  /home/wang.3596/osiac/sim4
+endif 
+if ("$1" == "-g") then
+   echo  "-g"  | ./sim4
+endif 
+if ("$1" == "-wcc") then 
+    echo "-wcc"  |  ./sim4 
+endif
+
