@@ -1,0 +1,17 @@
+TOPSPICE SCHEMATIC EDITOR 10.31a  NETLIST CROSS REFERENCE MAP
+
+ NODE  NAME         WIRES   PART PINS
+
+    0  0                2   X1(1),V1(2)
+
+    1  OUT              4   X1(5),R4(2)
+
+    2  vn               2   X1(2),R4(1),C1(2)
+
+    3  IN               3   V1(1),C1(1)
+
+    4  VCC              0   X1(3)
+
+    5  VEE              0   X1(4)
+
+

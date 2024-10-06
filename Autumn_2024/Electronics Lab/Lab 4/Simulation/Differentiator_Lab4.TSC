@@ -1,0 +1,685 @@
+<TopSpice Schematic Editor>
+<VERSION 10.31a>
+<FORMAT value=90>
+<SYMBOLBLK value=7>
+<SYMBOL text="POWER+">
+<INDEX value=0>
+<TYPE value=4>
+<PREFX text=P>
+<REGION value4=-16,-34,56,0>
+<DRAW value=4>
+<M value2=-16,-16>
+<V value2=16,-16>
+<L value6=0,0,20,-34,0,2>
+<L value6=1,0,20,-18,0,2>
+</DRAW>
+<PINSBLK value=1>
+<PIN value6=3,0,0,-16,-1,0>
+</PINSBLK>
+<USED text=POWER+ value=0>
+</SYMBOL>
+<SYMBOL text="POWER-">
+<INDEX value=1>
+<TYPE value=4>
+<PREFX text=P>
+<REGION value4=-16,0,56,36>
+<DRAW value=4>
+<M value2=-16,16>
+<V value2=16,16>
+<L value6=0,0,20,2,0,2>
+<L value6=1,0,20,18,0,2>
+</DRAW>
+<PINSBLK value=1>
+<PIN value6=1,0,0,16,-1,0>
+</PINSBLK>
+<USED text=POWER- value=0>
+</SYMBOL>
+<SYMBOL text="0">
+<INDEX value=2>
+<TYPE value=1>
+<DESCR text="ground">
+<PREFX text=0>
+<REGION value4=-16,0,16,28>
+<DRAW value=1>
+<D value6=16,16,0,28,-16,16>
+</DRAW>
+<PINSBLK value=1>
+<PIN value6=1,0,0,16,-1,0>
+</PINSBLK>
+<ROTATE>
+<USED text=0 value=0>
+</SYMBOL>
+<SYMBOL text="XOPAMPA">
+<INDEX value=3>
+<TYPE value=2>
+<DESCR text="op amp -input top">
+<PREFX text=X>
+<REGION value4=0,-48,80,48>
+<DRAW value=16>
+<D value6=16,-32,16,32,64,0>
+<M value2=20,16>
+<V value2=26,16>
+<M value2=23,13>
+<V value2=23,19>
+<M value2=20,-16>
+<V value2=26,-16>
+<M value2=22,-43>
+<V value2=28,-43>
+<M value2=25,-46>
+<V value2=25,-40>
+<L value6=0,0,44,-48,0,2>
+<L value6=1,0,44,28,0,2>
+<L value6=11,0,44,46,0,2>
+<L value6=12,0,44,62,0,2>
+<L value6=13,0,44,78,0,2>
+</DRAW>
+<PINSBLK value=5>
+<PIN value6=2,0,16,16,-1,0>
+<PIN value6=2,0,-16,16,-1,0>
+<PIN value6=1,32,-48,-21,-1,0>
+<PIN value6=3,32,48,21,-1,0>
+<PIN value6=4,80,0,64,-1,0>
+</PINSBLK>
+<ROTATE>
+<USED text=XOPAMPA value=0>
+</SYMBOL>
+<SYMBOL text="R">
+<INDEX value=4>
+<TYPE value=2>
+<DESCR text="resistor">
+<PREFX text=R>
+<REGION value4=0,-28,72,26>
+<DRAW value=7>
+<M value2=18,0>
+<Z value=7 value=21 value=-8 value=27 value=8 value=33 value=-8 value=39 value=8 value=45 value=-8 value=51 value=8 value=54 value=0>
+<L value6=0,0,36,-18,1,1>
+<L value6=1,0,36,18,1,1>
+<L value6=11,0,36,36,1,1>
+<L value6=12,0,36,52,1,1>
+<L value6=13,0,36,68,1,1>
+</DRAW>
+<PINSBLK value=2>
+<PIN value6=2,0,0,18,-1,0>
+<PIN value6=4,72,0,54,-1,0>
+</PINSBLK>
+<ROTATE>
+<USED text=R value=0>
+</SYMBOL>
+<SYMBOL text="V">
+<INDEX value=5>
+<TYPE value=2>
+<DESCR text="voltage source">
+<PREFX text=V>
+<REGION value4=-16,0,64,64>
+<DRAW value=10>
+<C value3=0,32,16>
+<M value2=-4,24>
+<V value2=4,24>
+<M value2=0,20>
+<V value2=0,28>
+<L value6=0,0,20,4,0,2>
+<L value6=1,0,20,20,0,2>
+<L value6=11,0,20,36,0,2>
+<L value6=12,0,20,52,0,2>
+<L value6=13,0,20,68,0,2>
+</DRAW>
+<PINSBLK value=2>
+<PIN value6=1,0,0,16,-1,0>
+<PIN value6=3,0,64,48,-1,0>
+</PINSBLK>
+<ROTATE>
+<USED text=V value=0>
+</SYMBOL>
+<SYMBOL text="C">
+<INDEX value=6>
+<TYPE value=2>
+<DESCR text="capacitor">
+<PREFX text=C>
+<REGION value4=0,-32,40,30>
+<DRAW value=9>
+<M value2=16,-12>
+<V value2=16,12>
+<M value2=24,-12>
+<V value2=24,12>
+<L value6=0,0,20,-24,1,1>
+<L value6=1,0,20,22,1,1>
+<L value6=11,0,20,40,1,1>
+<L value6=12,0,20,56,1,1>
+<L value6=13,0,20,72,1,1>
+</DRAW>
+<PINSBLK value=2>
+<PIN value6=2,0,0,16,-1,0>
+<PIN value6=4,40,0,24,-1,0>
+</PINSBLK>
+<ROTATE>
+<USED text=C value=0>
+</SYMBOL>
+</SYMBOLBLK>
+<SHEETSBLK>
+<SHEETLIST value=1>
+<INFO>
+<FIRSTNODE value=1>
+<LASTNODE value=1>
+</INFO>
+</SHEETLIST>
+<SHEET>
+<TITLEBLK>
+<TITLE text="OP AMP TEST CIRCUIT">
+<FILE text="File: C:\Users\Epic Gage\Downloads\Differentiator_Lab4.SCH">
+<SHEET text="Page: 1 of 1">
+<NUMBER text="No:">
+<REV text="Rev: 84">
+<DRAWNBY text="Drawn by:">
+<CREATED text="Created: 01-Oct-1993">
+<REVISED text="06-Oct-2024 11:34">
+<SIZE text="Size: A">
+</TITLEBLK>
+<WINDOW value2=0 0>
+<CURSOR value2=352 592>
+<NODE1ST value=1>
+<ZOOM value=3>
+<BORDER value=1>
+<GRID value=1>
+<TITLE value=1>
+<SIZE value=0>
+<SCALE value=1>
+<NODENAME value=0>
+<SUBCKTSBLK value=1>
+<SUBCKT>
+<INDEX value=0>
+<REGION value4=0,0,0,0>
+<MAXNODE value=128>
+<NODECOUNT value=6>
+</SUBCKT>
+</SUBCKTSBLK>
+<LABELSBLK value=3>
+<LABEL>
+<INDEX value=0>
+<NAME text=OUT>
+<LENGTH value=30>
+<POS value2=456,256>
+<SCKT value=0>
+</LABEL>
+<LABEL>
+<INDEX value=1>
+<NAME text=IN>
+<LENGTH value=15>
+<POS value2=112,224>
+<SCKT value=0>
+</LABEL>
+<LABEL>
+<INDEX value=2>
+<NAME text=vn>
+<LENGTH value=16>
+<POS value2=296,224>
+<SCKT value=0>
+</LABEL>
+</LABELSBLK>
+<PARTSBLK value=8>
+<PART>
+<REF text=VCC>
+<VALUE text="10V">
+<REGION value4=-16,-34,56,0>
+<POS value2=352,208>
+<SYMBOL value=0>
+<NPIN value=1>
+<SCKT value=0>
+</PART>
+<PART>
+<REF text=VEE>
+<VALUE text="-10V">
+<REGION value4=-16,0,56,36>
+<POS value2=352,304>
+<SYMBOL value=1>
+<NPIN value=1>
+<SCKT value=0>
+</PART>
+<PART>
+<REF text=01>
+<ETYPE text=0>
+<REGION value4=-16,0,16,28>
+<POS value2=304,320>
+<SYMBOL value=2>
+<NPIN value=1>
+<SCKT value=0>
+</PART>
+<PART>
+<REF text=X1>
+<VALUE text="OPAMP">
+<ETYPE text=X>
+<REGION value4=0,-48,80,48>
+<POS value2=320,256>
+<SYMBOL value=3>
+<NPIN value=5>
+<SCKT value=0>
+</PART>
+<PART>
+<REF text=R4>
+<VALUE text="1k">
+<ETYPE text=R>
+<REGION value4=0,-28,72,26>
+<POS value2=320,120>
+<SYMBOL value=4>
+<NPIN value=2>
+<SCKT value=0>
+</PART>
+<PART>
+<REF text=V1>
+<VALUE text="PULSE ">
+<ETYPE text=V>
+<PAR value2=0 1>
+<TEXTLINE>
+-1V 1V 
+</TEXTLINE>
+<PAR value2=1 1>
+<TEXTLINE>
+0 1u 1u 150u 300u 5 
+</TEXTLINE>
+<REGION value4=-16,0,64,64>
+<POS value2=104,296>
+<NOPTS value=41>
+<OPTION value=3>
+<IVAL value=0>
+<DVAL fvalue=0>
+<NAME text="1">
+</OPTION>
+<OPTION value=4>
+<IVAL value=0>
+<DVAL fvalue=0>
+<NAME text=" ">
+</OPTION>
+<OPTION value=5>
+<IVAL value=3>
+<DVAL fvalue=0>
+</OPTION>
+<OPTION value=8>
+<IVAL value=20>
+<DVAL fvalue=0>
+</OPTION>
+<OPTION value=9>
+<IVAL value=20>
+<DVAL fvalue=0>
+</OPTION>
+<OPTION value=20>
+<IVAL value=3>
+<DVAL fvalue=0>
+</OPTION>
+<OPTION value=21>
+<IVAL value=1>
+<DVAL fvalue=0>
+</OPTION>
+<OPTION value=22>
+<IVAL value=8>
+<DVAL fvalue=0>
+</OPTION>
+<OPTION value=23>
+<IVAL value=0>
+<DVAL fvalue=0>
+<NAME text="-1V">
+</OPTION>
+<OPTION value=24>
+<IVAL value=0>
+<DVAL fvalue=0>
+<NAME text="1V">
+</OPTION>
+<OPTION value=25>
+<IVAL value=0>
+<DVAL fvalue=0>
+<NAME text="0">
+</OPTION>
+<OPTION value=26>
+<IVAL value=0>
+<DVAL fvalue=0>
+<NAME text="1u">
+</OPTION>
+<OPTION value=27>
+<IVAL value=0>
+<DVAL fvalue=0>
+<NAME text="1u">
+</OPTION>
+<OPTION value=28>
+<IVAL value=0>
+<DVAL fvalue=0>
+<NAME text="150u">
+</OPTION>
+<OPTION value=29>
+<IVAL value=0>
+<DVAL fvalue=0>
+<NAME text="300u">
+</OPTION>
+<OPTION value=30>
+<IVAL value=0>
+<DVAL fvalue=0>
+<NAME text="5">
+</OPTION>
+<OPTION value=31>
+<IVAL value=6>
+<DVAL fvalue=0>
+</OPTION>
+<OPTION value=32>
+<IVAL value=1>
+<DVAL fvalue=0>
+</OPTION>
+<OPTION value=33>
+<IVAL value=6>
+<DVAL fvalue=0>
+</OPTION>
+<OPTION value=34>
+<IVAL value=0>
+<DVAL fvalue=0>
+<NAME text="0">
+</OPTION>
+<OPTION value=35>
+<IVAL value=0>
+<DVAL fvalue=0>
+<NAME text="1V">
+</OPTION>
+<OPTION value=36>
+<IVAL value=0>
+<DVAL fvalue=0>
+<NAME text="10k">
+</OPTION>
+<SYMBOL value=5>
+<NPIN value=2>
+<SCKT value=0>
+</PART>
+<PART>
+<REF text=01>
+<REGION value4=-16,0,16,28>
+<POS value2=104,360>
+<SYMBOL value=2>
+<NPIN value=1>
+<SCKT value=0>
+</PART>
+<PART>
+<REF text=C1>
+<VALUE text=".1u">
+<ETYPE text=C>
+<REGION value4=0,-32,40,30>
+<POS value2=160,240>
+<SYMBOL value=6>
+<NPIN value=2>
+<SCKT value=0>
+</PART>
+</PARTSBLK>
+<WIRESBLK value=11>
+<WIRE>
+<DIR value=1>
+<POS value2=400,256>
+<END value2=432,256>
+<LENGTH value2=32,0>
+<NODE value=1>
+<SCKT value=0>
+</WIRE>
+<WIRE>
+<DIR value=1>
+<POS value2=432,256>
+<END value2=448,256>
+<LENGTH value2=16,0>
+<NODE value=1>
+<LABEL value=0>
+<SCKT value=0>
+</WIRE>
+<WIRE>
+<DIR value=1>
+<POS value2=304,272>
+<END value2=320,272>
+<LENGTH value2=16,0>
+<SCKT value=0>
+</WIRE>
+<WIRE>
+<DIR value=2>
+<POS value2=304,272>
+<END value2=304,320>
+<LENGTH value2=0,48>
+<SCKT value=0>
+</WIRE>
+<WIRE>
+<DIR value=1>
+<POS value2=200,240>
+<END value2=320,240>
+<LENGTH value2=120,0>
+<NODE value=2>
+<LABEL value=2>
+<SCKT value=0>
+</WIRE>
+<WIRE>
+<DIR value=2>
+<POS value2=320,120>
+<END value2=320,240>
+<LENGTH value2=0,120>
+<NODE value=2>
+<SCKT value=0>
+</WIRE>
+<WIRE>
+<DIR value=2>
+<POS value2=432,120>
+<END value2=432,256>
+<LENGTH value2=0,136>
+<NODE value=1>
+<SCKT value=0>
+</WIRE>
+<WIRE>
+<DIR value=1>
+<POS value2=392,120>
+<END value2=432,120>
+<LENGTH value2=40,0>
+<NODE value=1>
+<SCKT value=0>
+</WIRE>
+<WIRE>
+<DIR value=2>
+<POS value2=104,240>
+<END value2=104,296>
+<LENGTH value2=0,56>
+<NODE value=3>
+<SCKT value=0>
+</WIRE>
+<WIRE>
+<DIR value=2>
+<POS value2=160,240>
+<END value2=160,248>
+<LENGTH value2=0,8>
+<NODE value=3>
+<SCKT value=0>
+</WIRE>
+<WIRE>
+<DIR value=1>
+<POS value2=104,240>
+<END value2=160,240>
+<LENGTH value2=56,0>
+<NODE value=3>
+<LABEL value=1>
+<SCKT value=0>
+</WIRE>
+</WIRESBLK>
+<DOTSBLK value=3>
+<DOT>
+<POS value2=432,256>
+<AREA value4=-3,-3,3,3>
+<SCKT value=0>
+</DOT>
+<DOT>
+<POS value2=320,240>
+<AREA value4=-3,-3,3,3>
+<SCKT value=0>
+</DOT>
+<DOT>
+<POS value2=160,240>
+<AREA value4=-3,-3,3,3>
+<SCKT value=0>
+</DOT>
+</DOTSBLK>
+</SHEET>
+</SHEETSBLK>
+<SIMULATION>
+<ANALYSISSETUP>
+<STATUS value=1>
+<OPSETUP>
+<STATUS value=0>
+</OPSETUP>
+<DCSETUP>
+<STATUS value=0>
+<VAR1 text=VIN>
+<VALUE10 fvalue=-0.25>
+<VALUE11 fvalue=0.25>
+<VALUE12 fvalue=0.005>
+<VALUE20 fvalue=0>
+<VALUE21 fvalue=0>
+<VALUE22 fvalue=0>
+</DCSETUP>
+<TRANSETUP>
+<STATUS value=1>
+<VALUE0 fvalue=1e-06>
+<VALUE1 fvalue=0.0004>
+<VALUE2 fvalue=1e-06>
+</TRANSETUP>
+<FOURSETUP>
+<STATUS value=1>
+<FREQ fvalue=10000>
+<FOURVARLIST>
+<SIMSETVARLIST value=2>
+V(OUT)
+V(Vin)
+</SIMSETVARLIST>
+</FOURSETUP>
+<ACSETUP>
+<STATUS value=0>
+<FVALUE0 fvalue=1>
+<FVALUE1 fvalue=1e+10>
+<NOISE value=1>
+<NINT value=10>
+<NOUTVAR text=V(OUT)>
+<NINSRC text=VIN>
+</ACSETUP>
+<TEMPSETUP>
+<STATUS value=0>
+</TEMPSETUP>
+<STEPSETUP>
+<STATUS value=0>
+<VSWEEP0 fvalue=0>
+<VSWEEP1 fvalue=0>
+<VSWEEP2 fvalue=0>
+<STATUS2 value=-1>
+</STEPSETUP>
+<MCSETUP>
+<STATUS value=0>
+</MCSETUP>
+<WCSETUP>
+<STATUS value=-1>
+</WCSETUP>
+<FRASETUP>
+<STATUS value=0>
+</FRASETUP>
+</ANALYSISSETUP>
+<DATAOUTSETUP>
+<SAVESETUP>
+<STATUS value=1>
+<NOSUBCKT value=0>
+</SAVESETUP>
+<PRINTSETUP value=0>
+<STATUS value=1>
+<PRINTVARLIST>
+<SIMSETVARLIST value=1>
+V(OUT)
+</SIMSETVARLIST>
+</PRINTSETUP>
+<PRINTSETUP value=1>
+<STATUS value=1>
+<ANLYS value=5>
+<PRINTVARLIST>
+<SIMSETVARLIST value=2>
+V(IN)
+V(OUT)
+</SIMSETVARLIST>
+</PRINTSETUP>
+<PRINTSETUP value=2>
+<STATUS value=1>
+<ANLYS value=2>
+<PRINTVARLIST>
+<SIMSETVARLIST value=2>
+VDB(OUT)
+VP(OUT)
+</SIMSETVARLIST>
+</PRINTSETUP>
+<PRINTSETUP value=3>
+<STATUS value=1>
+<ANLYS value=3>
+<PRINTVARLIST>
+<SIMSETVARLIST value=2>
+INOISE
+ONOISE
+</SIMSETVARLIST>
+</PRINTSETUP>
+<PRINTSETUP value=4>
+<STATUS value=0>
+<ANLYS value=4>
+</PRINTSETUP>
+<PRINTSTATUS value=1>
+<PRINTSEL value=2>
+</DATAOUTSETUP>
+<AUTOPLOTSETUP>
+<STATUS value=1>
+<SEL value=1>
+<NGRAPH value=4>
+<GRAPHSETUP>
+<ANLYS value=3>
+<NPLOT value=1>
+<PLOTSETUP>
+<DESCR text=" VDB(OUT) VP(OUT) ">
+<PLOTVARLIST>
+<SIMSETVARLIST value=1>
+VDB(OUT) VP(OUT)
+</SIMSETVARLIST>
+</PLOTSETUP>
+</GRAPHSETUP>
+<GRAPHSETUP>
+<ANLYS value=2>
+<NPLOT value=1>
+<PLOTSETUP>
+<DESCR text=" V(OUT), V(IN), V(vn) ">
+<PLOTVARLIST>
+<SIMSETVARLIST value=1>
+V(OUT), V(IN), V(vn)
+</SIMSETVARLIST>
+</PLOTSETUP>
+</GRAPHSETUP>
+<GRAPHSETUP>
+<ANLYS value=1>
+<NPLOT value=1>
+<PLOTSETUP>
+<DESCR text=" V(OUT) ">
+<PLOTVARLIST>
+<SIMSETVARLIST value=1>
+V(OUT)
+</SIMSETVARLIST>
+</PLOTSETUP>
+</GRAPHSETUP>
+<GRAPHSETUP>
+<NPLOT value=2>
+<PLOTSETUP>
+<PLOT value=1>
+<DESCR text=" VINOISE ">
+<PLOTVARLIST>
+<SIMSETVARLIST value=1>
+VINOISE
+</SIMSETVARLIST>
+</PLOTSETUP>
+<PLOTSETUP>
+<PLOT value=2>
+<DESCR text=" ONOISE ">
+<PLOTVARLIST>
+<SIMSETVARLIST value=1>
+ONOISE
+</SIMSETVARLIST>
+</PLOTSETUP>
+</GRAPHSETUP>
+</AUTOPLOTSETUP>
+<ALTERSETUP>
+<STATUS value=0>
+</ALTERSETUP>
+<POSTSETUP>
+<STATUS value=0>
+</POSTSETUP>
+</SIMULATION>
+<END>

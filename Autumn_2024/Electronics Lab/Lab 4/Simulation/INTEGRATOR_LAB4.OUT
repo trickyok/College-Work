@@ -1,0 +1,261 @@
+*******06-OCT-2024***************TopSpice 10.30  DEMO    *******12:15:45********
+ INPUT FILE: C:\USERS\EPIC GAGE\DOCUMENTS\COLLEGE-WORK\AUTUMN_2024\ELECTRONICS LAB\LAB 4\SIMULATION\INTEGRATOR_LAB4.CIR
+ SIMPLE OP AMP INTEGRATOR                                                                                                        
+                                                                                                                                                      	
+ ****     INPUT LISTING                    TEMPERATURE =   27.000 DEG C
+
+ ********************************************************DEMO********************
+
+                         
+
+ #REVISION: Rev: 31
+ *#SYSINFO: Win 10.0.19045  AMD Ryzen 7 5800X3D 8-Core Processor
+ R1 IN 1  10K
+ C1 1 OUT  1uF IC=0
+ X1 0 1 VCC VEE OUT  UA741
+ V2 IN 0 PULSE -1V 1V 0 1u 1u 150u 300u 5
+
+ * Power rail voltage sources
+ VCC VCC 0 12V
+ VEE VEE 0 -12V
+
+ * TopSpice Schematic 10.31a  Simulation Setup Commands
+ .TRAN 1E-06 0.002
+ .SAVE
+
+ .OPTION SAVEOPB
+
+ * Autoplot graph #1
+ #AUTOPLOT  TRAN V(IN) V(OUT)
+
+ * Autoplot graph #2
+ #AUTOPLOT  AC VM(OUT) VP(OUT)
+
+
+
+ **** Library call definitions ****
+ *TopSpice library: DEMO
+ *
+ .SUBCKT UA741    1   2   3   4   5
+ *                +in -in vcc vee out
+ C1   11 12 4.664E-12
+ C2    6  7 20.00E-12
+ DC    5 53 DX
+ DE   54  5 DX
+ DLP  90 91 DX
+ DLN  92 90 DX
+ DP    4  3 DX
+ EGND 99  0 POLY(2) (3,0) (4,0) 0 .5 .5
+ FB    7 99 POLY(5) VB VC VE VLP VLN 0 10.61E6 -10E6 10E6 10E6 -10E6
+ GA    6  0 11 12 137.7E-6
+ GCM   0  6 10 99 2.574E-9
+ IEE  10  4 DC 10.16E-6
+ HLIM 90  0 VLIM 1K
+ Q1   11  2 13 QX
+ Q2   12  1 14 QX
+ R2    6  9 100.0E3
+ RC1   3 11 7.957E3
+ RC2   3 12 7.957E3
+ RE1  13 10 2.740E3
+ RE2  14 10 2.740E3
+ REE  10 99 19.69E6
+ RO1   8  5 150
+ RO2   7 99 150
+ RP    3  4 18.11E3
+ VB    9  0 DC 0
+ VC    3 53 DC 2.600
+ VE   54  4 DC 2.600
+ VLIM  7  8 DC 0
+ VLP  91  0 DC 25
+ VLN   0 92 DC 25
+ .MODEL DX D(IS=800.0E-18)
+ .MODEL QX NPN(IS=800.0E-18 BF=62.50)
+ .ENDS UA741
+
+
+ **** End of library call definitions ****
+
+ **** Level   2 library call definitions ****
+ **** End of library call definitions ****
+
+ .END
+
+
+*******06-OCT-2024***************TopSpice 10.30  DEMO    *******12:15:45********
+ SIMPLE OP AMP INTEGRATOR                                                                                                        
+  
+ ****     CIRCUIT AND SIMULATION CHECK     TEMPERATURE =   27.000 DEG C
+
+ ********************************************************DEMO********************
+
+  
+  
+
+
+*******06-OCT-2024***************TopSpice 10.30  DEMO    *******12:15:45********
+ SIMPLE OP AMP INTEGRATOR                                                                                                        
+  
+ ****     DIODE    MODEL PARAMETERS        TEMPERATURE =   27.000 DEG C
+
+ ********************************************************DEMO********************
+
+
+ MODEL TYPE DESCRIPTION:  D         DIODE   
+
+ PARAMS.  DX.X1     
+  
+ IS        8.0000E-16
+ CJO        0.000    
+ LEVEL         1
+ TNOM       27.00    
+ TLEV          0
+ TLEVC         0
+  
+  
+
+
+*******06-OCT-2024***************TopSpice 10.30  DEMO    *******12:15:45********
+ SIMPLE OP AMP INTEGRATOR                                                                                                        
+  
+ ****     BJT      MODEL PARAMETERS        TEMPERATURE =   27.000 DEG C
+
+ ********************************************************DEMO********************
+
+
+ MODEL TYPE DESCRIPTION:  NPN       BJT     
+
+ PARAMS.  QX.X1     
+  
+ LEVEL         1
+ BF         62.50    
+ NF         1.000    
+ BR         1.000    
+ NR         1.000    
+ IS        8.0000E-16
+ TNOM       27.00    
+  
+
+
+  ** CIRCUIT CHECKING AND MODELS PROCESSING COMPLETED
+  ** CIRCUIT MATRIX SETUP COMPLETED
+
+
+*******06-OCT-2024***************TopSpice 10.30  DEMO    *******12:15:45********
+ SIMPLE OP AMP INTEGRATOR                                                                                                        
+  
+ ****     ANALYSIS                         TEMPERATURE =   27.000 DEG C
+
+ ********************************************************DEMO********************
+
+
+
+*******06-OCT-2024***************TopSpice 10.30  DEMO    *******12:15:45********
+ SIMPLE OP AMP INTEGRATOR                                                                                                        
+  
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ********************************************************DEMO********************
+
+                 NODE       VOLTAGE
+
++               V(IN)      -1.00000000E+00
++                V(1)       1.10451229E-05
++              V(OUT)       1.12452846E-05
++              V(VCC)       1.20000000E+01
++              V(VEE)      -1.20000000E+01
+
+
+               SOURCE       CURRENT
+
++               I(V2)       1.00001105E-04
++              I(VCC)      -1.33520488E-03
++              I(VEE)       1.33539471E-03
+
+
+               RESISTOR       CURRENT
+
++               I(R1)       1.00001105E-04
+
+ OP bias data written to SAVEOPB binary file: INTEGRATOR_LAB4.OPB                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+
+
+
+*******06-OCT-2024***************TopSpice 10.30  DEMO    *******12:15:45********
+ SIMPLE OP AMP INTEGRATOR                                                                                                        
+  
+ ****     SOURCE VOLTAGES AND CURRENTS     TEMPERATURE =   27.000 DEG C
+
+ ********************************************************DEMO********************
+
+
+     SOURCE NAME      CURRENT(A)      VOLTAGE(V)      POWER(W)
+
+     V2                1.00001E-04    -1.0000        1.00001E-04
+     VCC              -1.33520E-03     12.000        1.60225E-02
+     VEE               1.33539E-03    -12.000        1.60247E-02
+
+
+     TOTAL POWER DISSIPATION   3.21472E-02 WATTS
+
+
+*******06-OCT-2024***************TopSpice 10.30  DEMO    *******12:15:45********
+ SIMPLE OP AMP INTEGRATOR                                                                                                        
+  
+ ****     OPERATING POINT INFORMATION      TEMPERATURE =   27.000 DEG C
+
+ ********************************************************DEMO********************
+
+
+ **** VOLTAGE-CONTROLLED CURRENT SOURCES
+
+     SOURCE NAME      CURRENT(A)
+
+
+
+ **** VOLTAGE-CONTROLLED VOLTAGE SOURCES
+
+     SOURCE NAME      VOLTAGE(V)      CURRENT(A)
+
+
+
+ **** CURRENT-CONTROLLED CURRENT SOURCES
+
+     SOURCE NAME      CURRENT(A)
+
+
+
+ **** CURRENT-CONTROLLED VOLTAGE SOURCES
+
+     SOURCE NAME      VOLTAGE(V)      CURRENT(A)
+
+
+ ** TRANSIENT ANALYSIS COMPLETED
+
+
+         JOB CONCLUDED
+
+         Simulation Time          0.12 secs
+
+         TOTAL JOB TIME           0.14 secs
+
+
+
+
+ *******************************************
+
+ Thank you for trying TopSpice 10 DEMO.
+
+ To order the full product version, contact:
+
+     Penzar Development
+     PO Box 902791
+     Palmdale, CA 93590
+     U.S.A.
+
+     Tel: 818-884-2246
+     Email: sales.info@penzar.com
+     Website: penzar.com
+
+ *******************************************
+
+

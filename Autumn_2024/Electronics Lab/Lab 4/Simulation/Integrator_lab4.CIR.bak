@@ -1,0 +1,27 @@
+SIMPLE OP AMP INTEGRATOR
+
+#REVISION: Rev: 31
+*#SYSINFO: Win 10.0.19045  AMD Ryzen 7 5800X3D 8-Core Processor           
+R1 IN 1  10K  
+C1 1 OUT  .1uF IC=0  
+X1 0 1 VCC VEE OUT  UA741  
+V2 IN 0 PULSE -1V 1V 0 1u 1u 150u 300u 5 
+
+* Power rail voltage sources
+VCC VCC 0 12V
+VEE VEE 0 -12V
+
+* TopSpice Schematic 10.31a  Simulation Setup Commands
+.TRAN 1E-06 0.002
+.SAVE
+
+.OPTION SAVEOPB
+
+* Autoplot graph #1
+#AUTOPLOT  TRAN V(IN) V(OUT)
+
+* Autoplot graph #2
+#AUTOPLOT  AC VM(OUT) VP(OUT)
+
+
+.END

@@ -1,0 +1,39 @@
+OP AMP TEST CIRCUIT
+
+#REVISION: Rev: 83
+*#SYSINFO: Win 10.0.19045  AMD Ryzen 7 5800X3D 8-Core Processor           
+X1 0 vn VCC VEE OUT  OPAMP  
+R4 vn OUT  1k  
+V1 IN 0 PULSE -1V 1V 0 1u 1u 150u 300u 5 
+C1 IN vn  .1u  
+
+* Power rail voltage sources
+VCC VCC 0 10V
+VEE VEE 0 -10V
+
+* TopSpice Schematic 10.31a  Simulation Setup Commands
+.TRAN 1E-06 0.0004 0 1E-06
+.FOUR 10000 V(OUT) V(Vin)
+.SAVE
+.PRINT DC V(OUT)
+.PRINT TRAN/ALL V(IN) V(OUT)
+.PRINT AC VDB(OUT) VP(OUT)
+.PRINT NOISE INOISE ONOISE
+
+.OPTION SAVEOPB
+
+* Autoplot graph #1
+#AUTOPLOT  AC VDB(OUT) VP(OUT)
+
+* Autoplot graph #2
+#AUTOPLOT  TRAN V(IN), V(OUT), V(vn)
+
+* Autoplot graph #3
+#AUTOPLOT  DC V(OUT)
+
+* Autoplot graph #4
+#AUTOPLOT  1 VINOISE
+#AUTOPLOT  2 ONOISE
+
+
+.END
