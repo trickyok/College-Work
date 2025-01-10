@@ -1,0 +1,26 @@
+Midterm 1
+  1-3: Computer Units, Number Formats, Memory Organization
+  4-5: Instructions, Addressing Modes
+  6-7: A Simple Computer
+    8: Motorolla 68000
+    9: Assembly Language, Stack, Subroutines
+   10: Encode Machine Language To Binary
+Review Midterm 1
+
+Midterm 2
+11-15: OSIAC Machine, Instructions, Simulator, Structure, Data Paths
+16-19: Control Unit Design For OSIAC
+   20: Microprogrammed Control
+   21: Basic Processing Unit 5 Stages - Fetch, Decode, Compute, Memory, Write
+22-23: Pipelining, Data Dependencies, Memory and Branch Delays
+24-27: Cache Basics, Mapping and Replacement
+Review Midterm 2 and Homework 4, 5, 6
+
+Pre-Final
+   29: Virtual Memory, Differences from Cache Mapping, MMU, Page Table, TLB
+   30: Direct Memory Access, Busy Wait vs Interrupt, Interrupt Mechanism, DMA Controller
+32-33: Ripple-Carry Adder, Gate Delay Analysis, Carry-Lookahead Adder
+34-36: Array Multiplier, Sequential Multiplier, Signed Numbers, Booth Algorithm, Bit Pair Recording
+   37: Floating-Point Numbers, Binary-Decimal Conversion, Addition and Multiplication
+Review Homework 7: Problem 1(c), Homework 8: Problem 2 & 4
+
