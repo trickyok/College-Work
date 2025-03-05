@@ -1,0 +1,24 @@
+pwd
+ls
+date
+uptime
+who
+du
+ps
+ls -at
+du -s
+ps -A
+cp file1 file2
+mkdir dirname
+rm filename
+mv file1 file2
+last -5
+quota w
+more filename
+cat filename
+clear
+df
+hostname
+man commandname
+users
+whoami
