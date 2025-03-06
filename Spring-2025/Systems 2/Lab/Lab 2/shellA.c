@@ -79,6 +79,7 @@ int main(void)
     char *args[MAXLINE/2+1];/* Command line (of 80) has max of 40 arguments */
     int bgrnd;             /* Equals 1 if a command is followed by '&', else 0 */
     pid_t pid;		  /* Fork new process */
+    int status;		/* Exit Status */
 
     while (1){            /* Program terminates normally inside setup */
 
@@ -94,7 +95,7 @@ int main(void)
 
 	if (pid > 0) {		/* Parent Process */
 		if (bgrnd == 0) {	/* Background process not running */
-			waitpid(pid, NULL, 0);	/* Wait for child but not background */
+			waitpid(pid, &status, 0);	/* Wait for child but not background */
 		}
 	}
 
@@ -109,5 +110,7 @@ int main(void)
 		perror("Something broke\n");
 		exit(1);
 	}
+
+	printf("Exit Status: %d\n", WEXITSTATUS(status));
     }
 }
