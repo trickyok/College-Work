@@ -4,5 +4,5 @@ wassup gng
     
     u probably shouldnt be here lol
     
-![alt text](https://github.com/trickyok/College-Work/blob/me.png?raw=true)
+![alt text](https://github.com/trickyok/College-Work/blob/main/me.png?raw=true)
 
