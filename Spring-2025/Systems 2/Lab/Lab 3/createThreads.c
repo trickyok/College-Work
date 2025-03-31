@@ -1,10 +1,14 @@
 #include <stdio.h>
 #include <pthread.h>
+#include <stdlib.h>
+#include <createThreads.h>
 #define THREAD_NO 10
 
 void *mythread(void *arg) {
-    int *id = (int *)arg;
+    int *id = (int *)malloc(sizeof(int));
     printf("my id is %d\n", *id);
+    free(id);
+    return 0;
 }
 
 int main(){
