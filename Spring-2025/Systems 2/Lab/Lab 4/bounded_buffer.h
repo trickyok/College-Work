@@ -5,8 +5,15 @@
 /* do not use any global variables in this file */
 
 struct bounded_buffer{
-    /* define all necessary variables here */
-};
+    void *buffer[BUFFER_SIZE];
+    int head;
+    int tail;
+    int count;
+    
+    pthread_mutex_t lock;
+    pthread_cond_t not_full;
+    pthread_cond_t not_empty;
+} bounded_buffer;
 
 /* do not change the following function definitions */
 
