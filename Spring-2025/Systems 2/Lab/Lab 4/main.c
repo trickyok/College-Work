@@ -62,8 +62,8 @@ void *consumer(void *ptr){
     free(ptr);
 
     while (1) {
-        void* item = bounded_buffer_pop(&queue);
-        printf("Consumer %d popped %d\n", id, (int*)item);
+        int* item = (int*)bounded_buffer_pop(&queue);
+        printf("Consumer %d popped %d\n", id, item);
         free(item);
         sched_yield();
     }
