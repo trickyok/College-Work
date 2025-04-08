@@ -45,7 +45,7 @@ void *producer(void *ptr){
     free(ptr);
 
     for (int i = 0; i < MESSAGES_PER_PRODUCER; i++) {
-        int *msg = malloc(sizeof(int));
+        int* msg = malloc(sizeof(int));
         *msg = id * 100 + i;
         bounded_buffer_push(&queue, msg);
         printf("Producer %d pushed %d\n", id, *msg);
