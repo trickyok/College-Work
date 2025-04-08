@@ -49,7 +49,7 @@ void *producer(void *ptr){
         *msg = id * 100 + i;
         bounded_buffer_push(&queue, msg);
         printf("Producer %d pushed %d\n", id, *msg);
-        usleep(rand() % 500000);
+        sched_yield();
     }
 
     return NULL;
@@ -62,10 +62,10 @@ void *consumer(void *ptr){
     free(ptr);
 
     while (1) {
-        int *msg = (int *)bounded_buffer_pop(&queue);
-        printf("Consumer %d popped %d\n", id, *msg);
-        free(msg);
-        usleep(rand() % 500000);
+        void* item = bounded_buffer_pop(&queue);
+        printf("Consumer %d popped %d\n", id, (int*)item);
+        free(item);
+        sched_yield();
     }
 
     return NULL;
