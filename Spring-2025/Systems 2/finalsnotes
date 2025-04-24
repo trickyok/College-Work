@@ -1,0 +1,20 @@
+pthread_mutex_t m = ...
+pthread_cond_t c = ...
+int safeguard = 0;
+
+
+Thread0: 
+pthread_mutex_lock(&m) 
+safeguard = 1;
+pthread_cond_signal(&c)
+...
+pthread_mutex_unlock(&m)
+
+Thread1:
+pthread_mutex_lock(&m)
+while (!safeguard) {
+	pthread_cond_wait(&c, &m)
+}
+...
+pthread_mutex_unlock(&m)
+
